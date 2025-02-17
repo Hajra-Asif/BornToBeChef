@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&family=Montserrat:wght@400&display=swap');
+
+
+:root {
+  --blue: #28334d;
+  --white: #ffffff;
+  --grey: #edecf3;
+  --brown: #b37a64;
+  --bodytext: #353535;
+  --icons: #6e6e6e;
+  --TeamHeadingColor: #ff6a00;
+  --image-height: 220px;
+  --cardParagraph:#777;
+  --HoverTextColor:#333;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: var(--HoverTextColor);
+    overflow-x: hidden;
+  }
+  
+/* Medal Section */
+.medal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+.medal:hover {
+  animation: none;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.medalImage {
+ 
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.medal:hover .medalImage {
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
+  transform: rotate(10deg);
+}
+  
+  .about-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 50px;
+    align-items: center;
+  }
+  
+  .video-container {
+    flex: 1;
+    max-width: 500px;
+  }
+
+  .video-container .cusineImage {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+
+  }
+
+  .video-container:hover .cusineImage {
+    transform: scale(1.05);
+  }
+  
+  
+  .content-container {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  .content-container .aboutUsHeading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--blue);
+  }
+  
+  .content-container .Para {
+    margin-bottom: 15px;
+   
+  }
+  
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-section {
+      flex-direction: column;
+      text-align: center; 
+    }
+  
+    .video-container {
+      margin-bottom: 20px; 
+    }
+  }
+  
+  .medal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+
+ .swiper {
+  margin-top: 5%;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+.swiper-slide {
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--white);
+}
+
+.swiper-slide .swipperImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0; 
+  background-color: var(--blue); 
+  opacity: 0.8;
+  transition: height 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.swiper-slide:hover::before {
+  height: 100%; 
+
+}
+
+
+
+
+
+.swiper-slide::after {
+  content: "\f16a"; 
+  font-family: "Font Awesome 5 Brands";
+  font-size: 34px;
+  color: var(--brown);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.swiper-slide:hover::after {
+  opacity: 1; 
+}
+
+.insta-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+
+/* //////////////////////footer////////////////// */
+
+
+
+
+/* Footer Styles */
+.footer {
+  font-family: 'Montserrat', sans-serif;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+    padding-top: 0;
+}
+
+
+.footer-logo {
+    text-align: left;
+    margin-bottom:26px;
+}
+
+.footer-logo img {
+    margin-top: 25px;
+    max-width: 200px;
+    height: auto;
+}
+
+.footer-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    color: var(--white);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.footer-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: var(--white);
+}
+
+.footer-section {
+    text-align:left;
+}
+
+.footer-list {
+    padding-left: 0; 
+}
+
+.footer-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.footer-list li i {
+    color: var(--white);
+    margin-right: 8px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect on Links and Icons */
+.footer-list li a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-list li:hover i, 
+.footer-list li:hover a {
+    font-size: 16px; 
+    color: var(--brown);
+}
+
+/* Contact Section Styles */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction:row; 
+    gap: 15px;
+    margin-top: 10px;
+    align-items: center; 
+}
+
+.footer-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px;
+    border: 1px solid var(--white); 
+    border-radius: 5px; 
+    font-size: 16px; 
+    color: var(--white);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none; 
+}
+
+/* Hover Effect */
+.footer-icons a:hover {
+    background-color: var(--brown); 
+    color: var(--white); 
+    border-color: var(--brown);
+    transform: scale(1.2);
+}
+
+/* Focus State for Footer Social Media Icons */
+.footer-icons a:focus {
+    outline: none; 
+    background-color: var(--brown); 
+    color: var(--white); 
+    border-color: var(--brown); 
+}
+
+.footer-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.footer-button {
+    background-color: var(--brown);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.footer-button i {
+    color: var(--white);
+}
+
+/* Focus and Active State for Links */
+.footer-list li a:focus,
+.footer-list li a:active {
+    outline: none; 
+    color: var(--brown); 
+}
+
+/* Focus and Active State for Icons inside Links */
+.footer-list li a:focus i,
+.footer-list li a:active i {
+    color: var(--brown); 
+    font-size: 16px; 
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .contact-section {
+        align-items: center;
+    }
+
+    .footer-icons {
+        justify-content: left
+    }
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--white);
+    color: var(--bodytext);
+    font-size: 14px;
+    border-top: 1px solid var(--grey);
+}
+
+.footer-bottom span {
+    color: var(--brown);
+    font-weight: bold;
+}
+
+.footer-bottom a {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--bodytext);
+    margin-top: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-bottom a:hover {
+    color: var(--brown);
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  /* Use CSS visibility property to enable transitions */
+  
+   .medal {
+    visibility: visible;
+    animation-name: fadeIn;
+  }
