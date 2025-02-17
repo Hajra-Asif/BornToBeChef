@@ -1,0 +1,462 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&family=Montserrat:wght@400&display=swap');
+
+/* Root Variables */
+:root {
+    --blue: #28334d;
+    --white: #ffffff;
+    --grey: #edecf3;
+    --brown: #b37a64;
+    --bodytext: #353535;
+    --icons: #6e6e6e;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--grey);
+}
+
+nav {
+    background-color:var(--cardbg);
+    color:var(--blue);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo  img{
+  width: 250px;
+  margin-left: 30px;
+}
+
+.menu {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+margin: auto;
+gap:30px;
+font-size: larger;
+
+}
+
+.menu a {
+    color: var(--blue);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    
+}
+
+.menu a:hover {
+    color: var(--brown);
+    border-bottom: 1px solid var(--brown);
+    
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.menu-btn:focus {
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .search input {
+        width: 100%;
+    }
+}
+
+.firstnav{
+  background-color: var(--blue);
+  position: static;
+
+}
+
+
+.links {
+display: flex;
+margin-left: 820px;
+margin-top: -10px;
+width: 400px;
+}
+.github:hover {
+transition: all;
+transform: rotate(40deg);
+
+}
+.linkdin:hover {
+transition: all;
+transform: rotate(40deg);
+
+}
+
+.facebook:hover {
+transition: all;
+transform: rotate(40deg);
+
+}
+.textlogo{
+color: var(--cardbg);
+font-family:cursive;
+font-size: x-large;
+margin-left: 50px;
+letter-spacing: 1px;
+font-style: italic;
+}
+.login{
+display: flex;
+margin-top: 13px;
+
+}
+.login a{
+margin-left: 30px;
+
+}
+
+.login a:hover{
+color:rgb(184, 180, 180);
+}
+.btn{
+display: flex;
+gap: 30px;
+margin-right: 20px;}
+
+
+
+.logintext  {
+display: flex;
+
+
+}
+.user{
+margin-right: -40px;
+} 
+.user:hover {
+transform: rotate(45deg);
+transform-origin: 20% 30%;}
+
+
+a{
+color: var(--grey);
+margin-right: 10px; 
+text-decoration: none;
+
+/* serach */
+}
+
+.container-2{
+width: 300px;
+vertical-align: middle;
+white-space: nowrap;
+position: relative;
+}
+
+.container-2 input#search{
+width: 50px;
+height: 50px;
+background: var(--cardbg);
+border :none;
+/* border-bottom: 1px solid #797979; */
+font-size: 10pt;
+float: left;
+color: #262626;
+padding-left: 35px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+color: #fff;
+
+-webkit-transition: width .55s ease;
+-moz-transition: width .55s ease;
+-ms-transition: width .55s ease;
+-o-transition: width .55s ease;
+transition: width .55s ease;
+}
+
+.container-2 input#search::-webkit-input-placeholder {
+color: #65737e;
+}
+
+.container-2 input#search:-moz-placeholder { /* Firefox 18- */
+color: #65737e;  
+}
+
+.container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
+color: #65737e;  
+}
+
+.container-2 input#search:-ms-input-placeholder {  
+color: #65737e;  
+}
+
+.container-2 .icon{
+position: absolute;
+top: 50%;
+margin-left: 10px;
+margin-top: 17px;
+z-index: 1;
+color: #4f5b66;
+}
+
+.container-2 input#search:focus, .container-2 input#search:active{
+outline:none;
+width: 300px;
+}
+
+.container-2:hover input#search{
+width: 300px;
+border-bottom: 1px solid var(--brown);
+}
+
+.container-2:hover .icon{
+color: #93a2ad;
+}
+/* Footer Styles */
+.footer {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+    padding-top: 0;
+}
+
+
+.footer-logo {
+    text-align: left;
+    margin-bottom:26px;
+}
+
+.footer-logo img {
+    margin-top: 25px;
+    max-width: 200px;
+    height: auto;
+}
+
+.footer-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    color: var(--white);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.footer-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: var(--white);
+}
+
+.footer-section {
+    text-align:left;
+}
+
+.footer-list {
+    padding-left: 0; 
+}
+
+.footer-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.footer-list li i {
+    color: var(--white);
+    margin-right: 8px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect on Links and Icons */
+.footer-list li a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-list li:hover i, 
+.footer-list li:hover a {
+    font-size: 16px; 
+    color: var(--brown);
+}
+
+/* Contact Section Styles */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction:row; 
+    gap: 15px;
+    margin-top: 10px;
+    align-items: center; 
+}
+
+.footer-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px;
+    border: 1px solid var(--white); 
+    border-radius: 5px; 
+    font-size: 16px; 
+    color: var(--white);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none; 
+}
+
+/* Hover Effect */
+.footer-icons a:hover {
+    background-color: var(--brown); 
+    color: var(--white); 
+    border-color: var(--brown);
+    transform: scale(1.2);
+}
+
+/* Focus State for Footer Social Media Icons */
+.footer-icons a:focus {
+    outline: none; 
+    background-color: var(--brown); 
+    color: var(--white); 
+    border-color: var(--brown); 
+}
+
+.footer-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.footer-button {
+    background-color: var(--brown);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.footer-button i {
+    color: var(--white);
+}
+
+/* Focus and Active State for Links */
+.footer-list li a:focus,
+.footer-list li a:active {
+    outline: none; 
+    color: var(--brown); 
+}
+
+/* Focus and Active State for Icons inside Links */
+.footer-list li a:focus i,
+.footer-list li a:active i {
+    color: var(--brown); 
+    font-size: 16px; 
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: left;
+        padding: 15px;
+    }
+
+    .contact-section {
+        align-items: center;
+    }
+
+    .footer-icons {
+        justify-content: left
+    }
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--white);
+    color: var(--bodytext);
+    font-size: 14px;
+    border-top: 1px solid var(--grey);
+}
+
+.footer-bottom span {
+    color: var(--brown);
+    font-weight: bold;
+}
+
+.footer-bottom a {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--bodytext);
+    margin-top: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-bottom a:hover {
+    color: var(--brown);
+}
