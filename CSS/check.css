@@ -1,0 +1,323 @@
+/* Navbar */
+nav {
+    background: var(--white);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Left side */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Right side */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Hamburger menu - hide it by default */
+.menu-toggle {
+    display: none; /* Only show for mobile screens */
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+}
+
+/* Menu Items */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu a {
+    color: var(--bodytext);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.menu a:hover {
+    color: var(--brown);
+}
+
+.box .container-2 {
+    display: flex;
+    align-items: center;
+    background: var(--grey);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+#search {
+    border: none;
+    background: none;
+    padding: 5px;
+    width: 180px;
+    outline: none;
+    color: var(--bodytext);
+}
+
+/* Search Input and Icon */
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
+.input {
+    border-style: none;
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    outline: none;
+    border-radius: 50%;
+    transition: .5s ease-in-out;
+    padding-right: 40px;
+    color: #fff;
+}
+
+.input::placeholder,
+.input {
+    font-size: 16px;
+}
+
+.input::placeholder {
+    color: var(--bodytext);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 13px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    outline: none;
+    border-style: none;
+    border-radius: 50%;
+    pointer-events: painted;
+    background-color: transparent;
+    transition: .2s linear;
+}
+
+.icon svg path {
+    stroke: var(--blue) !important;
+}
+
+.icon:focus ~ .input,
+.input:focus {
+    box-shadow: none;
+    width: 250px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 3px solid var(--brown);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+/* Hamburger Menu */
+header.menu-open {
+    cursor: pointer;
+    position: relative;
+}
+
+body.menu-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+}
+
+.header {
+    background-color: var(--white);
+    padding: 1rem;
+    position: relative;
+    z-index: 1050;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.menu-toggle {
+    border: none;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    cursor: pointer;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}
+
+.hamburger {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--blue);
+    transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    left: 0;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
+
+.menu-toggle.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.menu-toggle.active .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.menu {
+    background-color: var(--white);
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    transform: translateX(-100%);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    box-shadow: none;
+    opacity: 0;
+    z-index: 1050;
+}
+
+.menu.active {
+    transform: translateX(0);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.menu.active .menu-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-link {
+    color: var(--blue);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--brown);
+    transition: width 0.3s ease;
+}
+
+.menu-link:hover {
+    color: var(--brown);
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* Staggered animation for menu items */
+.menu.active .menu-item:nth-child(1) { transition-delay: 0.1s; }
+.menu.active .menu-item:nth-child(2) { transition-delay: 0.15s; }
+.menu.active .menu-item:nth-child(3) { transition-delay: 0.2s; }
+.menu.active .menu-item:nth-child(4) { transition-delay: 0.25s; }
+.menu.active .menu-item:nth-child(5) { transition-delay: 0.3s; }
+.menu.active .menu-item:nth-child(6) { transition-delay: 0.35s; }
+.menu.active .menu-item:nth-child(7) { transition-delay: 0.4s; }
+.menu.active .menu-item:nth-child(8) { transition-delay: 0.45s; }
+.menu.active .menu-item:nth-child(9) { transition-delay: 0.5s; }
+.menu.active .menu-item:nth-child(10) { transition-delay: 0.55s; }
+
+/* For Larger Screens (Laptop/Desktops) */
+@media (min-width: 1024px) {
+    /* Show the menu normally and hide toggle */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Ensure left and right side are displayed properly */
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+
+    /* The menu will always be displayed */
+    .menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        transform: none;
+        opacity: 1;
+    }
+}

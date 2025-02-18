@@ -16,8 +16,10 @@
 
   <!-- heading font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap"
+    rel="stylesheet">
   <!-- body font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,175 +28,658 @@
     rel="stylesheet">
   <!-- custom css -->
   <link rel="stylesheet" href="./CSS/style.css">
+  <!-- <link rel="stylesheet" href="./CSS/check.css"> -->
 
 </head>
 
 <body>
 
-  <nav class="firstnav">
-            
-    <div class="textlogo"><h3>BornToBeCheif</h3></div>
-    <div class="links">
-       
-            <a href="facebook"  class="facebook">
-        <svg  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" fill="white" style="border: 1px solid white; border-radius:50%; text-align: center; padding: 5px  5px; margin-top:25px "  viewBox="0 0 24 24">
-            <path d="M17.525,9H14V7c0-1.032,0.084-1.682,1.563-1.682h1.868v-3.18C16.522,2.044,15.608,1.998,14.693,2 C11.98,2,10,3.657,10,6.699V9H7v4l3-0.001V22h4v-9.003l3.066-0.001L17.525,9z"></path>
-          </svg>
-        </a>
+  <!-- first Navigation -->
+
+  <div class="navigation">
+
+    <div
+      class="container-xxl d-flex justify-content-center justify-content-lg-between align-items-center flex-column-reverse flex-lg-row">
     
-    
-        
-            <a href="linkdin"  class="linkdin">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="55" height="55" fill="white" style="margin-left: 6px;  margin-top: 10px; "
-           viewBox="0 0 50 40">
-            <path d="M 25 9 C 16.178 9 9 16.178 9 25 C 9 33.822 16.178 41 25 41 C 33.822 41 41 33.822 41 25 C 41 16.178 33.822 9 25 9 z M 25.021484 10.003906 C 33.291484 10.003906 40.021484 16.732906 40.021484 25.003906 C 40.021484 33.274906 33.292484 40.003906 25.021484 40.003906 C 16.750484 40.003906 10.021484 33.274906 10.021484 25.003906 C 10.021484 16.732906 16.750484 10.003906 25.021484 10.003906 z M 19.332031 16.632812 C 18.557031 16.632812 17.929688 17.262109 17.929688 18.037109 C 17.929688 18.812109 18.557031 19.441406 19.332031 19.441406 C 20.107031 19.441406 20.736328 18.812109 20.736328 18.037109 C 20.736328 17.262109 20.107031 16.632812 19.332031 16.632812 z M 18.869141 21.544922 C 18.350141 21.544922 17.929688 21.965375 17.929688 22.484375 L 17.929688 31.132812 C 17.929687 31.651813 18.350141 32.072266 18.869141 32.072266 L 19.796875 32.072266 C 20.315875 32.072266 20.736328 31.651812 20.736328 31.132812 L 20.736328 22.484375 C 20.736328 21.965375 20.315875 21.544922 19.796875 21.544922 L 18.869141 21.544922 z M 24.472656 21.544922 C 23.960656 21.544922 23.544922 21.960656 23.544922 22.472656 L 23.544922 31.144531 C 23.544922 31.656531 23.960656 32.072266 24.472656 32.072266 L 25.425781 32.072266 C 25.937781 32.072266 26.351562 31.656531 26.351562 31.144531 L 26.351562 26.808594 C 26.351563 25.457594 27.457594 24.353516 28.808594 24.353516 C 30.159594 24.353516 31.263672 25.457594 31.263672 26.808594 L 31.263672 31.144531 C 31.263672 31.656531 31.679406 32.072266 32.191406 32.072266 L 33.144531 32.072266 C 33.656531 32.072266 34.070312 31.656531 34.070312 31.144531 L 34.070312 26.107422 C 34.070312 23.587422 32.029766 21.544922 29.509766 21.544922 C 28.283766 21.544922 27.170563 22.031359 26.351562 22.818359 L 26.351562 22.472656 C 26.351563 21.960656 25.937781 21.544922 25.425781 21.544922 L 24.472656 21.544922 z"></path>
-            </svg>
-        </a>
-    
-    
-        
-            <a href="github" class="github">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" fill="white" style="margin-top: 10px; " viewBox="0 0 50 40 ">
-                <path d="M 25 8 C 15.611 8 8 15.611 8 25 C 8 34.389 15.611 42 25 42 C 34.389 42 42 34.389 42 25 C 42 15.611 34.389 8 25 8 z M 25 9 C 33.837 9 41 16.163 41 25 C 41 32.315911 36.085048 38.472093 29.380859 40.378906 C 29.244571 40.172672 29.145294 39.932396 29.152344 39.650391 C 29.179344 38.593391 29.152344 36.129609 29.152344 35.224609 C 29.152344 33.671609 28.169922 32.570312 28.169922 32.570312 C 28.169922 32.570312 35.878906 32.657641 35.878906 24.431641 C 35.878906 21.257641 34.222656 19.605469 34.222656 19.605469 C 34.222656 19.605469 35.092922 16.216297 33.919922 14.779297 C 32.604922 14.637297 30.249141 16.036453 29.244141 16.689453 C 29.244141 16.689453 27.652953 16.037109 25.001953 16.037109 C 22.350953 16.037109 20.757812 16.689453 20.757812 16.689453 C 19.751812 16.036453 17.397031 14.637297 16.082031 14.779297 C 14.909031 16.216297 15.779297 19.605469 15.779297 19.605469 C 15.779297 19.605469 14.121094 21.255688 14.121094 24.429688 C 14.121094 32.655687 21.830078 32.568359 21.830078 32.568359 C 21.830078 32.568359 21.05381 33.443176 20.882812 34.730469 C 20.35101 34.918958 19.615523 35.146484 18.914062 35.146484 C 17.241063 35.146484 15.969906 33.519578 15.503906 32.767578 C 15.043906 32.025578 14.101656 31.402344 13.222656 31.402344 C 12.643656 31.402344 12.359375 31.692438 12.359375 32.023438 C 12.359375 32.354437 13.171031 32.584266 13.707031 33.197266 C 14.837031 34.490266 14.816844 37.400391 18.839844 37.400391 C 19.314 37.400391 20.165462 37.292676 20.847656 37.199219 C 20.843251 38.143438 20.832715 39.064049 20.847656 39.648438 C 20.854716 39.930842 20.755741 40.172492 20.619141 40.378906 C 13.914952 38.472093 9 32.315911 9 25 C 9 16.163 16.163 9 25 9 z"></path>
-                </svg>
-            </a>
-    
-            
-    
-            
-        
+      <div class="header-section">
+        <div class="header-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="login">
+        <a href="user" class="user"><i class="fa-regular fa-user ms-3"></i></a>
+        <a href="#" class="login1">Login | </a>
+        <a href="#"> Register</a>
+      </div>
     </div>
-              <div class="login">
-                <a href="user" class="user"> 
-                     <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" fill="white"
-                 width="35px" height="35px" data-name="Layer 1" style="margin-right: 40px; border:1px solid white; border-radius: 50%;padding: 2px;" viewBox="0 0 24 24">
-                    <path d="M12.003,11.774c3.5-.021,5.307-1.83,5.372-5.396-.06-3.446-1.967-5.356-5.378-5.378-3.452,.021-5.372,2.066-5.372,5.378,0,3.462,1.921,5.375,5.378,5.396Zm-.006-9.774c2.855,.019,4.328,1.498,4.378,4.378-.055,2.982-1.446,4.379-4.372,4.396-2.93-.017-4.321-1.411-4.378-4.387,.055-2.934,1.487-4.369,4.372-4.387Z"/>
-                    <path d="M11.997,14.294c-5.259,.033-8.089,2.867-8.185,8.197-.005,.276,.215,.504,.491,.509h.009c.272,0,.495-.218,.5-.491,.086-4.825,2.438-7.186,7.184-7.215,4.689,.03,7.109,2.458,7.191,7.215,.005,.276,.255,.505,.509,.491,.276-.005,.496-.232,.491-.509-.091-5.252-2.997-8.164-8.19-8.197Z"/>
-                  </svg>
-                </a>
-            <a href="#" class="login1" style="font-size: x-large;   ">Login   </a>
-            <a href="#" style="font-size: x-large; margin-right: 30px;">Register</a>
-          </div>
-                </div>
-      </ul>
-     </div>
-            </nav>
-        
-    <!-- 2nd nav -->
-    <nav>
+  </div>
+
+
+  <!-- Second Navigation -->
+  <nav>
+
+    <div class="navigation-menu container-xxl d-flex justify-content-between align-items-center">
+
+
+
+      <div class="nav-left">
+
         <div class="logo">
-          <img src="./assets/btbc-logo.png" alt="logoimage">
+          <img src="./assets/foodfiesta.png" alt="logoimage">
         </div>
-        <div>
-            
+
+        <!-- hamburger -->
+        <!-- <header class="header">
+        <div class="container">
+          <button class="menu-toggle" type="button">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+          <div class="menu">
+            <ul class="menu-list">
+              <li class="menu-item"><a href="#" class="menu-link">Ramzan</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Fried Items</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Biryani & Pulao</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Parathas</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Healthy</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Desserts</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Chutneys & Dips</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Pizzas</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Homemade</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Burgers & Sandwiches</a></li>
+            </ul>
+          </div>
         </div>
-        
-        <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>
+      </header> -->
+
+      </div>
+
+
+
+      <div class="nav-right">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
         <div class="menu">
-            <a href="#">Home</a>
-            <a href="./Html/about.html">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-            <a href="#">Our Team</a>
-    
-    
-            <div class="box">
-              <div class="container-2">
-                  <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" id="Outline"  width="25px" height="30px" viewBox="0 0 24 24" width="512" fill="gray" height="512" style=" margin-top:-5px "><path d="M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></svg></span>
-                  <input type="search" id="search" placeholder="Search..." />
+
+          <div class="nav-container">
+            <a href="#" class="nav-link ">Ramzan</a>
+            <a href="#" class="nav-link">Drinks</a>
+            <a href="#" class="nav-link">Dish Type</a>
+            <a href="#" class="nav-link">Breakfast</a>
+            <a href="#" class="nav-link">Desserts</a>
+            <a href="#" class="nav-link">Lunch / Dinner</a>
+          </div>
+
+          <div class="box">
+            <div class="input-wrapper">
+              <button class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="25px" width="25px">
+                  <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff"
+                    d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z">
+                  </path>
+                  <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff"
+                    d="M22 22L20 20">
+                  </path>
+                </svg>
+              </button>
+              <input placeholder="Aaj kya pakana hai?" class="input text-dark" name="text" type="text">
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <section class="hero-section">
+    <div class="container-xxl">
+      <!-- Decorative elements -->
+      <div class="leaf-decoration" style="top: 38%; left: 28%;">
+        <img src="./Assets/herb-2.png" alt="">
+      </div>
+      <div class="leaf-decoration" style="bottom: 20%; right: 10%;">
+        <img src="./Assets/herb-1.png" alt="">
+
+      </div>
+      <div class="leaf-decoration" style="top: 15%; right: 27%;">
+        <img src="./Assets/OBJECTS.png" alt="">
+
+      </div>
+
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="hero-title text-left">Don't Starve <br>Just Cook !</h1>
+            <p class="hero-text">Whip up your favorite meals with easy-to-follow recipes. Quick prep, delicious results,
+              and a kitchen full of flavor!</p>
+
+            <div class="search-container" style="position: relative;">
+              <input type="text" class="location-input" placeholder="Aaj kya pakana hai?">
+              <svg style="position: absolute;right: 4%;" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" height="25px" width="25px">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#28334d"
+                  d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z">
+                </path>
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#28334d"
+                  d="M22 22L20 20">
+                </path>
+              </svg>
+
+            </div>
+
+
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image">
+              <img src="./Assets/item-1.png" alt="Food delivery groceries">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- content -->
+
+  <div class="container-xxl my-5">
+    <h2 class="text-capitalize text-center" style="color: var(--bodytext);">Our <span
+        style="color: var(--brown);">recipes</span></h2><br>
+    <p class="text-center fs-5 filters mb-5"><span>Most Recent </span>/ <span>Most Viewed</span> / <span>Most Favourite
+      </span>/ <span>All</span></p>
+
+
+    <div class="container-xxl">
+      <div class="row g-4">
+
+
+        <!-- Recipe Card 1 -->
+
+
+        <div class="col-12 col-lg-6">
+          <div class="card">
+            <div class="position-relative">
+              <img
+                src="https://www.southernliving.com/thmb/Fkh6AWWH7Py2Qe9vwOAY-UvKZr0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SL_SEO24_InstantPotSpaghettiandMeatballs_002_preview-4cff3fda6d914fd58e8b0a86077b0d1c.jpg"
+                class="card-img-top" alt="Fettuccine">
+              <div class="recipe-badge">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                  alt="Beginner">
+
+           
               </div>
             </div>
-    
-            
-        </div>
-    </nav>
-
-
-    <!-- content -->
-    <div class="content" style="background-color: rgb(43, 226, 67);">
- <h1>this section belongs to content</h1>
-    </div>
-
-   </div>
-  </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer>
-   <!-- Footer -->
-   <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <div class="footer-logo">
-                <img src="logo.png" alt="Born To Be Chef Logo">
+            <div class="card-body">
+              <div class="stars">★★★★☆</div>
+              <h5 class="recipe-title">Fettuccine pasta with shrimp and tomatoes</h5>
+              <div class="recipe-info">
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23-4-2.37V7z'/%3E%3C/svg%3E"
+                    alt="Time">
+                  45mins
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"
+                    alt="Servings">
+                  2 people
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                    alt="Level">
+                  Beginner
+                </span>
+              </div>
+              <button class="btn btn-view">VIEW RECIPE</button>
             </div>
-            <p class="footer-text">Born To Be Chef is all about redefining ‘Cooking’ for you! It’s the solution to
-                that never ending problem of preparing high quality delicious food and curtailing the eating out
-                habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for a
-                flavorsome treat with our recipes that will surely make you the next talk of the town!
-            </p>
+          </div>
+        </div>
+
+        <!-- Recipe Card 2 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card">
+            <div class="position-relative">
+              <img src="https://thegourmetbonvivant.com/wp-content/uploads/2022/05/gigi-hadid-pasta-1200x1200-1.jpg"
+                class="card-img-top" alt="Farfalle">
+              <div class="recipe-badge">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                  alt="Beginner">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="stars">★★★★★</div>
+              <h5 class="recipe-title">Farfalle pasta with chicken and zucchini</h5>
+              <div class="recipe-info">
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23-4-2.37V7z'/%3E%3C/svg%3E"
+                    alt="Time">
+                  45mins
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"
+                    alt="Servings">
+                  2 people
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                    alt="Level">
+                  Beginner
+                </span>
+              </div>
+              <button class="btn btn-view">VIEW RECIPE</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recipe Card 3 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card">
+            <div class="position-relative">
+              <img
+                src="https://img.freepik.com/premium-photo/overhead-shot-homemade-raw-tagliatelle-pasta-with-rustic-setting-aesthetic-look_629685-24417.jpg"
+                class="card-img-top" alt="Farfalle">
+              <div class="recipe-badge">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                  alt="Beginner">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="stars">★★★★★</div>
+              <h5 class="recipe-title">Farfalle pasta with chicken and zucchini</h5>
+              <div class="recipe-info">
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23-4-2.37V7z'/%3E%3C/svg%3E"
+                    alt="Time">
+                  45mins
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"
+                    alt="Servings">
+                  2 people
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                    alt="Level">
+                  Beginner
+                </span>
+              </div>
+              <button class="btn btn-view">VIEW RECIPE</button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Recipe Card 3 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card">
+            <div class="position-relative">
+              <img
+                src="https://img.freepik.com/premium-photo/overhead-shot-homemade-raw-tagliatelle-pasta-with-rustic-setting-aesthetic-look_629685-24417.jpg"
+                class="card-img-top" alt="Farfalle">
+              <div class="recipe-badge">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                  alt="Beginner">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="stars">★★★★★</div>
+              <h5 class="recipe-title">Farfalle pasta with chicken and zucchini</h5>
+              <div class="recipe-info">
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23-4-2.37V7z'/%3E%3C/svg%3E"
+                    alt="Time">
+                  45mins
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E"
+                    alt="Servings">
+                  2 people
+                </span>
+                <span>
+                  <img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E"
+                    alt="Level">
+                  Beginner
+                </span>
+              </div>
+              <button class="btn btn-view">VIEW RECIPE</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- more Categories -->
+
+  <h2 class="text-capitalize text-center mb-5" style="color: var(--bodytext);">More <span
+      style="color: var(--brown);">Categories</span></h2><br>
+
+  <div class="container-xxl">
+    <div class="slider-container">
+      <button class="slider-button prev-button">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-button next-button">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      
+      <div class="recipe-slider">
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h3 class="recipe-title">Ramzan Special</h3>
+          <p class="recipe-count">650 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.8</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">30m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3 class="recipe-title">Iftar Delights</h3>
+          <p class="recipe-count">480 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.9</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">25m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-coffee"></i>
+          </div>
+          <h3 class="recipe-title">Suhoor Specials</h3>
+          <p class="recipe-count">320 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.7</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">20m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-bread-slice"></i>
+          </div>
+          <h3 class="recipe-title">Traditional Foods</h3>
+          <p class="recipe-count">550 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.9</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">35m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-cookie"></i>
+          </div>
+          <h3 class="recipe-title">Sweet Treats</h3>
+          <p class="recipe-count">280 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.8</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">40m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-glass-water"></i>
+          </div>
+          <h3 class="recipe-title">Refreshing Drinks</h3>
+          <p class="recipe-count">180 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.7</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">15m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-bowl-food"></i>
+          </div>
+          <h3 class="recipe-title">Healthy Options</h3>
+          <p class="recipe-count">420 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.6</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">28m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="recipe-card">
+          <div class="icon-circle">
+            <i class="fas fa-plate-wheat"></i>
+          </div>
+          <h3 class="recipe-title">Quick Meals</h3>
+          <p class="recipe-count">390 Recipes</p>
+          <div class="stats-container">
+            <div class="stat">
+              <span class="stat-value">4.8</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">22m</span>
+              <span class="stat-label">Avg. Time</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="slider-dots"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <!--  Cooking Partners -->
+
+  <div class="container py-5">
+    <h2 class="section-title text-capitalize text-center mb-5" style="color: var(--bodytext);">Our Happy <span
+        style="color: var(--brown);">Cooking Partners</span></h2>
+
+    <div id="categoryCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/Olpers-cream-logo-1.png" alt="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/Lipton-logo.png" alt="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/Surf-Excel-Logo-1.png" alt="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/Tux-Tissues.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/Walls-Logo-1.png" alt="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/Simply-Sufi-1.jpg" alt="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/SHAN-logo-final-1.png" alt="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="category-card">
+                <img src="./Assets/Rooh-Afza-Logo-1.png" alt="">
+              </div>
+            </div>
+            <!-- Add more items as needed -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <footer>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="./Assets/foodfiesta-white.png" alt="Born To Be Chef Logo">
+          </div>
+          <p class="footer-text">Born To Be Chef is all about redefining ‘Cooking’ for you! It’s the solution to
+            that never ending problem of preparing high quality delicious food and curtailing the eating out
+            habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for a
+            flavorsome treat with our recipes that will surely make you the next talk of the town!
+          </p>
         </div>
         <!-- Latest Recipes -->
         <div class="footer-section">
-            <h3 class="footer-heading">Latest Recipes</h3>
-            <ul class="footer-list">
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Biryani</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Mexican Sandwich</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Karhai</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Cheese Pasta</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">DryFruit Shake</a></li>
-            </ul>
+          <h3 class="footer-heading">Latest Recipes</h3>
+          <ul class="footer-list">
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Biryani</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Mexican Sandwich</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Karhai</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Cheese Pasta</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">DryFruit Shake</a></li>
+          </ul>
         </div>
         <!-- Our Categories -->
         <div class="footer-section">
-            <h3 class="footer-heading">Our Categories</h3>
-            <ul class="footer-list">
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desi</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Italian</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chinese</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/desserts.html">Desserts</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/drinks.html">Drinks</a></li>
-            </ul>
+
+          <h3 class="footer-heading">Our Categories</h3>
+          <ul class="footer-list">
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desi</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Italian</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chinese</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desserts</a></li>
+            <li><i class="fa-solid fa-angles-right"></i> <a href="#">Drinks</a></li>
+          </ul>
+
         </div>
         <!-- Contact Us -->
         <div class="footer-section">
-            <h3 class="footer-heading">Contact Us</h3>
-            <div class="footer-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+          <h3 class="footer-heading">Contact Us</h3>
+          <div class="footer-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-    </div>
-</footer>
-<!-- Copyright & Privacy Section -->
-<div class="footer-bottom">
-    <p>© Copyright 2025 All rights of publications are reserved by <span>Born To Be Chef</span>.
+      </div>
+    </footer>
+    <!-- Copyright & Privacy Section -->
+    <div class="footer-bottom">
+      <p>© Copyright 2025 All rights of publications are reserved by <span>Born To Be Chef</span>.
         Reproduction without consent is not allowed.</p>
-    <a href="#">Privacy Policy</a>
-</div>
-</footer>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </footer>
 
   <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./JavaScript/index.js"></script>
 </body>
 
 </html>
