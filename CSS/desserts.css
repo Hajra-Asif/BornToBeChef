@@ -1,0 +1,366 @@
+:root {
+    --blue: #28334d;
+    --white: #ffffff;
+    --grey: #edecf3;
+    --brown: #b37a64;
+    --bodytext: #353535;
+    --icons: #6e6e6e;
+    --star: #ffd700;
+}
+
+
+
+/* Styling for the container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;  
+    padding: 20px;
+    font-family: 'Arial', sans-serif; 
+
+}
+.text{
+    display: flex;
+    justify-content: space-between; 
+    width: 900px;
+}
+/* Styling for the heading */
+.text .head {
+    font-size: 2rem; 
+    color: var(--brown);  
+    font-weight: bold;
+    margin-top: 18px;  
+    margin-left: 15px;
+    /* text-align: center;  */
+   
+}
+
+/* Styling for the dropdown container */
+.hello {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px;
+}
+
+/* Styling for the select element */
+#drinkFilter {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--brown);  
+    border-radius: 25px;  
+    background-color: transparent;
+    color: var(--brown);  
+    transition: all 0.3s ease;  
+}
+
+#drinkFilter:hover, #drinkFilter:focus {
+    border-color: var(--green);  
+    outline: none;  
+}
+
+
+
+/* Optional: Add a subtle hover effect on options */
+#drinkFilter option {
+    padding: 10px;
+    background-color: var(--white);
+}
+
+#drinkFilter option:hover {
+    background-color: var(--light-gray);  
+}
+
+#selection {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--brown);  
+    border-radius: 25px;  
+    background-color: transparent;
+    color: var(--brown);  
+    transition: all 0.3s ease;  
+    width: 260px;
+}
+
+#selection:hover, #selection:focus {
+    border-color: var(--green);  
+    outline: none;  
+}
+
+
+.card {
+    position: relative;
+    /* left: 20px; */
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    background: var(--white);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 280px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.recipe-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--blue);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipe-badge img {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.stars {
+    color: var(--star);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.recipe-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bodytext);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.recipe-info {
+    display: flex;
+    gap: 15px;
+    color: var(--icons);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.recipe-info img {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+
+.btn-view {
+    width: 100%;
+    border: 2px solid var(--brown);
+    color: var(--brown);
+    border-radius: 25px;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+    background: var(--brown);
+    color: var(--white);
+  
+}
+
+
+.cards-buttons-wrapper {
+    display: flex; /* Use flex to align cards and buttons side by side */
+    justify-content: space-between; /* Optional: For equal spacing between cards and buttons */
+    gap: 20px; /* Space between cards and buttons */
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between individual cards */
+    flex: 1; /* Allow cards to take up available space */
+    height: 30%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    gap: 10px; /* Space between buttons */
+    align-self: flex-start; /* Align buttons at the top */
+    width: 190px;
+  
+}
+
+.btn-filter {
+    padding: 10px 20px;
+    background-color: var(--brown);
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-filter:hover {
+    background-color: var(--blue);
+}
+
+
+/* //////////rating */
+
+
+
+   
+  .cardd {
+    width: 100%;
+    /* max-width: 10rem; */
+    width: 100%;
+    border-radius: 0.5rem;
+    /* min-height: 50vh; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+   
+    font-family: "Poppins", sans-serif;
+  }
+   
+  .star {
+    font-size: 5vh;
+    cursor: pointer;
+  }
+   
+  .one {
+    color: rgb(255, 0, 0);
+  }
+   
+  .two {
+    color: rgb(255, 106, 0);
+  }
+   
+  .three {
+    color: rgb(251, 255, 120);
+  }
+   
+  .four {
+    color: rgb(255, 255, 0);
+  }
+   
+  .five {
+    color: rgb(24, 159, 14);
+  }
+
+
+
+  /* Responsive Styles */
+@media (max-width: 1024px) {
+    .text {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .hello {
+        margin-top: 10px;
+    }
+    
+    .cards-buttons-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .buttons {
+       width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .btn-filter {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .text {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hello {
+        margin-top: 10px;
+    }
+
+    .buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+        order: -1;
+    }
+
+    .btn-filter {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .cards-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .text .head {
+        font-size: 1.5rem;
+    }
+
+    #selection {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        order: -1;
+    }
+
+    .cards-container {
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text {
+        text-align: center;
+    }
+
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+        order: -1;
+    }
+
+    .btn-filter {
+        width: auto;
+    }
+}
