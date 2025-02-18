@@ -79,7 +79,7 @@
        .img #img{
             width: 300px;
             height: 400px;
-    margin: -30px 0 0 -28px;
+    margin: -40px 0 0 -28px;
            
         }
         .step-number {
@@ -192,7 +192,7 @@
             margin-top: 1rem;
         }
 
-        .social-icon {
+        .social-icon i{
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -221,3 +221,4 @@
                 padding: 1.5rem;
             }
         }
+        
