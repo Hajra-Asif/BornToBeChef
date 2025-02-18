@@ -1,30 +1,10 @@
 function toggleMenu() {
     document.querySelector('.menu').classList.toggle('active');
+    console.log("chal raha hoon");
+    
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const menuToggle = document.querySelector('.menu-btn');
-    const menu = document.querySelector('.menu');
-    const body = document.body;
 
-    menuToggle.addEventListener('click', function () {
-        this.classList.toggle('active');
-        menu.classList.toggle('active');
-        body.classList.toggle('menu-open');
-    });
-    
-    document.addEventListener('click', function (event) {
-        const isMenuOpen = menu.classList.contains('active');
-        const clickedInsideMenu = menu.contains(event.target);
-        const clickedOnToggle = menuToggle.contains(event.target);
-
-        if (isMenuOpen && !clickedInsideMenu && !clickedOnToggle) {
-            menuToggle.classList.remove('active');
-            menu.classList.remove('active');
-            body.classList.remove('menu-open');
-        }
-    });
-});
 
 
 const carousel = new bootstrap.Carousel(document.getElementById('categoryCarousel'), {
@@ -122,3 +102,6 @@ slider.addEventListener('touchend', (e) => {
   
   startAutoSlide();
 });
+
+
+
