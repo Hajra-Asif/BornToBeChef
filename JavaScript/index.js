@@ -105,3 +105,59 @@ slider.addEventListener('touchend', (e) => {
 
 
 
+// api fetch 
+
+// let ourRecipes = async () =>{
+    
+//     let fetchdata = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken`)
+//     let data = await fetchdata.json()
+//     // return data 
+//     console.log(data);
+    
+
+// }
+
+
+// ourRecipes(); 
+
+let fetchApi = async () => {
+  let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
+  let jsonData = await response.json();
+  return jsonData.meals || [];
+};
+
+// Function to create a card
+let getData = (dessert) => {
+  return `
+      <div class="card">
+            <div class="position-relative">
+                <img src="${dessert.strMealThumb}" class="card-img-top" alt="${dessert.strMeal}">
+                <div class="recipe-badge">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E" alt="Beginner">
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="recipe-title">${dessert.strMeal}</h5>
+                <a href="detail-page.html?id=${dessert.idMeal}" class="anchor text-decoration-none">
+                    <button class="btn-view">View Recipe</button>
+                </a>
+            </div>
+        </div>
+  `;
+};
+
+// Function to display desserts
+let displayCards = async () => {
+  let container = document.getElementById('maincardcontainer');
+  let data = await fetchApi();
+
+  if (!data.length) {
+      container.innerHTML = "<p>No desserts found.</p>";
+      return;
+  }
+
+  container.innerHTML = data.map(getData).join('');
+};
+
+// Call the function to display cards
+displayCards();
