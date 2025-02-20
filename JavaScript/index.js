@@ -1,8 +1,3 @@
-function toggleMenu() {
-    document.querySelector('.menu').classList.toggle('active');
-    console.log("chal raha hoon");
-    
-}
 
 
 
