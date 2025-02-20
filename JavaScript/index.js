@@ -196,6 +196,10 @@ displayCards();
 
 
 
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   // Get modal elements
   const loginOverlay = document.querySelector(".login-overlay");
