@@ -2,6 +2,7 @@
 
 
 
+
 const carousel = new bootstrap.Carousel(document.getElementById('categoryCarousel'), {
     interval: 3000,
     wrap: true
