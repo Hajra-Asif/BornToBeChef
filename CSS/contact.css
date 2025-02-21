@@ -1,456 +1,496 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&family=Montserrat:wght@400&display=swap');
-
 :root {
     --blue: #28334d;
     --white: #ffffff;
-    --grey: #bfbfcc;
+    --grey: #edecf3;
     --brown: #b37a64;
     --bodytext: #353535;
     --icons: #6e6e6e;
 }
-:root {
---heading: 'Bodoni Moda', serif;
---text:'Montserrat', serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-     background-color: #ffffff;;
-    color: var(--grey);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--bodytext);
+    line-height: 1.6;
+    padding: 30px;
+    background: var(--white);
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin-bottom: 150px;
 }
 
 .hero {
-position: relative; 
-text-align: center; 
-
-}
-
-.hero img {
-width: 100%; 
-height: 65vh; 
+    position: relative;
+    text-align: center;
 
 }
 
 .heading {
-margin: 0;
-color: var(--grey);
-font-family: var(--heading);
-font-size: 4.25rem;
-position: absolute;
-top: 40%; 
-left: 50%;
-transform: translate(-50%, -50%); 
-letter-spacing: 2px;
+    margin: 0;
+    color: var(--blue);
+    font-family: var(--heading);
+    font-size: 5rem;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 3px;
 
 }
 
-.link {
-margin: 0;
-color: var(--grey);
-font-family: var(--text);
-font-size: 1.25rem;
-position: absolute;
-top: 80%;
-left: 50%;
-transform: translate(-50%, -50%); 
-text-decoration: none; 
-letter-spacing: 1px;
-}
-
-.link span {
-color: rgb(252, 56, 21);
-}
-
-.fas.fa-phone {
-    color: transparent;
-    -webkit-text-stroke: 2px var(--grey); /* White border effect */
-}
-.fas.fa-phone:hover{
-    -webkit-text-stroke: 2px var(--brown);
-}
-
-
-:root {
-    --blue: #28334d;
-    --white: #ffffff;
-    --grey: #edecf2;
-    --brown: #b37a64;
-    --bodytext: #353535;
-    --icons: #6e6e6e;
-}
-
-body {
-    background-color: var(--grey);
-    color: var(--bodytext);
-}
-
-.contact-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-}
-
-.contact-card {
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-}
-
-.contact-info {
-    background: var(--blue);
-    color: var(--white);
-    padding: 2rem;
-    /* width: ; */
-}
-.contact-info h2:hover{
+.text {
+    margin: 0;
     color: var(--brown);
+    font-family: var(--text);
+    font-size: 2rem;
+    font-weight: bolder;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
-.info-item {
+.text:hover{
+    color:var(--blue);
+}
+.text span {
+    color:var(--bodytext);
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.left-section {
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 32px;
+    color: var(--blue);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: var(--icons);
+    margin-bottom: 40px;
+}
+
+.contact-item {
     display: flex;
     align-items: center;
-    margin: 1.5rem 0;
-    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+    gap: 15px;
+    text-decoration: none;
 }
 
-.info-item:hover {
-    transform: translateX(10px);
+a:hover {
     color: var(--brown);
 }
 
-.info-item i {
-    color: var(--grey);
-    font-size: 1.5rem;
-    margin-right: 1rem;
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background-color: var(--blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.info-item .far:hover{
-    color: var(--brown);
+
+.icon-box i {
+    color: var(--white);
+}
+
+.contact-details h3 {
+    font-size: 16px;
+    color: var(--bodytext);
+    margin-bottom: 5px;
+}
+
+.contact-details p {
+    color: var(--icons);
+    font-size: 14px;
 }
 
 .social-links {
-    margin-top: 2rem;
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
 }
 
-.social-links a {
-    color: var(--white);
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+.social-link {
+    width: 35px;
+    height: 35px;
+    background: var(--grey);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--bodytext);
+    font-size: 14px;
 }
 
-.social-links a:hover {
-    color: var(--brown);
+.right-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
 }
 
-.form-control {
-    border: 2px solid var(--grey);
-    padding: 0.8rem;
-    margin-bottom: 1rem;
+.form-group {
+    margin-bottom: 25px;
 }
 
-.form-control:focus {
-    border-color: var(--brown);
-    box-shadow: none;
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--bodytext);
+    font-size: 15px;
 }
 
-.submit-btn {
+.required {
+    color: #ff4646;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgb(180, 180, 180);
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background: var(--white);
+}
+
+input:hover {
+    border: 2px solid rgb(145, 145, 145);
+}
+
+input:active {
+    border: 2px solid var(--icons);
+}
+
+
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
     background: var(--blue);
     color: var(--white);
-    padding: 0.8rem 2rem;
     border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--brown);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-    background: var(--brown);
+.contact-item:hover .contact-details h3,
+.contact-item:hover .contact-details p {
+    color: #b37a64;
+    transition: 3s zoom-in;
 }
 
-.loading-spinner {
-    display: none;
-}
 
-.success-message {
-    display: none;
-    color: green;
-}
+
 
 @media (max-width: 768px) {
-    .contact-info {
-        margin-bottom: 2rem;
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .left-section {
+        padding-right: 0;
+    }
+    .heading{
+        font-size: 1rem;
+    
+    }
+    .text{
+        font-size: 10px;
+    }
+    .banner{
+        margin-bottom: 10px;
     }
 }
 
 
 
 
-body {
-font-family: 'Montserrat', sans-serif;
-margin: 0;
-padding: 0;
-background-color: var(--grey);
-}
+
+
+
+/* Footer */
 
 /* Footer Styles */
 .footer {
-background-color: var(--blue);
-color: var(--white);
+    background-color: var(--blue);
+    color: var(--white);
 }
 
 .footer-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-max-width: 1200px;
-margin: 0 auto;
-padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .footer-section {
-flex: 1;
-min-width: 250px;
-margin: 20px;
-padding-top: 0;
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+    padding-top: 0;
 }
 
 
 .footer-logo {
-text-align: left;
-margin-bottom:26px;
+    text-align: left;
+    margin-bottom: 26px;
 }
 
 .footer-logo img {
-margin-top: 25px;
-max-width: 200px;
-height: auto;
+    margin-top: 25px;
+    max-width: 200px;
+    height: auto;
 }
 
 .footer-title {
-font-family: 'Bodoni Moda', serif;
-font-size: 24px;
-margin-bottom: 10px;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .footer-text {
-color: var(--white);
-font-size: 11px;
-line-height: 1.5;
+    color: var(--white);
+    font-size: 11px;
+    line-height: 1.5;
 }
 
 .footer-heading {
-font-size: 24px;
-font-weight: bold;
-margin-bottom: 50px;
-color: var(--white);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: var(--white);
 }
 
 .footer-section {
-text-align:left;
+    text-align: left;
 }
 
 .footer-list {
-padding-left: 0; 
+    padding-left: 0;
 }
 
 .footer-list li {
-display: flex;
-align-items: center;
-margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
 }
 
 .footer-list li i {
-color: var(--white);
-margin-right: 8px;
-font-size: 14px;
-transition: color 0.3s ease-in-out;
+    color: var(--white);
+    margin-right: 8px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
 }
 
 /* Hover Effect on Links and Icons */
 .footer-list li a {
-color: var(--white);
-text-decoration: none;
-transition: color 0.3s ease-in-out;
-}
-.bannerimage {
-height: 300px; /* Banner ka height chhota karna */
-width: 100%; /* Width adjust karna agar zaroorat ho */
-margin: auto; /* Center karne ke liye */
-overflow: hidden; /* Extra content hide karne ke liye */
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
-.banner {
-height: 100%; /* Image ko banner ke andar fit karna */
-width: 100%; /* Responsive banane ke liye */
-object-fit: cover; /* Crop hone se bachane ke liye */
-}
-
-.footer-list li:hover i, 
+.footer-list li:hover i,
 .footer-list li:hover a {
-font-size: 16px; 
-color: var(--brown);
+    font-size: 16px;
+    color: var(--brown);
 }
 
 /* Contact Section Styles */
 .contact-section {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 50px;
 }
 
 .footer-icons {
-display: flex;
-flex-direction:row; 
-gap: 15px;
-align-items: center; 
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
 }
 
-.footer-icons a {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 28px; 
-height: 28px;
-border: 1px solid var(--white); 
-border-radius: 5px; 
-font-size: 16px; 
-color: var(--white);
-transition: all 0.3s ease-in-out;
-text-decoration: none; 
+.footer-icons a,
+.user i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid var(--grey);
+    border-radius: 50%;
+    font-size: 15px;
+    color: var(--grey);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 /* Hover Effect */
-.footer-icons a:hover {
-background-color: var(--brown); 
-color: var(--white); 
-border-color: var(--brown);
-transform: scale(1.2);
+.footer-icons a:hover,
+.user i:hover {
+    background-color: var(--brown);
+    color: var(--white);
+    border-color: var(--brown);
+    transform: scale(1.2);
 }
 
 /* Focus State for Footer Social Media Icons */
 .footer-icons a:focus {
-outline: none; 
-background-color: var(--brown); 
-color: var(--white); 
-border-color: var(--brown); 
+    outline: none;
+    background-color: var(--brown);
+    color: var(--white);
+    border-color: var(--brown);
 }
 
 .footer-input {
-flex: 1;
-padding: 10px;
-border: none;
-border-radius: 5px;
-font-size: 14px;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 .footer-button {
-background-color: var(--brown);
-border: none;
-padding: 10px;
-border-radius: 5px;
-cursor: pointer;
-margin-left: 5px;
+    background-color: var(--brown);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
 }
 
 .footer-button i {
-color: var(--white);
+    color: var(--white);
 }
 
 /* Focus and Active State for Links */
 .footer-list li a:focus,
 .footer-list li a:active {
-outline: none; 
-color: var(--brown); 
+    outline: none;
+    color: var(--brown);
 }
 
 /* Focus and Active State for Icons inside Links */
 .footer-list li a:focus i,
 .footer-list li a:active i {
-color: var(--brown); 
-font-size: 16px; 
+    color: var(--brown);
+    font-size: 16px;
 }
 
-/* Responsiveness */
+
+.user i {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+}
+
 @media (max-width: 768px) {
-.footer-container {
-flex-direction: column;
-text-align: left;
-padding: 15px;
-}
+    .footer-container {
+        flex-direction: column;
+        text-align: left;
+        padding: 15px;
+    }
 
-.contact-section {
-align-items: center;
-}
+    .contact-section {
+        align-items: center;
+    }
 
-.footer-icons ,
-.login{
-justify-content: left
-}
-
+    .footer-icons {
+        justify-content: left
+    }
 }
 
 /* Footer Bottom Section */
 .footer-bottom {
-text-align: center;
-padding: 15px 0;
-background-color: var(--white);
-color: var(--bodytext);
-font-size: 14px;
-border-top: 1px solid var(--grey);
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--white);
+    color: var(--bodytext);
+    font-size: 14px;
+    border-top: 1px solid var(--grey);
 }
 
 .footer-bottom span {
-color: var(--brown);
-font-weight: bold;
+    color: var(--brown);
+    font-weight: bold;
 }
 
 .footer-bottom a {
-display: block;
-font-weight: bold;
-text-decoration: none;
-color: var(--bodytext);
-margin-top: 5px;
-transition: color 0.3s ease-in-out;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--bodytext);
+    margin-top: 5px;
+    transition: color 0.3s ease-in-out;
 }
 
 .footer-bottom a:hover {
-color: var(--brown);
+    color: var(--brown);
 }
 
-@media (max-width: 768px) {
-    .hero {
-        padding: 3rem 1rem;
-    }
-    
-    .heading {
-        font-size: 2rem;
-    }
-    .hero img{
-        width: 100% ;
-        height: 400px;
-    }
+.header-section {
+    flex-grow: 1;
 }
 
-@media (max-width: 576px) {
-    .hero {
-        padding: 2.5rem 1rem;
-    }
-    
-    .heading {
-        font-size: 1.75rem;
-    }
-    
-    .link {
-        font-size: 0.9rem;
-    }
-    .hero img{
-        width: 100% ;
-        height: 100%;
-    }
+.header-icons {
+    justify-content: end !important;
+    margin-right: 40px;
+}
+
+.footer {
+    margin-top: 150px;
 }
