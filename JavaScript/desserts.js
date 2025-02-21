@@ -24,7 +24,7 @@ let getData = (dessert) => {
                     <span onclick="gfg(event, 5)" class="star">★</span>
                 </div>
                 <h5 class="recipe-title">${dessert.strMeal}</h5>
-                <a href="detail-page.html?id=${dessert.idMeal}" class="anchor text-decoration-none">
+                  <a href="./Html/reciDetail.html?id=${dessert.idMeal} class="anchor text-decoration-none">
                     <button class="btn-view">View Recipe</button>
                 </a>
             </div>

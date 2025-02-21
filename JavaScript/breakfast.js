@@ -35,7 +35,7 @@ function generateMealCard(meal) {
                           <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3C/svg%3E" alt="Level"> Beginner
                       </span>
                   </div>
-                  <a href="detail-page.html?id=${meal.idMeal}" class="anchor text-decoration-none">
+                  <a href="./Html/reciDetail.html?id=${meal.idMeal} class="anchor text-decoration-none">
                       <button class="btn-view">View Recipe</button>
                   </a>
               </div>

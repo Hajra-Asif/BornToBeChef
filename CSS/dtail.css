@@ -1,0 +1,321 @@
+:root {
+    --blue: #28334d;
+    --white: #ffffff;
+    --grey: #bfbfcc;
+    --brown: #b37a64;
+    --brown-hover: #9d6852;
+    --bodytext: #353535;
+    --icons: #6e6e6e;
+    --light-grey: #f5f5f7;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--bodytext);
+    line-height: 1.6;
+    background-color: var(--light-grey);
+}
+
+/* Recipe Content Container */
+#recipeContainer {
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* Recipe Image */
+#recipeImage {
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#title{
+    margin-bottom: 2rem;
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+}
+/* Recipe Title and Meta */
+#recipeTitle {
+    font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+}
+
+.recipe-date {
+    color: var(--grey);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Social Share Icons */
+.social-share {
+    display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--icons);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--brown);
+    color: var(--white);
+}
+
+/* Nutrition Info */
+.nutrition-info {
+    width: 100%;
+            margin-bottom: 2rem;
+}
+
+.nutrition-label {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--grey);
+    color: var(--bodytext);
+}
+
+.nutrition-value {
+    text-align: right;
+    font-weight: 500;
+    color: var(--brown);
+}
+
+/* Method Steps */
+.method-step {
+    /* margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 3rem;
+    background-color: var(--light-grey);
+    border-radius: 10px;
+    padding: 1.5rem 1.5rem 1.5rem 4rem; */
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 40px;
+}
+
+.step-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    background-color: var(--brown);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+/* Ingredients List */
+.ingredients-list {
+    list-style: none;
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--grey);
+}
+
+.ingredients-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--grey);
+}
+
+.ingredients-list li:last-child {
+    border-bottom: none;
+}
+
+.measure {
+    font-weight: 500;
+    min-width: 80px;
+    color: var(--brown);
+}
+
+.ingredient-name {
+    flex-grow: 1;
+    padding-left: 15px;
+}
+
+/* Section Headings */
+.section-heading {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--brown);
+}
+#recipe-tip {
+  
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-top: 2rem;
+    color: var(--blue);
+}
+
+.tip-title {
+    color: var(--grey);
+}
+
+/* Comments Section */
+#commentsContainer {
+    background-color: var(--light-grey);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.comment {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px var(--shadow);
+}
+
+.comment-author {
+    color: var(--brown);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.authorName{
+    color: var(--blue);
+}
+/* Similar Recipes */
+.similar-recipe {
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.similar-recipe:hover {
+    transform: translateY(-5px);
+}
+
+.similar-recipe img {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 10px var(--shadow);
+}
+
+.similar-recipe-title {
+    font-size: 16px;
+    color: var(--blue);
+    font-weight: 600;
+}
+
+/* Forms */
+.form-control {
+    border: 2px solid var(--grey);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--brown);
+    box-shadow: none;
+}
+
+/* Buttons */
+.btn-brown {
+    background-color: var(--brown);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-brown:hover {
+    background-color: var(--brown-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px var(--shadow);
+}
+
+/* Loading Spinner */
+#loadingSpinner .spinner-border {
+    color: var(--brown) !important;
+}
+
+/* Recipe Not Found */
+#recipeNotFound {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+/* Katie's Tip Box */
+.bg-light {
+    background-color: var(--light-grey) !important;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px var(--shadow);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #recipeContainer {
+        padding: 1rem;
+    }
+    
+    .nutrition-info {
+        margin-top: 1.5rem;
+    }
+    
+    .method-step {
+        padding: 1rem 1rem 1rem 3rem;
+    }
+    
+    .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+    .social-icon {
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #recipeTitle {
+        font-size: 24px;
+    }
+    
+    .nutrition-info {
+        padding: 1rem;
+    }
+    
+    .comment {
+        padding: 1rem;
+    }
+}
