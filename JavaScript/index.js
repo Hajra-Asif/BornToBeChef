@@ -328,11 +328,13 @@ document.getElementById('closeBtn').addEventListener('click', (e) => {
 });
 
 // Manage account button
-document.getElementById('manageAccountBtn').addEventListener('click', () => {
-    showStatus('Redirecting to dashboard...');
-    setTimeout(() => {
-        window.location.pathname = "../dashboard/dashboard.html";
-    }, 1000);
+document.getElementById('manageAccountBtn').addEventListener('click', (e) => {
+  e.preventDefault()
+    // showStatus('Redirecting to dashboard...');
+    // setTimeout(() => {
+    //     window.location.pathname = "../Dashboard/dashboard.html";
+    // }, 1000);
+    console.log("log-test")
 });
 
 // Add account button
