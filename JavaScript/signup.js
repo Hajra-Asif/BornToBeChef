@@ -40,6 +40,8 @@ const register = async (e) => {
             document.getElementById("profileTrigger").style.display = "block";
             document.getElementById("profileTrigger").innerHTML = user.email.slice(0,1).toUpperCase();
             document.getElementById("useraplha").innerHTML = user.email.slice(0,1).toUpperCase();
+            document.getElementById("userEmail").innerHTML = email;
+            document.getElementById("userName").innerHTML = `Hi, ${username}`;
             // console.log(photoURL , "photo url");
 
         }
@@ -76,8 +78,12 @@ let google = async () => {
         const useruid = user?.uid;
         const displayName = user?.displayName;
         const uid = credential?.idToken;
-        const displayname = credential?.displayName;
+        // const displayname = credential?.displayName;
         const photoURL = user?.photoURL;
+        
+        const email = user?.email;
+        console.log(email)
+        
 
         if (uid) {
             window.location.pathname = './index.html';
@@ -87,7 +93,8 @@ let google = async () => {
             document.getElementById("profileTrigger").style.display = "block";
             document.getElementById("username").innerHTML = displayName || "User";
             console.log(photoURL, "photo url");
-
+            document.getElementById("userEmail").innerHTML = email;
+            document.getElementById("userName").innerHTML = `Hi, ${displayName}`;
 
 
             document.body.style.overflow = "auto";
