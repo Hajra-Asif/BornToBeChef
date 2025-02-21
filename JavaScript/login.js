@@ -8,44 +8,53 @@ import {
   sendPasswordResetEmail,
 } from "./firebaseconfig.js";
 
+
+
+
+
 onAuthStateChanged(auth, (user) => {
-    if (user) {
+  console.log("Auth State Changed Triggered:", user);
+  if (user) {
       console.log("User is logged in:", user);
-      const uid = user.uid;
-    } else {
+  } else {
       console.log("User is logged out");
-    }
-  });
+  }
+});
 
 // signInWithEmailAndPassword
 
 const login = async (e) => {
   e.preventDefault();
+
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
 
   try {
-    let userCredintial = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    let user = userCredintial.user;
-    console.log("this is user", user);
+    let userCredential = await signInWithEmailAndPassword(auth, email, password);
+    let user = userCredential.user;
+    let useremail = user.email;
+    
+    console.log("User logged in successfully:", user);
+    
     if (user) {
-      document.getElementById("authentication")?.remove(); 
+      document.getElementById("authentication")?.remove();
       document.getElementById("loginmodal")?.remove();
-      document.getElementById("profile").style.display = "block"
-      // document.getElementById("username").innerHTML = username + " "+ lastName ;
-    } else {
-      console.log("Invalid email or password");
+      document.getElementById("profileTrigger").style.display = "block";
+      
+
+      document.getElementById("useraplha").innerHTML = useremail.slice(0,1).toUpperCase();
+      document.getElementById("profileTrigger").innerHTML = useremail.slice(0,1).toUpperCase();
+      
+
     }
   } catch (error) {
-    console.log(error);
+    console.error("Login failed:", error.code, error.message);
   }
 };
 
 document.getElementById("login")?.addEventListener("click", login);
+
+
 
 
 // profile image
@@ -72,37 +81,16 @@ window.addEventListener('click', function(e) {
 });
 
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-      console.log("User is logged in:", user);
-
-      document.getElementById("authentication")?.remove();
-      document.getElementById("signupmodal")?.remove();
-      document.getElementById("profile").style.display = "block";
-      document.getElementById("username").innerHTML = user.displayName || "User";
-
-      // Profile image set karein
-      const profileImg = document.getElementById("pfp");
-      if (user.photoURL) {
-          profileImg.src = user.photoURL;
-          profileImg.style.display = "block";
-      } else {
-          profileImg.style.display = "none";
-      }
-  } else {
-      console.log("User is logged out");
-      document.getElementById("profile").style.display = "none";
-  }
-});
 
 // logout
 
 let logout = () => {
   signOut(auth);
-  window.location.href = "../html/login.html";
+  window.location.href = "./index.html";
 };
 
-document.getElementById("logout")?.addEventListener("click", logout);
+document.getElementById("signout")?.addEventListener("click", logout);
+
 
 // forgot password
 

@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BornToBeChef</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- bootstrap -->
   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"> -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -32,6 +33,179 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
   <!-- custom css -->
   <link rel="stylesheet" href="./CSS/style.css">
   <!-- <link rel="stylesheet" href="./CSS/check.css"> -->
+  <style>
+    /* profile modal */
+
+    .profile-trigger {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.popup-container {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    cursor: pointer;
+    color: var(--icons);
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manage-account-btn {
+    background-color: transparent;
+    border: 1px solid var(--grey);
+    color: var(--blue);
+    border-radius: 20px;
+    padding: 8px 20px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--grey);
+    background: var(--white);
+    color: var(--bodytext);
+    text-align: center;
+    cursor: pointer;
+}
+
+.footer-links {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--icons);
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: var(--icons);
+    text-decoration: none;
+    margin: 0 10px;
+}
+    #status {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 8px;
+      display: none;
+    }
+
+    /* logout modal */
+
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 24px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .modal-text {
+      margin-bottom: 24px;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 8px 24px;
+      border-radius: 4px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-cancel {
+      background-color: #f1f1f1;
+      color: #333;
+    }
+
+    .btn-cancel:hover {
+      background-color: #e5e5e5;
+    }
+
+    .btn-signout {
+      background-color: var(--brown);
+      color: white;
+    }
+
+    .btn-signout:hover {
+      background-color: var(--blue);
+      color: white;
+
+    }
+  </style>
 
 </head>
 
@@ -58,67 +232,115 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
         <a href="#" class="signup1">Register</a>
       </div>
 
-      <div id="profile" class="d-flex text-light gap-2 justify-content-center align-items-center" style="display: none !important;">
+      <!-- <div id="profile" class="d-flex text-light gap-2 justify-content-center align-items-center" style="display: none !important;">
         <p id="username" class="mb-0">whatever</p>
         <img id="pfp" src="./Assets/user.jpg" alt="" style="width: 30px; height: 30px; border-radius: 50%;">
+      </div> -->
+      <button class="profile-trigger" id="profileTrigger">
+      </button>
+
+
+      <!-- popup container -->
+      <div class="popup-container" id="popupContainer">
+        <div class="popup-header">
+          <span >hajramasif@gmail.com</span>
+          <span class="close-btn" id="closeBtn">&times;</span>
+        </div>
+
+        <div class="profile-section">
+          <div class="profile-img" id="useraplha">
+           
+          </div>
+          <h5>Hi, Hajra!</h5>
+          <button href class="manage-account-btn" id="manageAccountBtn">
+            Manage your Food feista Account
+          </button>
+        </div>
+
+        <div class="action-buttons">
+      
+          <button class="action-btn"  onclick="showModal()">
+            Sign out
+          </button>
+        </div>
+
+        <div class="footer-links">
+          <a href="#" id="privacyLink">Privacy Policy</a>
+          •
+          <a href="#" id="termsLink">Terms of Service</a>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- logout modal -->
+
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="signOutModal">
+        <div class="modal-content">
+            <div class="modal-text">
+                Are you sure you want to sign out?
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-cancel" onclick="hideModal()">Cancel</button>
+                <button id="signout" class="btn btn-signout" onclick="handleSignOut()">Sign Out</button>
+            </div>
+        </div>
+    </div>
 
 
   <!-- Second Navigation -->
   <nav class="navbar navbar-expand-lg ">
     <div class="container-xxl">
-        <div class="logo">
-            <img src="./assets/foodfiesta.png" alt="logoimage">
+      <div class="logo">
+        <img src="./assets/foodfiesta.png" alt="logoimage">
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-5 mb-2 mb-lg-0 d-flex flex-grow-1 justify-content-end gap-2">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Ramzan</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Drinks</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Dish Type</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Desserts</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Breakfast</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Lunch / Dinner</a>
+          </li>
+
+        </ul>
+        <div class="box">
+          <div class="input-wrapper">
+            <button class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="25px" width="25px">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff"
+                  d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z">
+                </path>
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff" d="M22 22L20 20">
+                </path>
+              </svg>
+            </button>
+            <input placeholder="Aaj kya pakana hai?" class="input text-dark" name="text" type="text">
           </div>
-        <button  class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-5 mb-2 mb-lg-0 d-flex flex-grow-1 justify-content-end gap-2">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Ramzan</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Drinks</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Dish Type</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Desserts</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Breakfast</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Lunch / Dinner</a>
-                </li>
-
-            </ul>
-            <div class="box">
-                <div class="input-wrapper">
-                  <button class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="25px" width="25px">
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff"
-                        d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z">
-                      </path>
-                      <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff"
-                        d="M22 22L20 20">
-                      </path>
-                    </svg>
-                  </button>
-                  <input placeholder="Aaj kya pakana hai?" class="input text-dark" name="text" type="text">
-                </div>
-              </div>    
         </div>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -460,6 +682,54 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
     </div>
   </div>
 
+  <!-- profile modal -->
+
+  <!-- Navbar with Profile -->
+
+
+
+
+
+  <!-- Popup Container -->
+  <div class="popup-container" id="popupContainer">
+    <div class="popup-header">
+      <span>hajramasif@gmail.com</span>
+      <span class="close-btn" id="closeBtn">&times;</span>
+    </div>
+
+    <div class="profile-section">
+      <div class="profile-img">
+        H
+      </div>
+      <h5>Hi, Hajra!</h5>
+      <button class="manage-account-btn" id="manageAccountBtn">
+        Manage your Google Account
+      </button>
+    </div>
+
+    <div class="action-buttons">
+      <button class="action-btn" id="addAccountBtn">
+        Add account
+      </button>
+      <button class="action-btn" id="signOutBtn">
+        Sign out
+      </button>
+    </div>
+
+    <div class="footer-links">
+      <a href="#" id="privacyLink">Privacy Policy</a>
+      •
+      <a href="#" id="termsLink">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- Status Message -->
+  <div id="status"></div>
+
+
+
+
+
 
 
   <!-- Signup Modal -->
@@ -537,7 +807,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
           </div>
           <a href="#" class="forgot">Forgot Password?</a>
         </div>
-        <button type="submit" class="login-btn">Login</button>
+        <button type="submit" id="login"  class="login-btn">Login</button>
       </form>
       <div class="signup">
         Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
@@ -598,11 +868,11 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
             <li><i class="fa-solid fa-angles-right"></i> <a href="./index.html">Home</a></li>
             <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/about.html">About Us</a></li>
             <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/contact.html">Contact Us</a></li>
-          
+
           </ul>
 
         </div>
-        </div>
+      </div>
       </div>
     </footer>
     <!-- Copyright & Privacy Section -->
@@ -614,13 +884,16 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
   </footer>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
-  <script type="module" src="./firebase/firebaseconfig.js"></script>
-<script type="module" src="./JavaScript/signup.js"></script>
-<script type="module" src="./JavaScript/login.js"></script>
+  <!-- <script type="module" src="./firebase/firebaseconfig.js"></script> -->
+  <script type="module" src="./JavaScript/signup.js"></script>
+  <script type="module" src="./JavaScript/login.js"></script>
+  <!-- <script src="./Dashboard/dashboard.js"></script> -->
   <script src="./JavaScript/index.js"></script>
 
 </body>
 
-</html> 
+</html>

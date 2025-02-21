@@ -292,8 +292,100 @@ header {
 
 
 
+/* profile modal */
 
 
+.profile-trigger {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.popup-container {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    cursor: pointer;
+    color: var(--icons);
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manage-account-btn {
+    background-color: transparent;
+    border: 1px solid var(--grey);
+    color: var(--blue);
+    border-radius: 20px;
+    padding: 8px 20px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--grey);
+    background: var(--white);
+    color: var(--bodytext);
+    text-align: center;
+    cursor: pointer;
+}
+
+.footer-links {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--icons);
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: var(--icons);
+    text-decoration: none;
+    margin: 0 10px;
+}
 
 
 

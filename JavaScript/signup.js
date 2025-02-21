@@ -37,8 +37,9 @@ const register = async (e) => {
 
             document.getElementById("authentication")?.remove();
             document.getElementById("signupmodal")?.remove();
-            document.getElementById("profile").style.display = "block"
-            document.getElementById("username").innerHTML = displayName;
+            document.getElementById("profileTrigger").style.display = "block";
+            document.getElementById("profileTrigger").innerHTML = user.email.slice(0,1).toUpperCase();
+            document.getElementById("useraplha").innerHTML = user.email.slice(0,1).toUpperCase();
             // console.log(photoURL , "photo url");
 
         }
@@ -83,7 +84,7 @@ let google = async () => {
 
             document.getElementById("authentication")?.remove();
             document.getElementById("signupmodal")?.remove();
-            document.getElementById("profile").style.display = "block"
+            document.getElementById("profileTrigger").style.display = "block";
             document.getElementById("username").innerHTML = displayName || "User";
             console.log(photoURL, "photo url");
 
@@ -120,8 +121,8 @@ onAuthStateChanged(auth, (user) => {
 
         document.getElementById("authentication")?.remove();
         document.getElementById("signupmodal")?.remove();
-        document.getElementById("profile").style.display = "block";
-        document.getElementById("username").innerHTML = user.displayName || "User";
+        document.getElementById("profileTrigger").style.display = "block";
+        // document.getElementById("username").innerHTML = user.displayName || "User";
 
         // Profile image set karein
         const profileImg = document.getElementById("pfp");
@@ -129,11 +130,11 @@ onAuthStateChanged(auth, (user) => {
             profileImg.src = user.photoURL;
             profileImg.style.display = "block";
         } else {
-            profileImg.style.display = "none";
+            // profileImg.style.display = "none";
         }
     } else {
         console.log("User is logged out");
-        document.getElementById("profile").style.display = "none";
+        document.getElementById("profileTrigger").style.display = "none";
     }
 });
 

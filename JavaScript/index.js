@@ -295,3 +295,107 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+
+
+
+// profile modal
+
+  // Helper function to show status messages
+  function showStatus(message) {
+    const status = document.getElementById('status');
+    status.textContent = message;
+    status.style.display = 'block';
+    setTimeout(() => {
+        status.style.display = 'none';
+    }, 2000);
+}
+
+// Toggle popup
+document.getElementById('profileTrigger').addEventListener('click', (e) => {
+    e.stopPropagation();
+    const popup = document.getElementById('popupContainer');
+    popup.classList.toggle('show');
+    if (popup.classList.contains('show')) {
+        // showStatus('Popup opened');
+    }
+});
+
+// Close popup
+document.getElementById('closeBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('popupContainer').classList.remove('show');
+    // showStatus('Popup closed');
+});
+
+// Manage account button
+document.getElementById('manageAccountBtn').addEventListener('click', () => {
+    showStatus('Redirecting to dashboard...');
+    setTimeout(() => {
+        window.location.pathname = "../dashboard/dashboard.html";
+    }, 1000);
+});
+
+// Add account button
+document.getElementById('addAccountBtn').addEventListener('click', () => {
+    showStatus('Add account clicked');
+});
+
+// Sign out button
+// document.getElementById('signOutBtn').addEventListener('click', () => {
+//     showStatus('Sign out clicked');
+// });
+
+// Privacy and Terms links
+document.getElementById('privacyLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    showStatus('Privacy Policy clicked');
+});
+
+document.getElementById('termsLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    showStatus('Terms of Service clicked');
+});
+
+// Close popup when clicking outside
+document.addEventListener('click', (e) => {
+    const popup = document.getElementById('popupContainer');
+    const trigger = document.getElementById('profileTrigger');
+    
+    if (!popup.contains(e.target) && !trigger.contains(e.target)) {
+        popup.classList.remove('show');
+    }
+});
+
+
+// logout modal
+
+const modal = document.getElementById('signOutModal');
+
+function showModal() {
+    modal.style.display = 'flex';
+}
+
+function hideModal() {
+    modal.style.display = 'none';
+}
+
+function handleSignOut() {
+    // Add your sign out logic here
+    console.log('Signing out...');
+    hideModal();
+    // Redirect or perform other actions after sign out
+}
+
+// Close modal when clicking outside
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        hideModal();
+    }
+});
+
+// Close modal on escape key press
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        hideModal();
+    }
+});
