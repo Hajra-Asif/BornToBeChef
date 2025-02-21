@@ -11,7 +11,8 @@ import {
   sendPasswordResetEmail,
   updatePassword,
   reauthenticateWithCredential,
-  EmailAuthProvider
+  EmailAuthProvider,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
 // firestore database
@@ -51,5 +52,5 @@ export {
   db,
   doc,
   setDoc,
-  collection, addDoc
+  collection, addDoc, updateProfile
 };

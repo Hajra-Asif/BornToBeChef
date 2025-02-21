@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
+  updateProfile
 } from "./firebaseconfig.js";
 
 
@@ -33,6 +34,9 @@ const login = async (e) => {
     let userCredential = await signInWithEmailAndPassword(auth, email, password);
     let user = userCredential.user;
     let useremail = user.email;
+    // let userNamee = user.displayName || "user"
+    let userNamee = user.displayName || useremail.split("@")[0]; 
+
     
     console.log("User logged in successfully:", user);
     
@@ -44,7 +48,8 @@ const login = async (e) => {
 
       document.getElementById("useraplha").innerHTML = useremail.slice(0,1).toUpperCase();
       document.getElementById("profileTrigger").innerHTML = useremail.slice(0,1).toUpperCase();
-      
+      document.getElementById("userEmail").innerHTML = useremail;
+      document.getElementById("userName").innerHTML = `Hi, ${userNamee}`;
 
     }
   } catch (error) {
@@ -53,8 +58,6 @@ const login = async (e) => {
 };
 
 document.getElementById("login")?.addEventListener("click", login);
-
-
 
 
 // profile image

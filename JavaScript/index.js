@@ -328,12 +328,34 @@ document.getElementById('closeBtn').addEventListener('click', (e) => {
 });
 
 // Manage account button
-document.getElementById('manageAccountBtn').addEventListener('click', () => {
-    showStatus('Redirecting to dashboard...');
-    setTimeout(() => {
-        window.location.pathname = "../dashboard/dashboard.html";
-    }, 1000);
+// document.getElementById('manageAccountBtn').addEventListener('click', () => {
+//     showStatus('Redirecting to dashboard...');
+//     setTimeout(() => {
+//         // window.location.pathname = "../Dashboard/dashboard.html";
+        
+//         // window.location.replace("./Dashboard/dashboard.html")
+//         // window.location.href = "../Dashboard/dashboard.html";
+// window.location.href = "../html/about.html"
+
+
+//     }, 1000);
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('manageAccountBtn').addEventListener('click', () => {
+        showStatus('Redirecting to dashboard...');
+      
+            window.location.href = "Dashboard/dashboard.html";
+       
+    });
 });
+
+
+
+
+
+
+
 
 // Add account button
 document.getElementById('addAccountBtn').addEventListener('click', () => {
