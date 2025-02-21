@@ -1,185 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+DK+Loopet:wght@100..400&display=swap" rel="stylesheet">
-   
-    <title>Contact us</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <title>Contact Us</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/contact.css">
 </head>
-<body style="background-color: #f5f5f5;">
-    <!-- ///// -->
+
+<body>
+     
+
+
     <div class="hero">
-    <div class="bannerimage"
-    >
-        <img src="../assets/banner2.jpg" class="banner">
-    
-    </div>
-        <h1 class="heading">Contact us</h1>
-      <a  href="#" class="link">Home / <span> Contact</span></a>
-    </div>
-        <!-- //// -->
-        <div class="contact-container">
-            <div class="row contact-card">
-                <div class="col-md-6 contact-info">
-                    <h2 class="mb-4" >Contact Us</h2>
-                    <p>This is your gateway to connect with us directly. Whether you have inquiries, feedback, or simply want to say hello.</p>
-    
-                    <div class="info-item" style="margin-top: 50px;">
-                        <i class="fas fa-phone" ></i>
-                        <div>
-                            <h6 class="mb-0">Phone</h6>
-                            <p class="mb-0">470-601-1911</p>
-                        </div>
-                    </div>
-    
-                    <div class="info-item" style="margin-top: 50px;">
-                        <i class="far fa-envelope"></i>
-                        <div>
-                            <h6 class="mb-0">Email</h6>
-                            <p class="mb-0">pagedone123@gmail.com</p>
-                        </div>
-                    </div>
-    
-                    <div class="footer-icons" style="margin-top: 50px;">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-    
-                <div class="col-md-6 p-5">
-                    <h3 class="mb-4">Send us a message</h3>
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name *" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email *" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" id="phone" placeholder="Your Phone *" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message *" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <span class="button-text">Send Message</span>
-                            <div class="loading-spinner spinner-border spinner-border-sm" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                        </button>
-                        <div class="success-message mt-3">
-                            Thank you! Your message has been sent successfully.
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="bannerimage">        <h1 class="heading">Contact us</h1>
+        <a href="#" class="text">Home / <span>  Contact</span></a>
+            <img src="https://www.ncoa.org/_next/image/?url=https%3A%2F%2Fassets-us-01.kc-usercontent.com%3A443%2Fffacfe7d-10b6-0083-2632-604077fd4eca%2Fdcac0e47-2657-49c5-ae8f-ba2a2bc1c399%2FWhat-is-Nutrition-Counseling-iStock-1416417320-2023-2-Hero-1336x614.jpg&w=3840&q=75" class="banner">
+
         </div>
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-        <script>
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const button = document.querySelector('.submit-btn');
-                const buttonText = document.querySelector('.button-text');
-                const spinner = document.querySelector('.loading-spinner');
-                const successMessage = document.querySelector('.success-message');
-                
-                // Show loading state
-                buttonText.style.display = 'none';
-                spinner.style.display = 'inline-block';
-                button.disabled = true;
-                
-                // Simulate form submission
-                setTimeout(() => {
-                    // Hide loading state
-                    buttonText.style.display = 'inline';
-                    spinner.style.display = 'none';
-                    button.disabled = false;
-                    
-                    // Show success message
-                    successMessage.style.display = 'block';
-                    
-                    // Reset form
-                    document.getElementById('contactForm').reset();
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 5000);
-                }, 2000);
-            });
-        </script>
+
+    </div>
+
+<div class="main">
+    <div class="container">
+        <div class="left-section">
+            <h1>Contact Us</h1>
+            <p class="subtitle">This is your gateway to connect with us directly. Whether you have inquiries, feedback,
+                or simply want to say hello.</p>
+
+            <a href="https://www.linkedin.com/in/yourprofile" class="contact-item" target="_blank">
+                <div class="icon-box">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>LinkedIn</h3>
+                    <p>Your LinkedIn Profile</p>
+                </div>
+
+                <a href="tel:4706011911" class="contact-item">
+                    <div class="icon-box">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Contact</h3>
+                        <p>470-601-1911</p>
+                    </div>
+                </a>
+
+                <a href="mailto:pagedone1234@gmail.com" class="contact-item">
+                    <div class="icon-box">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>pagedone1234@gmail.com</p>
+                    </div>
+                </a>
+        </div>
+
+        <div class="right-section">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label>Your Name <span class="required">*</span></label>
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input type="tel" name="phone" placeholder="Phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Description <span class="required">*</span></label>
+                    <textarea name="message" placeholder="Message" required></textarea>
+                </div>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <footer>
         <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="./assets/images/btbc-logo.png" alt="Born To Be Chef Logo">
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../Assets/foodfiesta-white.png" alt="Born To Be Chef Logo">
+                    </div>
+                    <p class="footer-text">Born To Be Chef is all about redefining ‘Cooking’ for you! It’s the solution
+                        to
+                        that never ending problem of preparing high quality delicious food and curtailing the eating out
+                        habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for
+                        a
+                        flavorsome treat with our recipes that will surely make you the next talk of the town!
+                    </p>
                 </div>
-                <p class="footer-text">Born To Be Chef is all about redefining 'Cooking' for you! It's the solution to
-                    that never ending problem of preparing high quality delicious food and curtailing the eating out
-                    habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for a
-                    flavorsome treat with our recipes that will surely make you the next talk of the town!
-                </p>
-            </div>
-            <!-- Latest Recipes -->
-            <div class="footer-section">
-                <h3 class="footer-heading">Latest Recipes</h3>
-                <ul class="footer-list">
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Biryani</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Mexican Sandwich</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Karhai</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Cheese Pasta</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">DryFruit Shake</a></li>
-                </ul>
-            </div>
-            <!-- Our Categories -->
-            <div class="footer-section">
-                <h3 class="footer-heading">Our Categories</h3>
-                <ul class="footer-list">
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desi</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Italian</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chinese</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desserts</a></li>
-                    <li><i class="fa-solid fa-angles-right"></i> <a href="#">Drinks</a></li>
-                </ul>
-            </div>
-            <!-- Contact Us -->
-            <div class="footer-section">
-                <h3 class="footer-heading">Contact Us</h3>
-                <div class="footer-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                <!-- Latest Recipes -->
+                <div class="footer-section">
+                    <h3 class="footer-heading">Latest Recipes</h3>
+                    <ul class="footer-list">
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Biryani</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Mexican Sandwich</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Karhai</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Cheese Pasta</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">DryFruit Shake</a></li>
+                    </ul>
+                </div>
+                <!-- Our Categories -->
+                <div class="footer-section">
+
+                    <h3 class="footer-heading">Our Categories</h3>
+                    <ul class="footer-list">
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desi</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Italian</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chinese</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desserts</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Drinks</a></li>
+                    </ul>
+
+                </div>
+
+                <!--Navigation -->
+                <div class="footer-section">
+
+                    <h3 class="footer-heading">Navigation</h3>
+                    <ul class="footer-list">
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Home</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">About Us</a></li>
+                        <li><i class="fa-solid fa-angles-right"></i> <a href="#">Contact Us</a></li>
+
+                    </ul>
+
                 </div>
             </div>
+            </div>
+        </footer>
+        <!-- Copyright & Privacy Section -->
+        <div class="footer-bottom">
+            <p>© Copyright 2025 All rights of publications are reserved by <span>Born To Be Chef</span>.
+                Reproduction without consent is not allowed.</p>
+            <a href="#">Privacy Policy</a>
         </div>
-      </footer>
-      <!-- Copyright & Privacy Section -->
-      <div class="footer-bottom">
-        <p>© Copyright 2025 All rights of publications are reserved by <span>Born To Be Chef</span>.
-            Reproduction without consent is not allowed.</p>
-        <a href="#">Privacy Policy</a>
-      </div> 
-      
-      
-      
-      
-      
-      
-      
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Form submitted successfully!');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
