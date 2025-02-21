@@ -44,52 +44,48 @@
             <main class="content">
                 <header>
                     <h2>Dashboard Settings</h2>
-                    <div class="user-info">
-                        <span id="profilename"></span>
-                        <img src="./assets/HA.jpg" alt="User">
-                    </div>
+                    <button class="profile-trigger" id="profileTrigger">
+                    </button>
                 </header>
             </main>
-            <!-- Most Favorites Items -->
             <div class="row">
                 <div class="col-12" id="recipe-div">
                     <div class="container">
-                    <form>
-                        <div class="section-title">Manage your profile and preferences</div>
-                        <div class="mb-3">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" class="form-control" placeholder="Enter your name" >
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="example@example.com" >
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Upload a Photo </label>
-                            <label class="custom-file-upload">
-                                <input type="file" accept="image/png, image/jpeg">
-                                Click to upload or drag and drop file here
-                            </label>
-                        </div>
-                        
+                    
+                    <form id="profileForm">
                         <div class="section-title">Security</div>
+                    
+                     
                         <div class="mb-3">
-                            <label class="form-label">Current Password</label>
-                            <input type="password" class="form-control" placeholder="Enter current password">
+                            <label class="form-label" for="currentPassword">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                            <small class="error-message"></small>
                         </div>
+                    
+                
                         <div class="mb-3">
-                            <label class="form-label">New Password</label>
-                            <input type="password" class="form-control" placeholder="Enter new password">
+                            <label class="form-label" for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" class="form-control" placeholder="Enter new password">
+                            <small class="error-message"></small>
                         </div>
+                    
+                  
                         <div class="mb-3">
-                            <label class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" placeholder="Confirm password">
+                            <label class="form-label" for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
+                            <small class="error-message"></small>
                         </div>
-                        
-                        
-                        
-                        <button type="submit" class="btn-view">Save Changes</button>
+                    
+                     
+                        <button type="button" id="save" class="btn-view">Save Changes</button>
                     </form>
+                    
+                    <div id="successModal" class="modal">
+                        <div class="modal-content">
+                            <p>Password Updated Successfully!</p>
+                        </div>
+                    </div>
+                    
                 </div>
                 </div>
 
@@ -108,6 +104,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     
+    <script type="module" src="../JavaScript/login.js"></script>
+    <script type="module" src="../JavaScript/setting.js"></script>
 
-    <script src="./index.js"></script>
+    <script src="./dashboard.js"></script>
 </body>

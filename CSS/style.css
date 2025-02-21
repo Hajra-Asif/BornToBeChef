@@ -1297,7 +1297,7 @@ input:hover {
 }
 
 .signup-link a {
-    color: #b37a64;
+    color: var(--brown);
     text-decoration: none;
 }
 
@@ -1319,7 +1319,21 @@ input:hover {
     color: var(--icons);
     font-size: 14px;
 }
+.error-message {
+    color: crimson;
+    font-size: 12px;
+    margin-top: 5px;
+}
 
+.error-box {
+    display: none;
+    background: crimson;
+    color: var(--white);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
 /* Simple responsive adjustments */
 @media screen and (min-width: 768px) {
     .signup-container {

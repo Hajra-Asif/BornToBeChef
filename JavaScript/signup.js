@@ -10,57 +10,68 @@ import {
 } from "./firebaseconfig.js"
 
 
+
 const register = async (e) => {
+    console.log("mai chal raha hoon");
+
     e.preventDefault();
-    const username = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+
+    const username = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
     const displayName = username + " " + lastName;
 
+    
+    document.getElementById("password").style.border = "";
+    document.getElementById("email").style.border = "";
+    document.getElementById("passwordError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+
+  
+    if (!username || !lastName || !email || !password) {
+        alert("All fields are required.");
+        return;
+    }
+   
+
     try {
-
-        let userCredential = await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password)
-
+        let userCredential = await createUserWithEmailAndPassword(auth, email, password);
         let user = userCredential.user;
 
-        // await setDoc(doc(db, "Users", user.uid), {
-        //     name: username,
-        //     age,
-        //     gender,
-        //   });
-
-        if (userCredential?.user) {
-
+        if (user) {
+          
             document.getElementById("authentication")?.remove();
             document.getElementById("signupmodal")?.remove();
             document.getElementById("profileTrigger").style.display = "block";
-            document.getElementById("profileTrigger").innerHTML = user.email.slice(0,1).toUpperCase();
-            document.getElementById("useraplha").innerHTML = user.email.slice(0,1).toUpperCase();
+            document.getElementById("profileTrigger").innerHTML = user.email.slice(0, 1).toUpperCase();
+            document.getElementById("useraplha").innerHTML = user.email.slice(0, 1).toUpperCase();
             document.getElementById("userEmail").innerHTML = email;
             document.getElementById("userName").innerHTML = `Hi, ${username}`;
-            // console.log(photoURL , "photo url");
-
+        } else {
+            alert("Invalid email or password.");
         }
-        else {
-            alert("invalid email or passsword")
-        }
-        console.log(user);
-
-
-
-    }
-
-
-    catch (error) {
+    } catch (error) {
         console.log(error);
 
+        if (error.code === "auth/email-already-in-use") {
+            document.getElementById("email").style.border = "2px solid crimson";
+            document.getElementById("emailError").innerText = "This email is already in use.";
+        } else if (error.code === "auth/invalid-email") {
+            document.getElementById("email").style.border = "2px solid crimson";
+            document.getElementById("emailError").innerText = "Invalid email format.";
+        } else {
+            document.getElementById("password").style.border = "2px solid crimson";
+            document.getElementById("passwordError").innerText =
+                "Password must be 8+ chars, with uppercase, lowercase, number & special character.";
+           
+        }
     }
-}
+};
+
+
 document.getElementById("signup")?.addEventListener("click", register);
+
 
 // googleauthprovider
 
@@ -80,10 +91,10 @@ let google = async () => {
         const uid = credential?.idToken;
         // const displayname = credential?.displayName;
         const photoURL = user?.photoURL;
-        
+
         const email = user?.email;
         console.log(email)
-        
+
 
         if (uid) {
             window.location.pathname = './index.html';
@@ -104,9 +115,9 @@ let google = async () => {
         const profileImg = document.getElementById("pfp");
         if (photoURL) {
             profileImg.src = photoURL;
-            profileImg.style.display = "block"; // Show the image if hidden
+            profileImg.style.display = "block"; // 
         } else {
-            profileImg.style.display = "none"; // Hide if no image available
+            profileImg.style.display = "none"; //
         }
     } catch (error) {
         console.error("Error during sign-in:", error);
@@ -121,7 +132,7 @@ document.getElementById("google-signup")?.addEventListener("click", google);
 
 
 
-// Jab page reload ho ya load ho toh ye function run hoga
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("User is logged in:", user);
@@ -129,9 +140,9 @@ onAuthStateChanged(auth, (user) => {
         document.getElementById("authentication")?.remove();
         document.getElementById("signupmodal")?.remove();
         document.getElementById("profileTrigger").style.display = "block";
-        // document.getElementById("username").innerHTML = user.displayName || "User";
+        
 
-        // Profile image set karein
+       
         const profileImg = document.getElementById("pfp");
         if (user.photoURL) {
             profileImg.src = user.photoURL;
@@ -145,4 +156,3 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// document.getElementById("login")?.addEventListener("click", login);
