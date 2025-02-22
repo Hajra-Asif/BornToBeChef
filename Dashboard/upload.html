@@ -13,9 +13,68 @@
     <link rel="stylesheet" href="upload.css">
     <link rel="stylesheet" href="style.css">
     <style>
+        .edit-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
 
+        .popup-content {
+            position: relative;
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn-save {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-save:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
+
 <body>
     <button class="sidebar-toggle">
         <i class="fas fa-bars"></i>
@@ -35,7 +94,7 @@
                     <a class="nav-link" href="./settings.html"><i class="fas fa-users me-2"></i>Settings</a>
                     <a class="nav-link" id="logout" href="#"><i class="fas fa-users me-2"></i>Logout </a>
                 </nav>
-               
+
             </div>
         </aside>
 
@@ -47,59 +106,104 @@
                     </button>
                 </header>
             </main>
-            <!-- Most Favorites Items -->
+
             <div class="row">
                 <div class="col-12" id="recipe-div">
                     <div class="container">
-                    <form>
-                       
-                        <div class="mb-3">
-                            <label class="form-label">Recipe Name *</label>
-                            <input type="text" class="form-control" placeholder="Delicious Pasta" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Ingredients *</label>
-                            <textarea class="form-control" rows="3" placeholder="List all ingredients" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Serving Size (Optional)</label>
-                            <input type="number" class="form-control" placeholder="e.g. 4 servings" >
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Preparation Time (Optional)</label>
-                            <input type="text" class="form-control" placeholder="e.g. 30 minutes" >
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Recipe Instructions *</label>
-                            <textarea class="form-control" rows="4" placeholder="Step-by-step instructions" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Upload a Photo </label>
-                            <label class="custom-file-upload">
-                                <input type="file" accept="image/png, image/jpeg" required>
-                                Click to upload or drag and drop file here
-                            </label>
-                        </div>
-                        <button type="submit" class="btn-view">Submit</button>
-                    </form>
+                        <form id="recipe-form">
+
+                            <div class="mb-3">
+                                <label class="form-label" for="recipe-name">Recipe Name *</label>
+                                <input type="text" class="form-control" id="recipe-name" placeholder="Delicious Pasta"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="ingredients">Ingredients *</label>
+                                <textarea class="form-control" id="ingredients" rows="3"
+                                    placeholder="List all ingredients" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="serving-size required">Serving Size </label>
+                                <input type="number" class="form-control" id="serving-size"
+                                    placeholder="e.g. 4 servings">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="prep-time" required>Preparation Time </label>
+                                <input type="text" class="form-control" id="prep-time" placeholder="e.g. 30 minutes">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="instructions">Recipe Instructions *</label>
+                                <textarea class="form-control" rows="4" id="instructions"
+                                    placeholder="Step-by-step instructions" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload a Photo</label>
+                                <label class="custom-file-upload">
+                                    <input type="file" accept="image/png, image/jpeg" id="imageInput">
+                                    Click to upload or drag and drop file here
+                                </label>
+                                <button class="btn btn-primary mt-2" type="button" id="uploadBtn">Upload</button>
+                            </div>
+
+                            <button type="submit" class="btn-view">Submit</button>
+                        </form>
+                    </div>
                 </div>
+                <!-- Add this HTML for the popup form -->
+                <div class="edit-popup" id="editPopup">
+                    <div class="popup-content">
+                        <span class="close-btn">&times;</span>
+                        <h2>Edit Recipe</h2>
+                        <form id="editRecipeForm">
+                            <input type="hidden" id="recipeId">
+                            <div class="form-group">
+                                <label for="recipeName">Recipe Name</label>
+                                <input type="text" id="recipeName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prepTime">Preparation Time</label>
+                                <input type="text" id="prepTime" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="servingSize">Serving Size</label>
+                                <input type="text" id="servingSize" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="level">Level</label>
+                                <select id="level" class="form-control">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageUrl">Image URL</label>
+                                <input type="url" id="imageUrl" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn-save">Save Changes</button>
+                        </form>
+                    </div>
                 </div>
 
-                
 
             </div>
 
 
-           
-            </div>
-        </main>
+
+
+
+    </div>
+    </main>
     </div>
 
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script type="module" src="../JavaScript/login.js"></script>
-    <script src="./dashboard.js"></script>
+    <script type="module" src="./upload.js"></script>
+    <!-- <script src="./dashboard.js"></script> -->
 </body>

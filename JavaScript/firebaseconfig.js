@@ -13,6 +13,7 @@ import {
   reauthenticateWithCredential,
   EmailAuthProvider,
   updateProfile,
+  
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
 
@@ -23,8 +24,14 @@ import {
   getFirestore,
   updateDoc,
   doc,
-  setDoc,
-  collection, addDoc
+  addDoc,
+  collection, query, where, onSnapshot,
+  getDocs,
+  serverTimestamp,
+  orderBy,
+  limit,
+  getDoc
+  
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -54,7 +61,12 @@ export {
   EmailAuthProvider,
   db,
   doc,
-  setDoc,
   collection, addDoc, updateProfile,
   updateDoc,
+  query, where, onSnapshot,
+  serverTimestamp,
+  getDocs,
+  orderBy,
+  limit,
+  getDoc
 };
