@@ -160,128 +160,155 @@ displayCardss();
 
 
  // Add the comments functionality
- let comments = JSON.parse(localStorage.getItem('recipeComments')) || [
+// comment section
+
+let comments = JSON.parse(localStorage.getItem('recipeComments')) || [
     {
         id: 1,
         author: 'John Doe',
         content: 'This recipe looks amazing!',
         timestamp: '2 hours ago',
-        rating: 5 // Add the rating for this comment (for example, 5 stars)
+        rating: 5 // Default rating for a comment
     },
     {
         id: 2,
         author: 'Jane Smith',
         content: 'I tried this recipe yesterday, it was delicious!',
         timestamp: '1 hour ago',
-        rating: 4 // Add the rating for this comment (for example, 4 stars)
+        rating: 4 // Default rating for a comment
     }
 ];
+
 function saveComments() {
     localStorage.setItem('recipeComments', JSON.stringify(comments));
 }
-        let selectedRating = 0; // Default value is 0 (no rating)
 
-function rateComment(rating) {
-    selectedRating = rating; // Store the selected rating
-    updateRatingDisplay(rating); // Update display of stars to reflect selected rating
+let selectedRating = 0; // Default value for the selected rating
+
+// Dynamically update the stars for rating
+const stars = document.querySelectorAll(".star");
+const nameInput = document.getElementById("name-input");
+const reviewText = document.getElementById("comment-input");
+const submitBtn = document.getElementById("post");
+const reviewsContainer = document.getElementById("comments-container");
+
+stars.forEach((star) => {
+    star.addEventListener("click", () => {
+        const value = parseInt(star.getAttribute("data-value"));
+        selectedRating = value; // Store the selected rating
+
+        // Remove existing star classes
+        stars.forEach((s) => s.classList.remove("one", "two", "three", "four", "five"));
+        
+        // Add appropriate class to each star based on the selected rating
+        stars.forEach((s, index) => {
+            if (index < value) {
+                s.classList.add(getStarColorClass(value));
+            }
+        });
+
+        // Mark the selected star
+        stars.forEach((s) => s.classList.remove("selected"));
+        star.classList.add("selected");
+    });
+});
+
+// Helper function to get class for rating color
+function getStarColorClass(value) {
+    switch (value) {
+        case 1: return "one";
+        case 2: return "two";
+        case 3: return "three";
+        case 4: return "four";
+        case 5: return "five";
+        default: return "";
+    }
 }
-        // Function to create comment HTML
-        function createCommentHTML(comment, isNew = false) {
-            const initial = comment.author.charAt(0).toUpperCase();
-            return `
-                <div class="card mb-3 comment-card ${isNew ? 'new-comment' : ''}" data-id="${comment.id}">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <div class="avatar me-3">${initial}</div>
-                            <div class="flex-grow-1">
-                                <div class="d-flex align-items-center mb-1">
-                                    <strong class="me-2">${comment.author}</strong>
-                                    <small class="text-muted">• ${comment.timestamp}</small>
-                                </div>
-                                <p class="mb-0">${comment.content}</p>
-                                <div class="stars">
-                            ${getStarIcons(comment.rating, comment.id)}
+
+// Handle comment submission
+submitBtn.addEventListener("click", () => {
+    const review = reviewText.value.trim();
+    if (!selectedRating || !review || !nameInput.value.trim()) {
+        alert("Please select a rating and provide a review before submitting.");
+        return;
+    }
+
+    const newComment = {
+        id: Date.now(),
+        author: nameInput.value,
+        content: review,
+        timestamp: 'Just now',
+        rating: selectedRating
+    };
+
+    comments.push(newComment);
+    saveComments();
+    renderComments(); // Update the comment display
+
+    reviewText.value = ''; // Clear the comment input
+    stars.forEach((s) => s.classList.remove("one", "two", "three", "four", "five", "selected"));
+});
+
+// Function to render the comments
+function renderComments() {
+    const container = document.getElementById('comments-container');
+    container.innerHTML = comments.map(comment => createCommentHTML(comment)).join('');
+    document.getElementById('comment-count').textContent = comments.length;
+}
+
+// Function to create HTML for each comment
+function createCommentHTML(comment) {
+    const initial = comment.author.charAt(0).toUpperCase();
+    return `
+        <div class="card mb-3 comment-card" data-id="${comment.id}">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="avatar me-3">${initial}</div>
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center mb-1">
+                            <strong class="me-2">${comment.author}</strong>
+                            <small class="text-muted">• ${comment.timestamp}</small>
                         </div>
-                            </div>
+                        <p class="mb-0">${comment.content}</p>
+                        <div class="stars">
+                            ${getStarIcons(comment.rating, comment.id)}
                         </div>
                     </div>
                 </div>
-            `;
-        }
-        function getStarIcons(rating, commentId) {
+            </div>
+        </div>
+    `;
+}
+
+// Function to generate star icons for each comment
+function getStarIcons(rating, commentId) {
     let starsHtml = '';
     for (let i = 1; i <= 5; i++) {
         starsHtml += `
             <span 
                 class="star ${i <= rating ? 'filled' : ''}" 
-                onclick="gfg(event, ${i}, ${commentId})">
+                data-id="${commentId}" data-rating="${i}" onclick="rateComment(${i}, ${commentId})">
                 ★
-            </span>`;
+            </span>
+        `;
     }
     return starsHtml;
 }
 
-        // Function to render comments
-        function renderComments() {
-            const container = document.getElementById('comments-container');
-            container.innerHTML = comments.map(comment => createCommentHTML(comment)).join('');
-            document.getElementById('comment-count').textContent = comments.length;
-            const stars = container.querySelectorAll('.star');
-    stars.forEach(star => {
-        star.addEventListener('click', (event) => {
-            const commentId = event.target.closest('.comment-card').dataset.id;
-            const rating = [...event.target.parentElement.children].indexOf(event.target) + 1;
-            gfg(event, rating, commentId);
-        });
-    });
-        }
-
-        // Handle comment form submission
-        document.getElementById('comment-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nameInput = document.getElementById('name-input');
-            const commentInput = document.getElementById('comment-input');
-            
-            const newComment = {
-                id: Date.now(),
-                author: nameInput.value,
-                content: commentInput.value,
-                timestamp: 'Just now',
-                rating: selectedRating
-            };
-
-            comments.push(newComment);
-            saveComments();
-            
-            const container = document.getElementById('comments-container');
-            container.insertAdjacentHTML('beforeend', createCommentHTML(newComment, true));
-            
-            document.getElementById('comment-count').textContent = comments.length;
-            
-            commentInput.value = '';
-            
-            setTimeout(() => {
-                const newCommentElement = container.querySelector(`[data-id="${newComment.id}"]`);
-                if (newCommentElement) {
-                    newCommentElement.classList.remove('new-comment');
-                }
-            }, 2000);
-            
-        });
-
-//     
-function loadComments() {
-    const storedComments = localStorage.getItem('recipeComments');
-    if (storedComments) {
-        comments = JSON.parse(storedComments);
+// Function to handle rating update when star is clicked
+function rateComment(n, commentId) {
+    const comment = comments.find(c => c.id === parseInt(commentId));
+    if (comment) {
+        comment.rating = n; // Update the rating for this comment
+        saveComments(); // Save to localStorage
+        renderComments(); // Re-render the comments with the updated rating
     }
-    renderComments(); // Rerender comments after loading them from localStorage
-}   
-        // Initialize everything
-        async function init() {
-            await displayData();
-            renderComments();
-        }
+}
 
-        init();
+// Initialize and render the comments when the page loads
+function init() {
+    renderComments();
+}
+
+// Initialize the page with existing comments
+init();

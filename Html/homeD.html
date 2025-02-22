@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -24,16 +24,16 @@
             </div>
             </div>
             <div class="col-md-6">
-                <h2 class="mb-4">
+                <h2 style="color: var(--blue);" class="mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                    Comments (<span id="comment-count">2</span>)
+                  <span >  Comments </span>(<span id="comment-count">2</span>)
                 </h2>
                 <div class="stars">
-                    <span onclick="gfg(event, 1)" class="star">★</span>
-                    <span onclick="gfg(event, 2)" class="star">★</span>
-                    <span onclick="gfg(event, 3)" class="star">★</span>
-                    <span onclick="gfg(event, 4)" class="star">★</span>
-                    <span onclick="gfg(event, 5)" class="star">★</span>
+                    <span class="star"  data-value="1" >★</span>
+                    <span class="star"  data-value="2" >★</span>
+                    <span  class="star"  data-value="3" >★</span>
+                    <span  class="star"  data-value="4" >★</span>
+                    <span  class="star"  data-value="5" >★</span>
                 </div>
                 <form id="comment-form" class="mb-4">
                     <div class="mb-3">
@@ -42,7 +42,7 @@
                     <div class="mb-3">
                         <textarea style="color:var(--bodytext);" class="form-control" id="comment-input" rows="4" placeholder="Write a comment..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                    <button id="post" type="submit" class="btn btn-primary">Post Comment</button>
                 </form>
 
                

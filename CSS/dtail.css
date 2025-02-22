@@ -423,8 +423,8 @@ body {
     transition: transform 0.3s ease-in-out;
   }
   .icons a:nth-child(1){
-    color: #1877F2;
-    border-color: #b7d4fb;
+    color: var(--blue);
+    border-color: var(--grey);
   }
   .icons a:nth-child(1):hover{
     background: #1877F2;
@@ -585,46 +585,78 @@ body {
   width: 100%;
     border-radius: 0.5rem;
 }
-.star {
-  font-size: 4vh;
-  cursor: pointer;
-}
- 
-.one {
-  color: rgb(255, 0, 0);
-}
- 
-.two {
-  color: rgb(255, 106, 0);
-}
- 
-.three {
-  color: rgb(251, 255, 120);
-}
- 
-.four {
-  color: rgb(255, 255, 0);
-}
- 
-.five {
-  color: rgb(24, 159, 14);
-}
 
 
-.comments-header svg {
-    stroke: var(--blue);
-}
 
 /* Comment container background */
 #comments-container {
     overflow-x: hidden;
     overflow-y: auto;
+   height: 440px;
+   border: 1px solid var(--grey);
 }
 .star {
   font-size: 20px;
-  color: #ddd; /* Empty star color (light gray) */
+  color: #ddd; 
+  cursor: pointer;
 }
 
 .star.filled {
   color: gold; /* Filled star color (gold) */
+}
+.star.active {
+  color: #ffd700;
+}
+*::-webkit-scrollbar {
+  height: 2px;
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background-color: #DFE9EB;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #B8C0C2;
+}
+
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--blue);
+}
+
+
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--blue);
+}
+.stars {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.star {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.one {
+  color:gold;
+}
+
+.two {
+  color:gold;
+}
+
+.three {
+  color:gold;
+}
+
+.four {
+  color:gold;
+}
+
+.five {
+  color:gold;
 }
