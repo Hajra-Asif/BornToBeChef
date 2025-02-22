@@ -15,8 +15,6 @@ body {
 
 .sidebar {
     background-color: var(--blue);
-    /* background: linear-gradient(115deg, var(--blue) 80%, var(--brown) 100%); */
-
     height: 100vh;
     color: var(--white);
     padding: 20px;
@@ -72,13 +70,6 @@ header {
 .col-lg-4 {
     flex: 1 0 auto;
 }
-/* .card {
-    background: var(--white);
-    border-radius: 15px;
-    border: none;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-} */
 
 
 /* uploaded recipes */
@@ -156,7 +147,7 @@ header {
 }
 
 .btn-view,
-.sidebtn, .btn-save {
+.sidebtn {
     width: 100%;
     border: 2px solid var(--brown);
     color: var(--brown);
@@ -168,7 +159,7 @@ header {
     transition: all 0.3s ease;
 }
 
-.btn-view:hover, .btn-save:hover {
+.btn-view:hover {
     background: var(--brown);
     color: var(--white);
 }
@@ -199,7 +190,6 @@ header {
     display: flex;
     background: white;
     border-radius: 8px;
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     max-width: 340px;
     height: 80px;
@@ -208,7 +198,6 @@ header {
 
 .horizontal-recipe-card:hover {
     transform: translateY(-2px);
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .h-card-img {
@@ -391,18 +380,6 @@ header {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* media query */
 
 @media (max-width: 992px) {
@@ -436,13 +413,13 @@ header {
 
 
 
-/* Base Layout */
+
 .main-wrapper {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar Styles */
+
 .sidebar {
     background-color: var(--blue);
     min-width: 250px;
@@ -456,7 +433,7 @@ header {
     z-index: 1000;
 }
 
-/* Main Content Wrapper */
+
 .main-content {
     flex: 1;
     margin-left: 250px;
@@ -465,7 +442,7 @@ header {
     width: calc(100% - 250px);
 }
 
-/* Sidebar Toggle Button */
+
 .sidebar-toggle {
     display: none;
     position: fixed;
@@ -480,7 +457,7 @@ header {
     cursor: pointer;
 }
 
-/* Overlay for mobile */
+
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -492,7 +469,7 @@ header {
     z-index: 999;
 }
 
-/* Responsive Breakpoints */
+
 @media screen and (max-width: 991px) {
     .sidebar-toggle {
         display: block;
@@ -517,19 +494,18 @@ header {
         padding: 20px;
     }
 
-    /* Adjust sidebar nav items */
+   
     .sidebar .nav-link {
         padding: 12px 15px;
         margin: 5px 0;
     }
 
-    /* Make room for toggle button */
+ 
     .main-content header {
         margin-top: 40px;
     }
 }
 
-/* Small screens */
 @media screen and (max-width: 576px) {
     .sidebar {
         width: 240px;

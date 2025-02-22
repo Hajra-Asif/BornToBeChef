@@ -17,32 +17,147 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
 }
-.section-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--blue);
-    margin-bottom: 15px;
-}
 
-.form-control, .form-select {
-    border-radius: 8px;
-    padding: 10px;
-}
-.custom-file-upload {
+
+.action-btn {
+    color: var(--brown);
+    text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border: 2px dashed var(--icons);
-    border-radius: 5px;
-    padding: 30px;
-    cursor: pointer;
-    text-align: center;
-    color: var(--icons);
+    gap: 5px;
+    transition: all 0.3s ease;
 }
-.custom-file-upload:hover {
-    border-color: var(--blue);
+
+.action-btn:hover {
     color: var(--blue);
 }
-.custom-file-upload input {
+
+.profile-image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border: 2px solid var(--brown); */
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
+}
+
+.image-upload {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 5px;
+    right: 7px;
+    background: var(--brown);
+    border-radius: 50%;
+    padding: 3px 2px;
+    cursor: pointer;
+    color: var(--white);
+    text-align: center;
+    transition: all 0.3sease;
+}
+
+.image-upload:hover {
+    background: var(--blue);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    padding: 20px 0;
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.stat-label {
+    color: var(--icons);
+    font-size: 14px;
+}
+
+.profile-field {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.field-label {
+    color: var(--icons);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.field-value {
+    color: var(--bodytext);
+    font-size: 16px;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-icon {
+    color: var(--brown);
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.edit-icon:hover {
+    color: var(--blue);
+}
+
+.field-input {
     display: none;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--grey);
+    border-radius: 8px;
+    background-color: var(--grey);
+    color: var(--bodytext);
+}
+
+.field-input:focus {
+    outline: none;
+    border-color: var(--brown);
+}
+
+.save-btn {
+    display: none;
+    background: var(--brown);
+    color: var(--white);
+    border: none;
+    padding: 2px 28px;
+    border-radius: 25px;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+    background: var(--blue);
+}
+
+.active .field-value {
+    display: none;
+}
+
+.active .field-input,
+.active .save-btn {
+    display: block;
 }

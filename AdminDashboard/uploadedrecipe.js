@@ -8,7 +8,8 @@ onAuthStateChanged(auth, (user) => {
         fetchUserRecipes(user.uid);
     } else {
         console.log("User is not logged in");
-        window.location.replace("/");
+   
+        window.location.href = "/";
     }
 });
 
@@ -44,8 +45,7 @@ function renderRecipe(foodItems) {
     <div class="col-12 col-lg-4">
       <div class="card" data-rating="${foodItems.rating || 0}">
         <div class="position-relative">
-          <img src="${foodItems.imageUrl}" class="card-img-top" 
-          t="${foodItems.recipeName}">
+          <img src="${foodItems.imageUrl}" class="card-img-top" alt="${foodItems.recipeName}">
           <div class="recipe-badge">
             <i  class="fa-solid fa-pen text-light"></i>
           </div>

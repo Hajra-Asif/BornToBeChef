@@ -1,4 +1,4 @@
-import { db, collection, getDocs, updateDoc, doc } from "../JavaScript/firebaseconfig.js";
+import { db, collection, getDocs, updateDoc, doc, deleteDoc  } from "../JavaScript/firebaseconfig.js";
 
 
 const usersTable = document.getElementById("usersTable");
@@ -12,10 +12,10 @@ async function fetchUsers() {
         users.push({ id: docSnap.id, ...user });
     });
 
-    // Sort users by date (latest first)
+    // Sort users by date 
     users.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds);
 
-    usersTable.innerHTML = ""; // Clear table
+    usersTable.innerHTML = ""; 
 
     users.forEach((user) => {
         const row = document.createElement("tr");
@@ -45,23 +45,58 @@ async function fetchUsers() {
             const isBlocked = e.target.getAttribute("data-blocked") === "true";
 
             await updateDoc(doc(db, "users", userId), { isBlocked: !isBlocked });
-            fetchUsers(); // Refresh table
+            fetchUsers(); 
         });
     });
 
-    // Delete user functionality
-    document.querySelectorAll(".delete-btn").forEach(button => {
-        button.addEventListener("click", async (e) => {
-            const userId = e.target.getAttribute("data-id");
 
-            if (confirm("Are you sure you want to delete this user?")) {
-                await deleteDoc(doc(db, "users", userId));
-                fetchUsers(); // Refresh table
-            }
-        });
+    const modal = document.getElementById("deleteModal");
+    const deleteBtn = document.getElementById("delete");
+    let userIdToDelete = null; 
+    
+    function showModal(userId) {
+        userIdToDelete = userId; 
+        modal.style.display = "flex";
+    }
+    
+    function hideModal() {
+        modal.style.display = "none";
+        userIdToDelete = null; 
+    }
+    
+    async function handleDelete() {
+        if (userIdToDelete) {
+            await deleteDoc(doc(db, "users", userIdToDelete)); 
+            fetchUsers(); 
+            hideModal(); 
+        }
+    }
+    
+    document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("delete-btn")) {
+            const userId = e.target.getAttribute("data-id");
+            showModal(userId); 
+        }
+    });
+    
+ 
+    deleteBtn.addEventListener("click", handleDelete);
+    
+
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            hideModal();
+        }
+    });
+    
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            hideModal();
+        }
     });
 }
 
-// Fetch users when page loads
+
 fetchUsers();
 

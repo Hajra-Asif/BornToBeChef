@@ -13,6 +13,8 @@ import {
   reauthenticateWithCredential,
   EmailAuthProvider,
   updateProfile,
+
+   
   
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
@@ -30,7 +32,9 @@ import {
   serverTimestamp,
   orderBy,
   limit,
-  getDoc
+  getDoc,
+  deleteDoc,
+  setDoc
   
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
@@ -68,5 +72,7 @@ export {
   getDocs,
   orderBy,
   limit,
-  getDoc
+  getDoc,
+  deleteDoc,
+  setDoc
 };

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #28334d;
+            --white: #ffffff;
+            --grey: #edecf2;
+            --brown: #b37a64;
+            --bodytext: #353535;
+            --icons: #6e6e6e;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--brown) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            color: var(--brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            color: var(--blue);
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--brown);
+            border-radius: 50%;
+            padding: 8px;
+            cursor: pointer;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .image-upload:hover {
+            background: var(--blue);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--grey);
+            border-bottom: 1px solid var(--grey);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--blue);
+        }
+
+        .stat-label {
+            color: var(--icons);
+            font-size: 14px;
+        }
+
+        .profile-field {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .field-label {
+            color: var(--icons);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .field-value {
+            color: var(--bodytext);
+            font-size: 16px;
+            padding: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .edit-icon {
+            color: var(--brown);
+            cursor: pointer;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .edit-icon:hover {
+            color: var(--blue);
+        }
+
+        .field-input {
+            display: none;
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--grey);
+            border-radius: 8px;
+            background-color: var(--grey);
+            color: var(--bodytext);
+        }
+
+        .field-input:focus {
+            outline: none;
+            border-color: var(--brown);
+        }
+
+        .save-btn {
+            display: none;
+            background: var(--brown);
+            color: var(--white);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .save-btn:hover {
+            background: var(--blue);
+        }
+
+        .active .field-value {
+            display: none;
+        }
+
+        .active .field-input,
+        .active .save-btn {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-header">
+            <a href="#" class="action-btn">
+                <i class="fas fa-user-friends"></i> Connect
+            </a>
+            <a href="#" class="action-btn">
+                <i class="fas fa-comment"></i> Message
+            </a>
+        </div>
+
+        <div class="profile-image-container">
+            <img src="/api/placeholder/150/150" alt="Profile" class="profile-image" id="profileImage">
+            <label for="imageUpload" class="image-upload">
+                <i class="fas fa-camera"></i>
+            </label>
+            <input type="file" id="imageUpload" hidden accept="image/*">
+        </div>
+
+        <div class="profile-fields">
+            <div class="profile-field" data-field="firstName">
+                <div class="field-label">First Name</div>
+                <div class="field-value">
+                    <span class="value-text">Samantha</span>
+                    <i class="fas fa-edit edit-icon"></i>
+                </div>
+                <input type="text" class="field-input" value="Samantha">
+                <button class="save-btn">Save</button>
+            </div>
+
+            <div class="profile-field" data-field="lastName">
+                <div class="field-label">Last Name</div>
+                <div class="field-value">
+                    <span class="value-text">Jones</span>
+                    <i class="fas fa-edit edit-icon"></i>
+                </div>
+                <input type="text" class="field-input" value="Jones">
+                <button class="save-btn">Save</button>
+            </div>
+
+            <div class="profile-field" data-field="email">
+                <div class="field-label">Email</div>
+                <div class="field-value">
+                    <span class="value-text">samantha.jones@example.com</span>
+                    <i class="fas fa-edit edit-icon"></i>
+                </div>
+                <input type="email" class="field-input" value="samantha.jones@example.com">
+                <button class="save-btn">Save</button>
+            </div>
+
+            <div class="profile-field" data-field="address">
+                <div class="field-label">Address</div>
+                <div class="field-value">
+                    <span class="value-text">New York, United States</span>
+                    <i class="fas fa-edit edit-icon"></i>
+                </div>
+                <input type="text" class="field-input" value="New York, United States">
+                <button class="save-btn">Save</button>
+            </div>
+
+            <div class="profile-field" data-field="contact">
+                <div class="field-label">Contact Number</div>
+                <div class="field-value">
+                    <span class="value-text">+1 234 567 8900</span>
+                    <i class="fas fa-edit edit-icon"></i>
+                </div>
+                <input type="tel" class="field-input" value="+1 234 567 8900">
+                <button class="save-btn">Save</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">65</div>
+                <div class="stat-label">Friends</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">43</div>
+                <div class="stat-label">Photos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">21</div>
+                <div class="stat-label">Comments</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script>
+        // Handle image upload
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        // Handle edit functionality
+        document.querySelectorAll('.edit-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const field = this.closest('.profile-field');
+                field.classList.add('active');
+            });
+        });
+
+        // Handle save functionality
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const field = this.closest('.profile-field');
+                const valueText = field.querySelector('.value-text');
+                const input = field.querySelector('.field-input');
+                
+                valueText.textContent = input.value;
+                field.classList.remove('active');
+                
+                // Here you would typically send the update to your backend
+                console.log(`Updating ${field.dataset.field} to: ${input.value}`);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+:root {
+    --blue: #28334d;
+    --white: #ffffff;
+    --grey: #edecf2;
+    --brown: #b37a64;
+    --bodytext: #353535;
+    --icons: #6e6e6e;
+}
+body {
+    background-color: var(--grey);
+    font-family: Arial, sans-serif;
+}
+.container {
+    background: var(--white);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--icons);
+    border-radius: 5px;
+    padding: 30px;
+    cursor: pointer;
+    text-align: center;
+    color: var(--icons);
+}
+.custom-file-upload:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+.custom-file-upload input {
+    display: none;
+}

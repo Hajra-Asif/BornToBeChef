@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('manageAccountBtn').addEventListener('click', () => {
         showStatus('Redirecting to dashboard...');
       
-            window.location.href = "Dashboard/admindashboard.html";
+            window.location.href = "Dashboard/dashboard.html";
        
     });
 });
@@ -346,9 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Add account button
-document.getElementById('addAccountBtn').addEventListener('click', () => {
-    showStatus('Add account clicked');
-});
+
 
 // Sign out button
 // document.getElementById('signOutBtn').addEventListener('click', () => {
