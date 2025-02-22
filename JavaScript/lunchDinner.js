@@ -1,6 +1,16 @@
+// Function to show the page loader
+let showPageLoader = () => {
+    document.getElementById("page-loader").style.display = "flex";
+};
+
+// Function to hide the page loader
+let hidePageLoader = () => {
+    document.getElementById("page-loader").style.display = "none";
+};
 
 
 document.addEventListener("DOMContentLoaded", async () => {
+  
     const container = document.getElementById("con");
     const filterButtons = document.querySelectorAll(".filter-item");
 
@@ -18,9 +28,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
   
         try {
+            showPageLoader();
             let response = await fetch(url);
+            hidePageLoader()
             let jsonData = await response.json();
+           
             meals = jsonData.meals || []; // Store fetched meals
+           
             displayMeals(meals);
         } catch (error) {
             console.error("Error fetching meals:", error);

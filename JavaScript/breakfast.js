@@ -1,7 +1,21 @@
+// Function to show the page loader
+let showPageLoader = () => {
+    document.getElementById("page-loader").style.display = "flex";
+};
+
+// Function to hide the page loader
+let hidePageLoader = () => {
+    document.getElementById("page-loader").style.display = "none";
+};
+
+
+
 // API se data fetch karne ka function
 async function fetchMeals() {
+    showPageLoader();
     let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast');
     let data = await response.json();
+    hidePageLoader()
     return data.meals; // Return only the meals array
 }
 

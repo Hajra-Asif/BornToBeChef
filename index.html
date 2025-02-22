@@ -211,6 +211,22 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 
 <body>
 
+  <!-- <div id="page-loader">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div id=area>
+        <div id="sides">
+            <div id="pan"></div>
+            <div id="handle"></div>
+        </div>
+        <div id="pancake">
+            <div id="pastry"></div>
+        </div>
+    </div>
+  </div> -->
   <!-- first Navigation -->
 
   <div class="navigation">
@@ -303,22 +319,20 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-5 mb-2 mb-lg-0 d-flex flex-grow-1 justify-content-end gap-2">
           <li class="nav-item">
-            <a href="#" class="nav-link">Ramzan</a>
+            <a href="./Html/ramzan.html" class="nav-link">Ramzan</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Drinks</a>
+            <a href="./Html/drinks.html" class="nav-link">Drinks</a>
+          </li>
+     
+          <li class="nav-item">
+            <a href="./Html/desserts.html" class="nav-link">Desserts</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Dish Type</a>
+            <a href="./Html/breakfast.html" class="nav-link">Breakfast</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Desserts</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Breakfast</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Lunch / Dinner</a>
+            <a href="./Html/lunchDinner.html" class="nav-link">Lunch / Dinner</a>
           </li>
 
         </ul>
@@ -333,49 +347,14 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
                 </path>
               </svg>
             </button>
-            <input placeholder="Aaj kya pakana hai?" class="input text-dark" name="text" type="text">
+            <input placeholder="Aaj kya pakana hai?" class="input text-dark" name="text" type="text" id="inputt">
           </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav> -->
+  
 
   <section class="hero-section">
     <div class="container-xxl">
@@ -401,7 +380,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               and a kitchen full of flavor!</p>
 
             <div class="search-container" style="position: relative;">
-              <input type="text" class="location-input" placeholder="Aaj kya pakana hai?">
+              <input type="text" id="inputt" class=" location-input" placeholder="Aaj kya pakana hai?">
               <svg style="position: absolute;right: 4%;" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24" height="25px" width="25px">
                 <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#28334d"
@@ -432,8 +411,8 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
   <div class="container-xxl my-5">
     <h2 class="text-capitalize text-center" style="color: var(--bodytext);">Our <span
         style="color: var(--brown);">recipes</span></h2><br>
-    <p class="text-center fs-5 filters mb-5"><span>Most Recent </span>/ <span>Most Viewed</span> / <span>Most Favourite
-      </span>/ <span>All</span></p>
+    <!-- <p class="text-center fs-5 filters mb-5"><span>Most Recent </span>/ <span>Most Viewed</span> / <span>Most Favourite -->
+      <!-- </span>/ <span>All</span></p> -->
 
 
     <div class="container-xxl">
@@ -463,7 +442,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       </button>
 
       <div class="recipe-slider">
-        <div class="recipe-card">
+        <a href="./Html/ramzan.html" style="text-decoration: none;"></a> <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-moon"></i>
           </div>
@@ -479,9 +458,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               <span class="stat-label">Avg. Time</span>
             </div>
           </div>
-        </div>
+        </div></a>
 
-        <div class="recipe-card">
+        <a href="./Html/ramzan.html" style="text-decoration: none;">   <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-utensils"></i>
           </div>
@@ -497,9 +476,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               <span class="stat-label">Avg. Time</span>
             </div>
           </div>
-        </div>
+        </div></a>
 
-        <div class="recipe-card">
+        <a href="./Html/lunchDinner.html" style="text-decoration: none;"> <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-coffee"></i>
           </div>
@@ -515,9 +494,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               <span class="stat-label">Avg. Time</span>
             </div>
           </div>
-        </div>
+        </div></a>
 
-        <div class="recipe-card">
+        <a href="./Html/breakfast.html" style="text-decoration: none;">  <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-bread-slice"></i>
           </div>
@@ -533,9 +512,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               <span class="stat-label">Avg. Time</span>
             </div>
           </div>
-        </div>
+        </div></a>
 
-        <div class="recipe-card">
+        <a href="./Html/desserts.html" style="text-decoration: none;">   <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-cookie"></i>
           </div>
@@ -551,9 +530,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               <span class="stat-label">Avg. Time</span>
             </div>
           </div>
-        </div>
+        </div></a>
 
-        <div class="recipe-card">
+        <a href="./Html/drinks.html" style="text-decoration: none;">  <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-glass-water"></i>
           </div>
@@ -569,9 +548,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               <span class="stat-label">Avg. Time</span>
             </div>
           </div>
-        </div>
+        </div></a>
 
-        <div class="recipe-card">
+        <a href="./Html/breakfast.html" style="text-decoration: none;">   <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-bowl-food"></i>
           </div>
@@ -587,9 +566,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
               <span class="stat-label">Avg. Time</span>
             </div>
           </div>
-        </div>
+        </div></a>
 
-        <div class="recipe-card">
+        <a href="./Html/lunchDinner.html" style="text-decoration: none;">    <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-plate-wheat"></i>
           </div>
@@ -606,7 +585,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
             </div>
           </div>
         </div>
-      </div>
+      </div></a>
 
       <div class="slider-dots"></div>
     </div>
@@ -615,7 +594,21 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 
 
 
+  <!-- //////////////////////you may also like  -->
+  <div class="container-xxl my-5">
+    <h2 class="text-capitalize text-center" style="color: var(--bodytext);">You May <span
+        style="color: var(--brown);">Also Like</span></h2><br>
+    
 
+    <div class="container-xxl">
+      <div class="row g-4" id="cardContent">
+
+
+
+
+      </div>
+    </div>
+  </div>
 
 
 
@@ -903,7 +896,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
           <ul class="footer-list">
             <li><i class="fa-solid fa-angles-right"></i> <a href="./index.html">Home</a></li>
             <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/about.html">About Us</a></li>
-            <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/contact.html">Contact Us</a></li>
+            <!-- <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/contact.html">Contact Us</a></li> -->
 
           </ul>
 

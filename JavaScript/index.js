@@ -103,17 +103,24 @@ slider.addEventListener('touchend', (e) => {
 
 // api fetch 
 
+// Select the input field correctly
+let inputFieldd = document.querySelector('#inputt');
 
+// Fetch Meals API
 let fetchApi = async () => {
-  let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
-  let jsonData = await response.json();
-  return jsonData.meals || [];
+    try {
+        let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
+        let jsonData = await response.json();
+        return jsonData.meals || [];
+    } catch (error) {
+        console.error("API Fetch Error:", error);
+        return [];
+    }
 };
 
-
-    // Generate HTML for Each Meal Card
-    function getData(foodItems) {
-      return `
+// Generate HTML for Each Meal Card
+function getData(foodItems) {
+    return `
       <div class="col-12 col-lg-3">
        <div class="card" data-rating="${foodItems.rating || 0}">
             <div class="position-relative">
@@ -147,29 +154,36 @@ let fetchApi = async () => {
                 </a>
             </div>
         </div>
-        </div>
-      
+      </div>
+  `;
+}
 
-
-
-
-      `;
-  }
-
-// Function to display desserts
+// Function to display and filter meals
 let displayCards = async () => {
-  let container = document.getElementById('maincardcontainer');
-  let data = await fetchApi();
+    let container = document.getElementById('maincardcontainer');
+    let data = await fetchApi();
 
-  if (!data.length) {
-      container.innerHTML = "<p>No desserts found.</p>";
-      return;
-  }
+    if (!data.length) {
+        container.innerHTML = "<p>No meals found.</p>";
+        return;
+    }
 
-  container.innerHTML = data.slice(9 , 17).map(getData).join('');
+    let searchText = inputFieldd.value.toLowerCase().trim();
+    
+    // Slice first, then filter based on search input
+    let filteredMeals = data.slice(9, 17).filter(meal => 
+        meal.strMeal.toLowerCase().includes(searchText)
+    );
+
+    container.innerHTML = filteredMeals.length 
+        ? filteredMeals.map(getData).join('')
+        : "<p>No matching meals found.</p>";
 };
 
-// Call the function to display cards
+// Add event listener for live search
+inputFieldd.addEventListener("input", displayCards);
+
+// Initial load
 displayCards();
 
 
@@ -409,3 +423,91 @@ document.addEventListener('keydown', (e) => {
         hideModal();
     }
 });
+
+
+
+
+
+
+
+
+
+
+//////////////////you may also like//////////////////
+
+// api fetch 
+
+
+// Select the input field correctly
+let inputField = document.querySelector('#inputt');
+
+// Fetch Meals API
+let fetchApii = async () => {
+    try {
+        let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
+        let jsonData = await response.json();
+        console.log("Fetched API Data:", jsonData.meals); // Debugging
+        return jsonData.meals || [];
+    } catch (error) {
+        console.error("API Fetch Error:", error);
+        return [];
+    }
+};
+
+// Function to generate meal card HTML
+function getData(foodItems) {
+    return `
+        <div class="col-12 col-lg-3">
+            <div class="card">
+                <div class="position-relative">
+                    <img src="${foodItems.strMealThumb}" class="card-img-top" alt="${foodItems.strMeal}">
+                </div>
+                <div class="card-body">
+                    <h5 class="recipe-title">${foodItems.strMeal}</h5>
+                    <a href="detail-page.html?id=${foodItems.idMeal}" class="anchor text-decoration-none">
+                        <button class="btn-view">View Recipe</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Function to display all meals initially
+let displayCardss = async () => {
+    let containerr = document.getElementById('cardContent');
+    let dataa = await fetchApii();
+
+    if (!dataa.length) {
+        containerr.innerHTML = "<p>No meals found.</p>";
+        return;
+    }
+
+    containerr.innerHTML = dataa.slice(26,34).map(getData).join('');
+};
+
+// Filter meals based on user input
+let filterMeals = async () => {
+    let searchText = inputField.value.toLowerCase().trim(); // Ensure input is trimmed
+    let containerr = document.getElementById('cardContent');
+    let dataa = await fetchApii();
+
+    console.log("Search Text:", searchText);
+    console.log("Fetched Meals:", dataa);
+
+    let filteredMeals = dataa.filter(meal => 
+        meal.strMeal.toLowerCase().includes(searchText)
+    );
+
+    console.log("Filtered Meals:", filteredMeals);
+
+    containerr.innerHTML = filteredMeals.length 
+        ? filteredMeals.map(getData).join('')
+        : "<p>No matching meals found.</p>";
+};
+
+// Event listener for user input
+inputField.addEventListener("input", filterMeals);
+
+// Load initial meals
+displayCardss();
