@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('manageAccountBtn').addEventListener('click', () => {
         showStatus('Redirecting to dashboard...');
       
-            window.location.href = "Dashboard/dashboard.html";
+            window.location.href = "Dashboard/admindashboard.html";
        
     });
 });
