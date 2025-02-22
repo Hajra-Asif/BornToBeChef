@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -15,169 +15,43 @@
     <div class="container mt-5">
         <div id="con"></div>
     </div>
-    
-    <script>
-        // Function to get query parameters from URL
-        let searchParams = (param) => {
-            let urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        };
-        let shre =  window.location.href
-        // console.log(shre);
-        let displayCardss = async () => {
-            let idd = searchParams("id"); // Get meal ID from URL
-            let ele = document.getElementById('con');
-
-            if (idd) {
-                let fetchh = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idd}`);
-                let jsonData = await fetchh.json();
-                const dessert =  jsonData.meals[0];
-
-                if (!dessert) {
-                    ele.innerHTML = '<h2 class="text-danger">Dessert not found</h2>';
-                    return;
-                }
-
-                ele.innerHTML = `
-                    <h1 id="title" class="mb-4">Recipe Detail Page</h1>
-                    <div class="row mb-4">
-                        <div class="col-lg-6 mb-4">
-                            <img id="recipeImage" src="${dessert.strMealThumb}" alt="" class="img-fluidMeal rounded">
-                        </div>
-                        <div class="col-lg-6">
-                            <div id="title">
-                                <h1 id="recipeTitle" class="mb-1">${dessert.strMeal}</h1>
-                                <p class="recipe-date mb-4" id="recipeDate">SEPTEMBER 23RD, 2023</p>
-                                <div class="social-share mb-2">
-                                  <a href="#" id="view-modal" class="social-icon">
-        <i class="fas fa-share"></i>
-    </a>
-   
-    <div class="popup">
-      <header>
-        <span style="color:var(--blue);">Share with your friends</span>
-        <div class="close"><i class="uil uil-times"></i></div>
-      </header>
-      <div class="content">
-        <p style="color:var(--bodytext);">Share this link via</p>
-        <ul class="icons p-0">
-          <a href="https://www.facebook.com/?u=${shre}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com/intent/tweet?url=${shre}" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.instagram.com/?url=${shre}"  target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://web.whatsapp.com/?url=${shre}"  target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://t.me/share/url?url=${shre}" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-        </ul>
-        <p>Or copy link</p>
-        <div class="field">
-          <i style="color:var(--bodytext);" class="url-icon uil uil-link "></i>
-          <input type="text" readonly value="${shre}">
-          <button id="copy">Copy</button>
-        </div>
-      </div>
-    </div>
-                                    <a href="#" id="print-link" class="social-icon">
-                                        <i class="fas fa-print"></i> 
-                                    </a>
-                                    <a href="#" class="social-icon">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                </div>
-                                <div class="recipe-intro mt-2 mb-4" id="recipeIntro">
-                                    I am SO excited to share this recipe with you guys. I have been trying to perfect it for quite some time...
-                                </div>
-                            </div>
-                            <div class="nutrition-info col-md-6 ps-3">
-                                <h5 class="mb-3 ps-0">Nutrition Information</h5>
-                                <div class="row mb-2">
-                                    <div class="col-8 nutrition-label">Servings</div>
-                                    <div class="col-4 nutrition-value" id="recipeServings">4</div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-8 nutrition-label">Calories</div>
-                                    <div class="col-4 nutrition-value" id="recipeCalories">345</div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-8 nutrition-label">Fat</div>
-                                    <div class="col-4 nutrition-value" id="recipeFat">7g</div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-8 nutrition-label">Carbohydrates</div>
-                                    <div class="col-4 nutrition-value" id="recipeCarbs">57g</div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-8 nutrition-label">Protein</div>
-                                    <div class="col-4 nutrition-value" id="recipeProtein">11g</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <h3 class="section-heading">Ingredients</h3>
-                                <ul id="ingredients" class="ingredients-list"></ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 class="section-heading">Instructions</h3>
-                                <p>${dessert.strInstructions}</p>
-                            </div>
-                        </div>
+     <!-- Comments section -->
+     <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-md-6">
+            <div id="comments-container">
+                <!-- Comments will be inserted here -->
+            </div>
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Comments (<span id="comment-count">2</span>)
+                </h2>
+                <div class="stars">
+                    <span onclick="gfg(event, 1)" class="star">★</span>
+                    <span onclick="gfg(event, 2)" class="star">★</span>
+                    <span onclick="gfg(event, 3)" class="star">★</span>
+                    <span onclick="gfg(event, 4)" class="star">★</span>
+                    <span onclick="gfg(event, 5)" class="star">★</span>
+                </div>
+                <form id="comment-form" class="mb-4">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="name-input" placeholder="Your name" required>
                     </div>
-                `;
+                    <div class="mb-3">
+                        <textarea style="color:var(--bodytext);" class="form-control" id="comment-input" rows="4" placeholder="Write a comment..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+                </form>
 
-                // Populate the ingredients list dynamically
-                let ingredientsHtml = "";
-                for (let i = 1; i <= 20; i++) {
-                    const ingredient = dessert[`strIngredient${i}`];
-                    const measure = dessert[`strMeasure${i}`]; 
-                    if (ingredient && ingredient.trim()) {
-                        ingredientsHtml += `<li> <span class="measure">${measure ? measure : ""}</span> ${ingredient}</li>`;
-                    }
-                }
-                document.getElementById("ingredients").innerHTML = ingredientsHtml;
+               
+            </div>
+        </div>
+    </div>
 
-                // Add event listener to the print link after the content is loaded
-                const printLink = document.querySelector('#print-link');
-                console.log(printLink);  // This will log the element or null
-                if (printLink) {
-                    printLink.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        window.print();
-                    });
-                }
-            } else {
-                ele.innerHTML = `<h2 class="text-danger">Recipe ID not found</h2>`;
-            }
-            
-            const viewBtn = document.querySelector("#view-modal"),
-    popup = document.querySelector(".popup"),
-    close = popup.querySelector(".close"),
-    field = popup.querySelector(".field"),
-    input = field.querySelector("input"),
-    copy = field.querySelector("#copy");
 
-    viewBtn.onclick = ()=>{ 
-      popup.classList.toggle("show");
-    }
-    close.onclick = ()=>{
-      viewBtn.click();
-    }
-
-    copy.onclick = ()=>{
-      input.select(); //select input value
-      if(document.execCommand("copy")){ //if the selected text is copied
-        field.classList.add("active");
-        copy.innerText = "Copied";
-        setTimeout(()=>{
-          window.getSelection().removeAllRanges(); //remove selection from page
-          field.classList.remove("active");
-          copy.innerText = "Copy";
-        }, 3000);
-      }
-    }
-        };
-
-        displayCardss();
-
-    </script>
-
+    
+<script src="../JavaScript/homeD.js"></script>
 </body>
 </html>

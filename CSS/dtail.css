@@ -78,7 +78,7 @@ body {
 /* Nutrition Info */
 .nutrition-info {
     width: 100%;
-            margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .nutrition-label {
@@ -292,7 +292,7 @@ body {
     }
     
     .method-step {
-        padding: 1rem 1rem 1rem 3rem;
+        padding: 1em ;
     }
     
     .step-number {
@@ -312,7 +312,7 @@ body {
     }
     
     .nutrition-info {
-        padding: 1rem;
+        padding: 1em;
     }
     
     .comment {
@@ -498,3 +498,133 @@ body {
     background: var(--brown);
     color: var(--white);
   }
+  /* Comments section styling */
+  .comment-card {
+    transition: all 0.3s ease;
+    background-color: var(--white);
+    border: 1px solid var(--grey);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.new-comment {
+    animation: highlightNew 2s ease;
+    border: 2px solid var(--blue) !important;
+}
+
+@keyframes highlightNew {
+    0% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Form styling */
+.form-control {
+    border-color: var(--grey);
+    color: var(--bodytext) !important;
+    background-color: var(--white);
+}
+
+.form-control:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.2rem rgba(40, 51, 77, 0.25);
+}
+
+.form-control::placeholder {
+    color: var(--icons);
+}
+
+/* Comment text styling */
+.comment-card .card-body {
+    color: var(--bodytext);
+}
+
+.comment-card .text-muted {
+    color: var(--icons) !important;
+}
+
+/* Submit button styling */
+.btn-primary {
+  width: 100%;
+  border: 2px solid var(--brown);
+  color: var(--brown);
+  border-radius: 25px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--brown);
+  color: var(--white);
+  border-color: var(--brown);
+
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem var(--brown);
+}
+
+/* Comments header styling */
+.comments-header {
+    color: var(--blue);
+}
+.stars {
+  width: 100%;
+    border-radius: 0.5rem;
+}
+.star {
+  font-size: 4vh;
+  cursor: pointer;
+}
+ 
+.one {
+  color: rgb(255, 0, 0);
+}
+ 
+.two {
+  color: rgb(255, 106, 0);
+}
+ 
+.three {
+  color: rgb(251, 255, 120);
+}
+ 
+.four {
+  color: rgb(255, 255, 0);
+}
+ 
+.five {
+  color: rgb(24, 159, 14);
+}
+
+
+.comments-header svg {
+    stroke: var(--blue);
+}
+
+/* Comment container background */
+#comments-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.star {
+  font-size: 20px;
+  color: #ddd; /* Empty star color (light gray) */
+}
+
+.star.filled {
+  color: gold; /* Filled star color (gold) */
+}
