@@ -1,7 +1,23 @@
+
+// Function to show the page loader
+let showPageLoader = () => {
+  document.getElementById("page-loader").style.display = "flex";
+};
+
+// Function to hide the page loader
+let hidePageLoader = () => {
+  document.getElementById("page-loader").style.display = "none";
+};
+
+
+
+
 // Fetch all desserts from API
 let fetchApi = async () => {
+  showPageLoader();
   let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert');
   let jsonData = await response.json();
+  hidePageLoader()
   return jsonData.meals || [];
 };
 

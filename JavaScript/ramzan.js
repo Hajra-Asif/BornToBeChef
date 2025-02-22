@@ -1,7 +1,26 @@
+
+
+
+
+
+// Function to show the page loader
+let showPageLoader = () => {
+    document.getElementById("page-loader").style.display = "flex";
+};
+
+// Function to hide the page loader
+let hidePageLoader = () => {
+    document.getElementById("page-loader").style.display = "none";
+};
+
+
 let fetchApi = async () => {
     // Fetch data from the API
+    showPageLoader(); // Show loader before fetching
+    
     let fetchh = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s');
     let jsonData = await fetchh.json();
+    hidePageLoader(); // Hide loader after fetching
     return jsonData;
 }
 

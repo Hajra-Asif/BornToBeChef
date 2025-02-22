@@ -1,9 +1,22 @@
+// Function to show the page loader
+let showPageLoader = () => {
+    document.getElementById("page-loader").style.display = "flex";
+};
+
+// Function to hide the page loader
+let hidePageLoader = () => {
+    document.getElementById("page-loader").style.display = "none";
+};
+
+
 let drinkData = [];
 
 let fetchData = async () => {
+    showPageLoader();
     let url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail';
     let response = await fetch(url);
     let jsonData = await response.json();
+    hidePageLoader()
     return jsonData.drinks || [];
 };
 
