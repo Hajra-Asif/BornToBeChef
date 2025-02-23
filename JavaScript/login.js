@@ -12,15 +12,26 @@ onAuthStateChanged(auth, (user) => {
   console.log("Auth State Changed Triggered:", user);
   if (user) {
     console.log("User is logged in:", user);
+    document.getElementById("userEmail").innerHTML = useremail;
+    document.getElementById("userName").innerHTML = `Hi, ${userNamee}`;
+   
+    
+    document.getElementById("profileTrigger").style.display = "block";
+    document.getElementById("useraplha").innerHTML = useremail.slice(0, 1).toUpperCase();
+    document.getElementById("profileTrigger").innerHTML = useremail.slice(0, 1).toUpperCase();
+    document.getElementById("authentication")?.remove();
+    document.getElementById("loginmodal")?.remove();
   } else {
     console.log("User is logged out");
+    document.getElementById("profileTrigger").style.display = "none";
   }
 });
 
 
 const login = async (e) => {
   e.preventDefault();
-
+  
+  
   const email = document.getElementById("login-email").value.trim();
   const password = document.getElementById("login-password").value.trim();
 
@@ -60,26 +71,59 @@ const login = async (e) => {
   } catch (error) {
       console.error("Login failed:", error.code, error.message);
 
-      document.getElementById("login-email").style.border = "2px solid crimson";
-      document.getElementById("login-password").style.border = "2px solid crimson";
-      document.getElementById("loginError").innerText = "Invalid username or password.";
-      document.getElementById("loginError").style.display = "block";
+   
   }
 };
 
 
-document.getElementById("login-btn")?.addEventListener("click", login);
+document.addEventListener("DOMContentLoaded", function () {
+  const loginButton = document.getElementById('login-btn');
+  if (loginButton) {
+    loginButton.addEventListener('click', login);
+  }
+});
 
+// let loginButton =  document.getElementById("login-btn");
+// loginButton.addEventListener("click", login);
+
+console.log("login screen pe hooooooooooO!");
 
 
 // logout
 
+
 let logout = () => {
-  signOut(auth);
-  window.location.replace("/");
+
+  try{
+    console.log(auth, "logout")
+    signOut(auth);
+    window.location.replace("/");
+    console.log("logout success!");
+
+  }
+  catch(e){
+    console.log(e, "error in logout");
+    
+
+  }
+  
+
 };
 
-document.getElementById("signout")?.addEventListener("click", logout);
+document.addEventListener("DOMContentLoaded", function () {
+  const logutButton = document.getElementById('signout');
+  if (logutButton) {
+    logutButton.addEventListener('click', logout);
+    console.log("user logut");
+
+    
+  }
+});
+
+// console.log(document.getElementById("signout"), "document.getElementByIdsignout)")
+// document.getElementById("signout")?.addEventListener("click", () => {
+//   console.log("click signout")
+// });
 
 
 
@@ -94,23 +138,25 @@ document.getElementById('profileTrigger').addEventListener('click', function () 
 // document.getElementById('manageAccountBtn').addEventListener('click', function () {
 //   window.location.replace('../Dashboard/dashboard.html');
 // });
-document.addEventListener("DOMContentLoaded", function () {
-  const manageBtn = document.getElementById('manageAccountBtn');
-  if (manageBtn) {
-      manageBtn.addEventListener('click', function () {
-          window.location.replace('../Dashboard/dashboard.html');
-      });
-  }
-});
 
-// // Close popup when clicking outside
-// window.addEventListener('click', function (e) {
-//   const popup = document.getElementById('popupContainer');
-//   const trigger = document.getElementById('profileTrigger');
-//   if (!popup.contains(e.target) && !trigger.contains(e.target)) {
-//     popup.style.display = 'none';
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const manageBtn = document.getElementById('manageAccountBtn');
+//   if (manageBtn) {
+//       manageBtn.addEventListener('click', function () {
+//           window.location.replace('../Dashboard/dashboard.html');
+//       });
 //   }
 // });
+
+// Close popup when clicking outside
+window.addEventListener('click', function (e) {
+  const popup = document.getElementById('popupContainer');
+  const trigger = document.getElementById('profileTrigger');
+  if (!popup.contains(e.target) && !trigger.contains(e.target)) {
+    popup.style.display = 'none';
+  }
+});
 
 
 

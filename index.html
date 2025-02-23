@@ -7,7 +7,7 @@
   <title>BornToBeChef</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
+
 
   <!-- fontawesome cdn -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
@@ -27,111 +27,114 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Honk&family=Mea+Culpa&family=MonteCarlo&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parisienne&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
-    <!-- bootstrap -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap -->
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
   <!-- custom css -->
   <link rel="stylesheet" href="./CSS/style.css">
   <style>
     /* profile modal */
 
     .profile-trigger {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-}
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
 
-.popup-container {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
+    .popup-container {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 20px;
+      z-index: 1000;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
 
-.popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-.close-btn {
-    cursor: pointer;
-    color: var(--icons);
-}
+    .close-btn {
+      cursor: pointer;
+      color: var(--icons);
+    }
 
-.profile-section {
-    text-align: center;
-    /* margin-bottom: 20px; */
-}
+    .profile-section {
+      text-align: center;
+      /* margin-bottom: 20px; */
+    }
 
-.profile-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: var(--grey);
-    margin: 0 auto 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--blue);
-    font-size: 24px;
-    font-weight: bold;
-}
+    .profile-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--grey);
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-.manage-account-btn {
-    background-color: var(--brown);
-    border: 1px solid var(--grey);
-    color: var(--white);
-    border-radius: 20px;
-    padding: 8px 20px;
-    margin: 10px 0;
-    width: 100%;
-}
+    .manage-account-btn {
+      background-color: var(--brown);
+      border: 1px solid var(--grey);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 8px 20px;
+      margin: 10px 0;
+      width: 100%;
+    }
 
 
-.action-btn {
-  width: 150px;
-    flex: 1;
-    padding: 6px 24px;
-    border-radius: 20px;
-    border: 1px solid var(--grey);
-    background: var(--white);
-    color: var(--bodytext);
-    text-align: center;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-}
-.action-btn:hover{
-  background-color: var(--blue);
-  color: var(--white);
-}
-.footer-links {
-    margin-top: 20px;
-    text-align: center;
-    color: var(--icons);
-    font-size: 14px;
-}
+    .action-btn {
+      width: 150px;
+      flex: 1;
+      padding: 6px 24px;
+      border-radius: 20px;
+      border: 1px solid var(--grey);
+      background: var(--white);
+      color: var(--bodytext);
+      text-align: center;
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    }
 
-.footer-links a {
-    color: var(--icons);
-    text-decoration: none;
-    margin: 0 10px;
-}
+    .action-btn:hover {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+
+    .footer-links {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--icons);
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      color: var(--icons);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
     #status {
       position: fixed;
       bottom: 20px;
@@ -215,22 +218,6 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 
 <body>
 
-  <!-- <div id="page-loader">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div id=area>
-        <div id="sides">
-            <div id="pan"></div>
-            <div id="handle"></div>
-        </div>
-        <div id="pancake">
-            <div id="pastry"></div>
-        </div>
-    </div>
-  </div> -->
   <!-- first Navigation -->
 
   <div class="navigation">
@@ -256,34 +243,34 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       </button>
 
 
-      
 
-      </div>
+
     </div>
+  </div>
   </div>
 
   <!-- logout modal -->
 
 
-    <!-- Modal -->
-    <div class="modal-backdrop" id="signOutModal">
-        <div class="modal-content">
-            <div class="modal-text">
-                Are you sure you want to sign out?
-            </div>
-            <div class="modal-buttons">
-                <button class="btn btn-cancel" onclick="hideModal()">Cancel</button>
-                <button id="signout" class="btn btn-signout" onclick="handleSignOut()">Sign Out</button>
-            </div>
-        </div>
+  <!-- Modal -->
+  <div class="modal-backdrop" id="signOutModal">
+    <div class="modal-content">
+      <div class="modal-text">
+        Are you sure you want to sign out?
+      </div>
+      <div class="modal-buttons">
+        <button class="btn btn-cancel" onclick="hideModal()">Cancel</button>
+        <button id="signout" class="btn btn-signout" onclick="handleSignOut()">Sign Out</button>
+      </div>
     </div>
+  </div>
 
 
   <!-- Second Navigation -->
   <nav class="navbar navbar-expand-lg container-xxl">
     <div class="container-xxl">
       <div class="logo">
-        <img src="./assets/foodfiesta.png" alt="logoimage">
+        <a href="#"><img src="./assets/foodfiesta.png" alt="logoimage"></a>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -297,7 +284,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
           <li class="nav-item">
             <a href="./Html/drinks.html" class="nav-link">Drinks</a>
           </li>
-     
+
           <li class="nav-item">
             <a href="./Html/desserts.html" class="nav-link">Desserts</a>
           </li>
@@ -327,12 +314,12 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
     </div>
   </nav>
 
-  
+
 
   <section class="hero-section">
     <div class="container-xxl">
       <!-- Decorative elements -->
-      <div class="leaf-decoration" style="top: 38%; left: 28%;">
+      <div class="leaf-decoration" style="top: 38%; left: 38%;">
         <img src="./Assets/herb-2.png" alt="">
       </div>
       <div class="leaf-decoration" style="bottom: 20%; right: 10%;">
@@ -346,33 +333,24 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 
 
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <h1 class="hero-title text-left">Don't Starve <br>Just Cook !</h1>
-            <p class="hero-text">Whip up your favorite meals with easy-to-follow recipes. Quick prep, delicious results,
-              and a kitchen full of flavor!</p>
+        <div class="row">
+          <div class="col-lg-12 d-flex flex-column flex-lg-row justify-content-lg-between justify-content-center align-items-center">
 
-            <div class="search-container" style="position: relative;">
-              <input type="text" id="inputt" class=" location-input" placeholder="Aaj kya pakana hai?">
-              <svg style="position: absolute;right: 4%;" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" height="25px" width="25px">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#28334d"
-                  d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z">
-                </path>
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#28334d"
-                  d="M22 22L20 20">
-                </path>
-              </svg>
 
+            <div class="hero-content">
+              <h1 class="hero-title   text-align-lg-left text-uppercase ">Don’t starve <br> just cook some delicious
+                food!</h1>
+              <p class="hero-text mb-3">Whip up your favorite meals with easy-to-follow recipes. Quick prep, delicious
+                results,
+                and a kitchen full of flavor!</p>
+              <a href="./Html/lunchDinner.html" class="d-flex justify-content-center justify-content-lg-start text-decoration-none"> <button class="btn-view explore w-50 py-2">Explore Recipes</button></a>
             </div>
 
-
-          </div>
-          <div class="col-lg-6">
             <div class="hero-image">
               <img src="./Assets/item-1.png" alt="Food delivery groceries">
             </div>
           </div>
+   
         </div>
       </div>
     </div>
@@ -382,10 +360,11 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
   <!-- content -->
 
   <div class="container-xxl my-5">
-    <h2 class="text-capitalize text-center" style="color: var(--bodytext);">Our <span
+    <h2 class="text-capitalize text-center m-0" style="color: var(--bodytext);">Our <span
         style="color: var(--brown);">recipes</span></h2><br>
+        <p class="text-center mb-5">Food Fiesta is all about redefining ‘Cooking’ for you! It’s the solution to that never ending <br> problem of preparing high quality delicious food</p>
     <!-- <p class="text-center fs-5 filters mb-5"><span>Most Recent </span>/ <span>Most Viewed</span> / <span>Most Favourite -->
-      <!-- </span>/ <span>All</span></p> -->
+    <!-- </span>/ <span>All</span></p> -->
 
 
     <div class="container-xxl">
@@ -415,149 +394,91 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       </button>
 
       <div class="recipe-slider">
-        <a href="./Html/ramzan.html" style="text-decoration: none;"></a> <div class="recipe-card">
+        <a href="./Html/ramzan.html" style="text-decoration: none;"></a>
+        <div class="recipe-card">
           <div class="icon-circle">
             <i class="fas fa-moon"></i>
           </div>
           <h3 class="recipe-title">Ramzan Special</h3>
           <p class="recipe-count">650 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.8</span>
-              <span class="stat-label">Rating</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">30m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
-          </div>
+        
         </div></a>
 
-        <a href="./Html/ramzan.html" style="text-decoration: none;">   <div class="recipe-card">
-          <div class="icon-circle">
-            <i class="fas fa-utensils"></i>
-          </div>
-          <h3 class="recipe-title">Iftar Delights</h3>
-          <p class="recipe-count">480 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.9</span>
-              <span class="stat-label">Rating</span>
+        <a href="./Html/ramzan.html" style="text-decoration: none;">
+          <div class="recipe-card">
+            <div class="icon-circle">
+              <i class="fas fa-utensils"></i>
             </div>
-            <div class="stat">
-              <span class="stat-value">25m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
+            <h3 class="recipe-title">Iftar Delights</h3>
+            <p class="recipe-count">480 Recipes</p>
+           
           </div>
-        </div></a>
+        </a>
 
-        <a href="./Html/lunchDinner.html" style="text-decoration: none;"> <div class="recipe-card">
-          <div class="icon-circle">
-            <i class="fas fa-coffee"></i>
-          </div>
-          <h3 class="recipe-title">Suhoor Specials</h3>
-          <p class="recipe-count">320 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.7</span>
-              <span class="stat-label">Rating</span>
+        <a href="./Html/lunchDinner.html" style="text-decoration: none;">
+          <div class="recipe-card">
+            <div class="icon-circle">
+              <i class="fas fa-coffee"></i>
             </div>
-            <div class="stat">
-              <span class="stat-value">20m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
+            <h3 class="recipe-title">Suhoor Specials</h3>
+            <p class="recipe-count">320 Recipes</p>
+           
           </div>
-        </div></a>
+        </a>
 
-        <a href="./Html/breakfast.html" style="text-decoration: none;">  <div class="recipe-card">
-          <div class="icon-circle">
-            <i class="fas fa-bread-slice"></i>
-          </div>
-          <h3 class="recipe-title">Traditional Foods</h3>
-          <p class="recipe-count">550 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.9</span>
-              <span class="stat-label">Rating</span>
+        <a href="./Html/breakfast.html" style="text-decoration: none;">
+          <div class="recipe-card">
+            <div class="icon-circle">
+              <i class="fas fa-bread-slice"></i>
             </div>
-            <div class="stat">
-              <span class="stat-value">35m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
+            <h3 class="recipe-title">Traditional Foods</h3>
+            <p class="recipe-count">550 Recipes</p>
+          
           </div>
-        </div></a>
+        </a>
 
-        <a href="./Html/desserts.html" style="text-decoration: none;">   <div class="recipe-card">
-          <div class="icon-circle">
-            <i class="fas fa-cookie"></i>
-          </div>
-          <h3 class="recipe-title">Sweet Treats</h3>
-          <p class="recipe-count">280 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.8</span>
-              <span class="stat-label">Rating</span>
+        <a href="./Html/desserts.html" style="text-decoration: none;">
+          <div class="recipe-card">
+            <div class="icon-circle">
+              <i class="fas fa-cookie"></i>
             </div>
-            <div class="stat">
-              <span class="stat-value">40m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
+            <h3 class="recipe-title">Sweet Treats</h3>
+            <p class="recipe-count">280 Recipes</p>
+           
           </div>
-        </div></a>
+        </a>
 
-        <a href="./Html/drinks.html" style="text-decoration: none;">  <div class="recipe-card">
-          <div class="icon-circle">
-            <i class="fas fa-glass-water"></i>
-          </div>
-          <h3 class="recipe-title">Refreshing Drinks</h3>
-          <p class="recipe-count">180 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.7</span>
-              <span class="stat-label">Rating</span>
+        <a href="./Html/drinks.html" style="text-decoration: none;">
+          <div class="recipe-card">
+            <div class="icon-circle">
+              <i class="fas fa-glass-water"></i>
             </div>
-            <div class="stat">
-              <span class="stat-value">15m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
+            <h3 class="recipe-title">Refreshing Drinks</h3>
+            <p class="recipe-count">180 Recipes</p>
+            
           </div>
-        </div></a>
+        </a>
 
-        <a href="./Html/breakfast.html" style="text-decoration: none;">   <div class="recipe-card">
-          <div class="icon-circle">
-            <i class="fas fa-bowl-food"></i>
-          </div>
-          <h3 class="recipe-title">Healthy Options</h3>
-          <p class="recipe-count">420 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.6</span>
-              <span class="stat-label">Rating</span>
+        <a href="./Html/breakfast.html" style="text-decoration: none;">
+          <div class="recipe-card">
+            <div class="icon-circle">
+              <i class="fas fa-bowl-food"></i>
             </div>
-            <div class="stat">
-              <span class="stat-value">28m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
+            <h3 class="recipe-title">Healthy Options</h3>
+            <p class="recipe-count">420 Recipes</p>
+        
           </div>
-        </div></a>
+        </a>
 
-        <a href="./Html/lunchDinner.html" style="text-decoration: none;">    <div class="recipe-card">
-          <div class="icon-circle">
-            <i class="fas fa-plate-wheat"></i>
-          </div>
-          <h3 class="recipe-title">Quick Meals</h3>
-          <p class="recipe-count">390 Recipes</p>
-          <div class="stats-container">
-            <div class="stat">
-              <span class="stat-value">4.8</span>
-              <span class="stat-label">Rating</span>
+        <a href="./Html/lunchDinner.html" style="text-decoration: none;">
+          <div class="recipe-card">
+            <div class="icon-circle">
+              <i class="fas fa-plate-wheat"></i>
             </div>
-            <div class="stat">
-              <span class="stat-value">22m</span>
-              <span class="stat-label">Avg. Time</span>
-            </div>
+            <h3 class="recipe-title">Quick Meals</h3>
+            <p class="recipe-count">390 Recipes</p>
+           
           </div>
-        </div>
       </div></a>
 
       <div class="slider-dots"></div>
@@ -571,7 +492,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
   <div class="container-xxl my-5">
     <h2 class="text-capitalize text-center" style="color: var(--bodytext);">You May <span
         style="color: var(--brown);">Also Like</span></h2><br>
-    
+
 
     <div class="container-xxl">
       <div class="row g-4" id="cardContent">
@@ -671,17 +592,13 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       <button class="manage-account-btn" id="manageAccountBtn">
         Manage your Google Account
       </button>
-       <button class="action-btn" id="signOutBtn">
+      <button class="action-btn" id="signout">
+
         Sign out
       </button>
     </div>
 
-    <div class="">
-      <!-- <button class="action-btn" id="addAccountBtn">
-        Add account
-      </button> -->
-     
-    </div>
+   
 
   </div>
 
@@ -747,40 +664,41 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
     </div>
   </div>
 
- 
+
   <div id="loginmodal" class="login-overlay">
     <div class="modal">
-        <button class="close-login">&times;</button>
-        <div class="modal-header">
-            <h1>Welcome Back</h1>
-            <p>Please enter your credentials</p>
+      <button class="close-login">&times;</button>
+      <div class="modal-header">
+        <h1>Welcome Back</h1>
+        <p>Please enter your credentials</p>
+      </div>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required placeholder="Enter your email">
+          <div id="emailError" class="text-danger error-message"></div> <!-- Email Error Message -->
         </div>
-        <form id="loginForm">
-            <div class="input-group">
-                <label for="login-email">Email</label>
-                <input type="email" id="login-email" required placeholder="Enter your email">
-                <div id="emailError" class="text-danger error-message"></div> <!-- Email Error Message -->
-            </div>
-            <div class="input-group">
-                <label for="login-password">Password</label>
-                <input type="password" id="login-password" required placeholder="Enter your password">
-                <div id="passwordError" class="text-danger error-message"></div> <!-- Password Error Message -->
-            </div>
-            <div class="options">
-                <div class="checkbox-container">
-                    <input type="checkbox" id="remember">
-                    <label for="remember">Remember me</label>
-                </div>
-                <a href="#" id="forgotpswd" class="forgot">Forgot Password?</a>
-            </div>
-            <div id="loginError" class="error-box" style="display: none;">Invalid username or password.</div> <!-- Main Error Box -->
-            <button type="submit" id="login-btn" class="login-btn">Login</button>
-        </form>
-        <div class="signup">
-            Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
+        <div class="input-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required placeholder="Enter your password">
+          <div id="passwordError" class="text-danger error-message"></div> <!-- Password Error Message -->
         </div>
+        <div class="options">
+          <div class="checkbox-container">
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="#" id="forgotpswd" class="forgot">Forgot Password?</a>
+        </div>
+        <div id="loginError" class="error-box" style="display: none;">Invalid username or password.</div>
+        <!-- Main Error Box -->
+        <button type="submit" id="login-btn" class="login-btn">Login</button>
+      </form>
+      <div class="signup">
+        Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
+      </div>
     </div>
-</div>
+  </div>
 
 
 
@@ -795,9 +713,9 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
       <div class="footer-container">
         <div class="footer-section">
           <div class="footer-logo">
-            <img src="./Assets/foodfiesta-white.png" alt="Born To Be Chef Logo">
+            <img src="./Assets/foodfiesta-white.png" alt="Food Fiesta">
           </div>
-          <p class="footer-text">Born To Be Chef is all about redefining ‘Cooking’ for you! It’s the solution to
+          <p class="footer-text">Food Fiesta is all about redefining ‘Cooking’ for you! It’s the solution to
             that never ending problem of preparing high quality delicious food and curtailing the eating out
             habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for a
             flavorsome treat with our recipes that will surely make you the next talk of the town!
@@ -845,7 +763,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
     </footer>
     <!-- Copyright & Privacy Section -->
     <div class="footer-bottom">
-      <p>© Copyright 2025 All rights of publications are reserved by <span>Born To Be Chef</span>.
+      <p>© Copyright 2025 All rights of publications are reserved by <span>Food Fiesta</span>.
         Reproduction without consent is not allowed.</p>
       <a href="#">Privacy Policy</a>
     </div>
@@ -854,10 +772,15 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="./firebase/firebaseconfig.js"></script>
+  <script src="./JavaScript/lunchDinner.js"></script>
+
   <script src="./JavaScript/index.js"></script>
+  <script type="module" src="./JavaScript/login.js"></script>
 
 </body>
 
