@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/dtail.css">
+</head>
+<body>
+    <!-- Header -->
+    
+    <div class="text-center my-5" id="loadingSpinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    <div id="recipeNotFound" style="display: none;" class="text-center my-5">
+        <h3>Recipe not found</h3>
+        <p>Sorry, we couldn't find the recipe you're looking for.</p>
+        <a href="index.html" class="btn btn-pink">Back to recipes</a>
+    </div>
+    
+    <!-- Recipe Content -->
+    <div class="container mb-5" id="recipeContainer" style="display: none;">
+      
+            <div class="row mb-4">
+       
+            <div class="col-lg-6 mb-4">
+                <img id="recipeImage" src="" alt="" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-6">
+                <div  id="title">
+                <h1 id="recipeTitle" class="mb-1">Home Made Oat Flour Pizza</h1>
+                <p class="recipe-date mb-4" id="recipeDate">SEPTEMBER 23RD, 2023</p>
+                <div class="social-share mb-2">
+                    <a href="#" class="social-icon">
+                        <i class="fas fa-share"></i>
+                    </a>
+                    <a href="#" class="print-link social-icon">
+                        <i class=" fas fa-print"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                </div>
+                <div class="recipe-intro mt-2  mb-4" id="recipeIntro">
+                    I am SO excited to share this recipe with you guys. I have been trying to perfect it for quite some time, and I knew I finally nailed it when my husband ate half of it in one sitting! I can promise you, this dish is delicious and makes it possible for our family to enjoy a favorite meal in a much healthier way!
+                </div>
+            </div>
+            
+                <!-- Nutritional Info -->
+                <div class="nutrition-info col-md-6 ps-3">
+                    <h5 class="mb-3 ps-0">Nutrition Information</h5>
+                    <div class="row mb-2">
+                        <div class="col-8 nutrition-label">Servings</div>
+                        <div class="col-4 nutrition-value" id="recipeServings">4</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-8 nutrition-label">Calories</div>
+                        <div class="col-4 nutrition-value" id="recipeCalories">345</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-8 nutrition-label">Fat</div>
+                        <div class="col-4 nutrition-value" id="recipeFat">7g</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-8 nutrition-label">Carbohydrates</div>
+                        <div class="col-4 nutrition-value" id="recipeCarbs">57g</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-8 nutrition-label">Protein</div>
+                        <div class="col-4 nutrition-value" id="recipeProtein">11g</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+           
+                <div class="row mb-4 " >
+                    <div class="col-md-6">
+                <h3 class="section-heading">Method</h3>
+                <div id="recipeInstructions">
+                    <!-- Instructions will be populated here -->
+                </div>
+                   
+                <h4 class="mt-4 mb-3">You may also like</h4>
+                <div class="row" id="similarRecipes">
+                    <!-- Similar recipes will be populated here -->
+                </div>
+            </div>
+        
+       
+            <div class="col-md-6">
+                <h3 class="section-heading">Ingredients</h3>
+                <ul class="ingredients-list " id="ingredientsList">
+                    <!-- Ingredients will be populated here -->
+                </ul>
+                <div class=" p-4 rounded">
+                    <div id="recipe-tip" class="d-flex align-items-center mb-2">
+                        
+                        <h4>Chef's tip!</h4>
+                    </div>
+                    <p id="recipeTip"></p>
+                </div>
+             
+            </div>
+            </div>
+            
+           
+        </div>
+        </div>
+        
+        <!-- Comments Section -->
+        <!-- <div class="container xxl">
+            <div class="row row mb-4">
+                <div class="col-8">
+                    <h4 id="commentCount">4 People are talking about this recipe!</h4>
+                    
+                    <div id="commentsContainer" class="mt-4"> -->
+                        <!-- Comments will be populated here -->
+                    <!-- </div> -->
+                    
+                    <!-- Comment Form -->
+                    <!-- <form class="mt-5">
+                        <h4 class="mb-4">Say Something!</h4>
+                        <div class="mb-3">
+                            <label for="commentName" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="commentName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="commentEmail" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="commentEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="commentText" class="form-label">Comment:</label>
+                            <textarea class="form-control" id="commentText" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-brown">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div> -->
+        </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JavaScript/detail.js">
+       
+    </script>
+</body>
+</html>
