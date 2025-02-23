@@ -39,7 +39,14 @@ const register = async (e) => {
       password
     );
     let user = userCredential.user;
-
+    await addDoc(collection(db, "users"), {
+      uid: user.uid, // Firebase Auth ka user ID
+      firstName: username,
+      lastName,
+      email,
+      isBlocked: false, // By default user unblock hoga
+      createdAt: serverTimestamp(),
+    });
     if (user) {
       document.getElementById("authentication")?.remove();
       document.getElementById("signupmodal")?.remove();
@@ -55,15 +62,6 @@ const register = async (e) => {
     } else {
       alert("Invalid email or password.");
     }
-
-    await addDoc(collection(db, "users"), {
-      uid: user.uid, // Firebase Auth ka user ID
-      firstName: username,
-      lastName,
-      email,
-      isBlocked: false, // By default user unblock hoga
-      createdAt: serverTimestamp(),
-    });
 
     alert("User successfully registered & saved in Firestore!");
     signupForm.reset(); // Form clear karna

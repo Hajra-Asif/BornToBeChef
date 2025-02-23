@@ -5,7 +5,6 @@ import {
   auth,
   onAuthStateChanged,
   serverTimestamp,
-
 } from "../JavaScript/firebaseconfig.js";
 
 onAuthStateChanged(auth, (user) => {
@@ -14,13 +13,9 @@ onAuthStateChanged(auth, (user) => {
   } else {
     console.log("User is not logged in");
     alert("Please log in to submit a recipe!");
-    window.location.replace("/"); 
+    window.location.replace("/");
   }
 });
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("recipe-form");
@@ -35,14 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const instructions = document.getElementById("instructions").value;
     const file = document.getElementById("imageInput").files[0];
 
-    const user = auth.currentUser; 
+    const user = auth.currentUser;
 
     if (!user) {
       alert("You must be logged in to submit a recipe!");
       return;
     }
 
-    let imageUrl = ""; 
+    let imageUrl = "";
 
     if (file) {
       const formData = new FormData();
@@ -50,14 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
       formData.append("upload_preset", "Food-fiesta");
 
       try {
-        const response = await fetch(`https://api.cloudinary.com/v1_1/duo0iqvpr/image/upload`, {
-          method: "POST",
-          body: formData,
-        });
+        const response = await fetch(
+          `https://api.cloudinary.com/v1_1/duo0iqvpr/image/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         const data = await response.json();
         if (data.secure_url) {
-          imageUrl = data.secure_url; 
+          imageUrl = data.secure_url;
         } else {
           console.error("Image upload failed:", data);
         }
@@ -74,19 +72,18 @@ document.addEventListener("DOMContentLoaded", () => {
         servingSize,
         prepTime,
         instructions,
-
-        imageUrl, 
+        id: user.uid + recipeName,
+        imageUrl,
         createdAt: serverTimestamp(),
       });
 
       console.log("Recipe added with ID:", docRef.id);
 
-
       Swal.fire({
         title: "Recipe Updated!",
         text: "Your recipe has been successfully added.",
         icon: "success",
-        timer: 3000, 
+        timer: 3000,
         showConfirmButton: false,
       });
 
@@ -100,7 +97,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
-
