@@ -1,29 +1,357 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Page</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="../CSS/dtail.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- google fonts -->
+  
+  <!-- heading font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap"
+    rel="stylesheet">
+  <!-- body font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Honk&family=Mea+Culpa&family=MonteCarlo&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parisienne&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/ramzan.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../CSS/dtail.css">
+    <style>
+         /* profile modal */
+
+    .profile-trigger {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--blue);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+
+    .popup-container {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 20px;
+      z-index: 1000;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      color: var(--icons);
+    }
+
+    .profile-section {
+      text-align: center;
+      /* margin-bottom: 20px; */
+    }
+
+    .profile-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--grey);
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .manage-account-btn {
+      background-color: var(--brown);
+      border: 1px solid var(--grey);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 8px 20px;
+      margin: 10px 0;
+      width: 100%;
+    }
+
+
+    .action-btn {
+      width: 150px;
+      flex: 1;
+      padding: 6px 24px;
+      border-radius: 20px;
+      border: 1px solid var(--grey);
+      background: var(--white);
+      color: var(--bodytext);
+      text-align: center;
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    }
+
+    .action-btn:hover {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+
+    .footer-links {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--icons);
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      color: var(--icons);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    #status {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 8px;
+      display: none;
+    }
+
+    /* logout modal */
+
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 24px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .modal-text {
+      margin-bottom: 24px;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 8px 24px;
+      border-radius: 4px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .btn-cancel {
+      background-color: #f1f1f1;
+      color: #333;
+    }
+
+    .btn-cancel:hover {
+      background-color: #e5e5e5;
+    }
+
+    .btn-signout {
+      background-color: var(--brown);
+      color: white;
+    }
+
+    .btn-signout:hover {
+      background-color: var(--blue);
+      color: white;
+
+    }
+    </style>
+    
 </head>
 
 <body>
+    
+    <!-- first Navigation -->
 
+  <div class="navigation">
+
+    <div
+      class="container-xxl d-flex justify-content-center justify-content-lg-between align-items-center flex-column-reverse flex-lg-row">
+
+      <div class="header-section">
+        <div class="header-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="login" id="authentication">
+        <a href="user" class="user"><i class="fa-regular fa-user ms-3"></i></a>
+        <a href="#" class="login1">Login | </a>
+        <a href="#" class="signup1">Register</a>
+      </div>
+
+  
+      <button class="profile-trigger" id="profileTrigger">
+      </button>
+
+
+      <!-- popup container -->
+      <div class="popup-container" id="popupContainer">
+        <div class="popup-header">
+          <span id="userEmail"></span>
+          <span class="close-btn" id="closeBtn">&times;</span>
+        </div>
+
+        <div class="profile-section">
+          <div class="profile-img" id="useraplha">
+           
+          </div>
+          <h5 id="userName"></h5>
+          <button href class="manage-account-btn" id="manageAccountBtn">
+            Manage your Food feista Account
+          </button>
+        </div>
+
+        <div class="action-buttons">
+      
+          <button class="action-btn"  onclick="showModal()">
+            Sign out
+          </button>
+        </div>
+
+        <div class="footer-links">
+          <a href="#" id="privacyLink">Privacy Policy</a>
+          •
+          <a href="#" id="termsLink">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- logout modal -->
+
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="signOutModal">
+        <div class="modal-content">
+            <div class="modal-text">
+                Are you sure you want to sign out?
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-cancel" onclick="hideModal()">Cancel</button>
+                <button id="signout" class="btn btn-signout" onclick="handleSignOut()">Sign Out</button>
+            </div>
+        </div>
+    </div>
+
+
+  <!-- Second Navigation -->
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-xxl">
+      <div class="logo">
+        <a href="../index.html"><img src="../Assets/foodfiesta.png" alt="logoimage"></a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-5 mb-2 mb-lg-0 d-flex flex-grow-1 justify-content-end gap-2">
+          <li class="nav-item">
+            <a href="../ramzan.html" class="nav-link">Ramzan</a>
+          </li>
+          <li class="nav-item">
+            <a href="../drinks.html" class="nav-link">Drinks</a>
+          </li>
+        
+          <li class="nav-item">
+            <a href="../desserts.html" class="nav-link">Desserts</a>
+          </li>
+          <li class="nav-item">
+            <a href="../breakfast.html" class="nav-link">Breakfast</a>
+          </li>
+          <li class="nav-item">
+            <a href="../lunchDinner.html" class="nav-link">Lunch / Dinner</a>
+          </li>
+
+        </ul>
+        <div class="box">
+          <div class="input-wrapper">
+            <button class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="25px" width="25px">
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff"
+                  d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z">
+                </path>
+                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#fff" d="M22 22L20 20">
+                </path>
+              </svg>
+            </button>
+            <input placeholder="Aaj kya pakana hai?" class="input text-dark" name="text" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  
+    <!-- recipe detail container -->
     <div class="container mt-5">
         <div id="con"></div>
     </div>
-     <!-- Comments section -->
-     <div class="container py-5">
+
+    <!-- Comments section -->
+    <div class="container py-5">
         <div class="row mb-4">
             <div class="col-md-6">
-                <h5>Recent comments</h5>
             <div id="comments-container">
                 <!-- Comments will be inserted here -->
             </div>
@@ -54,6 +382,98 @@
             </div>
         </div>
     </div>
+
+
+
+    <footer>
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-container">
+            <div class="footer-section">
+              <div class="footer-logo">
+                <img src="../Assets/foodfiesta-white.png" alt="foodfiesta">
+              </div>
+              <p class="footer-text">Food Fiesta is all about redefining ‘Cooking’ for you! It’s the solution to
+                that never ending problem of preparing high quality delicious food and curtailing the eating out
+                habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for a
+                flavorsome treat with our recipes that will surely make you the next talk of the town!
+              </p>
+            </div>
+            <!-- Latest Recipes -->
+            <div class="footer-section">
+              <h3 class="footer-heading">Latest Recipes</h3>
+              <ul class="footer-list">
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Biryani</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Mexican Sandwich</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Karhai</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Cheese Pasta</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">DryFruit Shake</a></li>
+              </ul>
+            </div>
+            <!-- Our Categories -->
+            <div class="footer-section">
+      
+              <h3 class="footer-heading">Our Categories</h3>
+              <ul class="footer-list">
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desi</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Italian</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chinese</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desserts</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Drinks</a></li>
+              </ul>
+      
+            </div>
+      
+            <!--Navigation -->
+            <div class="footer-section">
+      
+              <h3 class="footer-heading">Navigation</h3>
+              <ul class="footer-list">
+                <li><i class="fa-solid fa-angles-right"></i> <a href="/index.html">Home</a></li>
+                <li><i class="fa-solid fa-angles-right"></i> <a href="./about.html">About Us</a></li>
+              
+              </ul>
+      
+            </div>
+          </div>
+          </div>
+        </footer>
+        <!-- Copyright & Privacy Section -->
+        <div class="footer-bottom">
+          <p>© Copyright 2025 All rights of publications are reserved by <span>Food Fiesta</span>.
+            Reproduction without consent is not allowed.</p>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </footer>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+       
+    <script type="module" src="../JavaScript/login.js"></script>
+    <script type="module" src="../JavaScript/signup.js"></script>
+
+        <!-- <script src="../JavaScript/index.js"></script> -->
     <script>
 
          // Function to get query parameters from URL
