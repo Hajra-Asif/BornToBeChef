@@ -10,7 +10,8 @@ import {
   auth,
   onAuthStateChanged,
   orderBy,
-updateDoc
+  updateDoc,
+  deleteDoc,
 } from "../JavaScript/firebaseconfig.js";
 
 onAuthStateChanged(auth, (user) => {
@@ -24,7 +25,7 @@ onAuthStateChanged(auth, (user) => {
 });
 
 const recipesContainer = document.getElementById("recipes-container");
-
+let editRecipeId;
 function fetchUserRecipes(userId) {
   const q = query(
     collection(db, "recipes"),
@@ -47,9 +48,7 @@ function fetchUserRecipes(userId) {
   });
 }
 
-
-
-let modal = document.getElementById("recipeModal")
+let modal = document.getElementById("recipeModal");
 
 function renderRecipe(foodItems) {
   const cardHTML = `
@@ -58,10 +57,17 @@ function renderRecipe(foodItems) {
         <div class="position-relative">
           <img src="${foodItems.imageUrl}" class="card-img-top" 
           alt="${foodItems.recipeName}">
-          <div class="recipe-badge">
-            <i class="fa-solid fa-pen text-light edit-btn" data-id="${foodItems.id}"></i>
-         
+         <div class="recipe-badge me-5">
+            <i class="fa-solid fa-pen text-light edit-btn" data-id="${
+              foodItems.id
+            }"></i>
           </div>
+          <div class="recipe-badge">
+            <i class="fa-solid fa-trash text-light delete-btn" data-id="${
+              foodItems.id
+            }"></i>
+          </div>
+        
         </div>
         <div class="card-body">
           <div class="cardd">
@@ -77,25 +83,25 @@ function renderRecipe(foodItems) {
             <span> 🍽 ${foodItems.servingSize || "N/A"} </span>
             <span> 🎯 ${foodItems.level || "Beginner"} </span>
           </div>
-       <button class="deleteRecipe" data-id="${recipeId}">Delete</button>
 
 
-          <a href="detail-page.html?id=${foodItems.id}" class="anchor text-decoration-none">
+          <a href="detail-page.html?id=${
+            foodItems.id
+          }" class="anchor text-decoration-none">
            
             <button class="btn-view" id="btn-view">View Recipe</button>
+           
           </a>
         </div>
       </div>
     </div>
   `;
 
-
-
-
   recipesContainer.innerHTML += cardHTML;
 
   // Add click event to the newly created edit button
   attachEditEvent();
+  attachDeleteEvent();
 }
 
 // Function to attach event listeners to all edit buttons
@@ -104,44 +110,54 @@ function attachEditEvent() {
     button.addEventListener("click", function () {
       const recipeId = this.getAttribute("data-id");
       console.log("Edit button clicked for Recipe ID:", recipeId);
-      openEditModal(recipeId); 
+      editRecipeId = recipeId;
+      openEditModal(recipeId);
     });
   });
 }
 
-
-
+function attachDeleteEvent() {
+  document.querySelectorAll(".delete-btn").forEach((button) => {
+    button.addEventListener("click", function () {
+      const recipeId = this.getAttribute("data-id");
+      console.log("Delete button clicked for Recipe ID:", recipeId);
+      editRecipeId = recipeId;
+      deleteRecipe();
+    });
+  });
+}
 
 // //////////////////////////////////// EDIT FUNCTOINALITY
-
-
-
 
 async function openEditModal(recipeId) {
   console.log("Received Recipe ID:", recipeId);
 
-  const recipeModal = new bootstrap.Modal(document.getElementById("recipeModal"));
+  const recipeModal = new bootstrap.Modal(
+    document.getElementById("recipeModal")
+  );
 
   try {
-  
     // Query for the document where 'id' field matches recipeId
     const recipesCollection = collection(db, "recipes");
-    const q = query(recipesCollection, where("id", "==", recipeId)); 
+    const q = query(recipesCollection, where("id", "==", recipeId));
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
       querySnapshot.forEach((doc) => {
-        console.log("Recipe Found:", doc.data()); 
+        console.log("Recipe Found:", doc.data());
 
         const recipeData = doc.data();
 
-        document.getElementById("recipeName").value = recipeData.recipeName || "";
-        document.getElementById("ingredients").value = recipeData.ingredients || "";
-        document.getElementById("servingSize").value = recipeData.servingSize || "";
+        document.getElementById("recipeName").value =
+          recipeData.recipeName || "";
+        document.getElementById("ingredients").value =
+          recipeData.ingredients || "";
+        document.getElementById("servingSize").value =
+          recipeData.servingSize || "";
         document.getElementById("prepTime").value = recipeData.prepTime || "";
-        document.getElementById("instructions").value = recipeData.instructions || "";
+        document.getElementById("instructions").value =
+          recipeData.instructions || "";
         // document.getElementById("instructions").value = recipeData.imageUrl || "";
-
 
         recipeModal.show();
       });
@@ -153,129 +169,149 @@ async function openEditModal(recipeId) {
   }
 }
 
-
-
-console.log("hi hello chal rha meinnnn")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log("hi hello chal rha meinnnn");
 
 //////////////////////////////////////////////////////////////////
 
 // Handle save functionality
 
-
 // Save Changes button ka event listener
-
 
 // Recipe update karne ka function
 
 // 🔥 **2. Save Changes to Firestore**
 
-        // 🔥 **2. Save Changes to Firestore**
-        async function saveRecipeChanges() {
-          const recipeId = document.getElementById("btn-save").getAttribute("data-id");
-console.log("recipeeeeeeeeeeeeeeeeeeeee", recipeId)
-          if (!recipeId) {
-              console.error("❌ No Recipe ID Found!");
-              return;
-          }
+// 🔥 **2. Save Changes to Firestore**
+async function saveRecipeChanges() {
+  const recipeId = editRecipeId;
 
-          const updatedData = {
-              recipeName: document.getElementById("recipeName").value,
-              ingredients: document.getElementById("ingredients").value,
-              servingSize: document.getElementById("servingSize").value,
-              prepTime: document.getElementById("prepTime").value,
-              instructions: document.getElementById("instructions").value,
-          };
+  // document
+  //   .getElementById("saveRecipe")
+  //   ?.getAttribute("data-id");
 
-          console.log("📝 Updating Recipe:", updatedData);
+  console.log("recipeeeeeeeeeeeeeeeeeeeee", recipeId);
+  if (!recipeId) {
+    console.error("❌ No Recipe ID Found!");
+    return;
+  }
+  // func here for uploading on storage || return url link
 
-          try {
-              const recipeRef = doc(db, "recipes", recipeId);
-              await updateDoc(recipeRef, updatedData);
+  const updatedData = {
+    recipeName: document.getElementById("recipeName").value,
+    ingredients: document.getElementById("ingredients").value,
+    servingSize: document.getElementById("servingSize").value,
+    prepTime: document.getElementById("prepTime").value,
+    instructions: document.getElementById("instructions").value,
+    // imageUrl: // return url id.
+  };
 
-              console.log("✅ Recipe Updated Successfully!");
+  console.log("📝 Updating Recipe:", updatedData);
 
-              Swal.fire({
-                  title: "Updated!",
-                  text: "Recipe has been updated successfully.",
-                  icon: "success",
-                  timer: 2000,
-                  showConfirmButton: false,
-              });
+  try {
+    const recipeColl = collection(db, "recipes");
+    const q = query(recipeColl, where("id", "==", recipeId));
+    const querySnapshot = await getDocs(q);
 
-          } catch (error) {
-              console.error("🔥 Error Updating Recipe:", error);
-          }
-      }
+    const docRef = doc(db, "recipes", querySnapshot.docs[0].id);
+    await updateDoc(docRef, updatedData);
 
-      // 🔥 **3. Event Listeners**
-      document.addEventListener("click", function (event) {
-        if (event.target && event.target.id === "btn-save") {
-            console.log("🚀 Save Button Clicked!");
-            saveRecipeChanges();
-        }
+    console.log("✅ Recipe Updated Successfully!");
+
+    Swal.fire({
+      title: "Updated!",
+      text: "Recipe has been updated successfully.",
+      icon: "success",
+      timer: 2000,
+      showConfirmButton: false,
     });
-    
+  } catch (error) {
+    console.error("🔥 Error Updating Recipe:", error);
+  }
+}
 
+async function deleteRecipe() {
+  const recipeId = editRecipeId;
+
+  // document
+  //   .getElementById("saveRecipe")
+  //   ?.getAttribute("data-id");
+
+  console.log("recipeeeeeeeeeeeeeeeeeeeee", recipeId);
+  if (!recipeId) {
+    console.error("❌ No Recipe ID Found!");
+    return;
+  }
+
+  console.log("📝 deleting Recipe:", recipeId);
+
+  try {
+    const recipeColl = collection(db, "recipes");
+    const q = query(recipeColl, where("id", "==", recipeId));
+    const querySnapshot = await getDocs(q);
+
+    const docRef = doc(db, "recipes", querySnapshot.docs[0].id);
+    await deleteDoc(docRef);
+
+    console.log("✅ ");
+
+    // Swal.fire({
+    //   title: "Delete!",
+    //   text: "Recipe has been deleted successfully.",
+    //   icon: "success",
+    //   timer: 2000,
+    //   showConfirmButton: false,
+    // });
+    alert("Recipe deleted Successfully!");
+  } catch (error) {
+    console.error("🔥 Error deleting Recipe:", error);
+  }
+}
+// // 🔥 **3. Event Listeners**
+// document.addEventListener("click", function (event) {
+//   if (event.target && event.target.id === "saveRecipe") {
+//     event.preventDefault();
+//     alert("🚀 Save Button Clicked!");
+//     // saveRecipeChanges();
+//   }
+// });
+document.getElementById("saveRecipe").addEventListener("click", (e) => {
+  e.preventDefault();
+  saveRecipeChanges();
+});
+document.getElementById("deleteRecipe").addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("delete excute");
+  // saveRecipeChanges();
+});
 ///////////////delete functionalityyyyy////////////////
-
 
 document.addEventListener("click", async (e) => {
   if (e.target.classList.contains("deleteRecipe")) {
-      const recipeId = e.target.getAttribute("data-id");
+    const recipeId = e.target.getAttribute("data-id");
 
-      if (!recipeId) {
-          console.error("❌ No Recipe ID Found!");
-          return;
-      }
+    if (!recipeId) {
+      console.error("❌ No Recipe ID Found!");
+      return;
+    }
 
-      console.log("🗑️ Deleting Recipe ID:", recipeId);
+    console.log("🗑️ Deleting Recipe ID:", recipeId);
 
-      try {
-          await deleteDoc(doc(db, "recipes", recipeId));
-          console.log("✅ Recipe Deleted Successfully!");
+    try {
+      await deleteDoc(doc(db, "recipes", recipeId));
+      console.log("✅ Recipe Deleted Successfully!");
 
-          Swal.fire({
-              title: "Deleted!",
-              text: "Recipe has been deleted successfully.",
-              icon: "success",
-              timer: 2000,
-              showConfirmButton: false,
-          });
+      Swal.fire({
+        title: "Deleted!",
+        text: "Recipe has been deleted successfully.",
+        icon: "success",
+        timer: 2000,
+        showConfirmButton: false,
+      });
 
-          // 🔄 Refresh the recipes list
-          fetchRecipes();  
-
-      } catch (error) {
-          console.error("🔥 Error Deleting Recipe:", error);
-      }
+      // 🔄 Refresh the recipes list
+      fetchRecipes();
+    } catch (error) {
+      console.error("🔥 Error Deleting Recipe:", error);
+    }
   }
 });
-
-console.log(recipeId);
