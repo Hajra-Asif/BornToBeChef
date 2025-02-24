@@ -1,33 +1,34 @@
- // Function to get query parameters from URL
- let searchParams = (param) => {
-    let urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-};
-let shre =  window.location.href
-// console.log(shre);
-let displayCardss = async () => {
-    let idd = searchParams("id"); // Get meal ID from URL
-    let ele = document.getElementById('con');
+//  recipe detail code remains the same until getRecipeDetail function...
+let searchParams = (params) => {
+    let urll = new URLSearchParams(window.location.search);
+    return urll.get(params)
+  }
+  let shre =  window.location.href
 
-    if (idd) {
-        let fetchh = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idd}`);
+  let displayData = async()=>{
+    let elem = document.getElementById('con');
+    let idd = searchParams("id");
+
+    if(idd){
+        let fetchh = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idd}`)
         let jsonData = await fetchh.json();
-        const dessert =  jsonData.meals[0];
+        let foodItem = jsonData.meals[0];
 
-        if (!dessert) {
-            ele.innerHTML = '<h2 class="text-danger">Dessert not found</h2>';
-            return;
+        if(!foodItem){
+elem.innerHTML='food items not foundddd......'
         }
 
-        ele.innerHTML = `
-            <h1  style="color:var(--blue);"class="mb-4">Recipe Detail Page</h1>
+        elem.innerHTML=`
+        
+        
+                <h1  style="color:var(--blue);"class="mb-4">Recipe Detail Page</h1>
             <div class="row mb-4">
                 <div class="col-lg-6 mb-4">
-                    <img id="recipeImage" src="${dessert.strMealThumb}" alt="" class="img-fluidMeal rounded">
+                    <img id="recipeImage" src="${foodItem.strMealThumb}" alt="${foodItem.strMealThumb}" class="img-fluidMeal rounded">
                 </div>
                 <div class="col-lg-6">
                     <div id="title">
-                        <h1 id="recipeTitle" class="mb-1">${dessert.strMeal}</h1>
+                        <h1 id="recipeTitle" class="mb-1">${foodItem.strMeal}</h1>
                         <p class="recipe-date mb-4" id="recipeDate">SEPTEMBER 23RD, 2023</p>
                         <div class="social-share mb-2">
                           <a href="#" id="view-modal" class="social-icon">
@@ -98,36 +99,38 @@ let displayCardss = async () => {
                     </div>
                     <div class="col-md-6">
                         <h3 class="section-heading">Instructions</h3>
-                        <p>${dessert.strInstructions}</p>
+                        <p>${foodItem.strInstructions}</p>
                     </div>
                 </div>
             </div>
-        `;
-        
+                `;
 
-        // Populate the ingredients list dynamically
-        let ingredientsHtml = "";
-        for (let i = 1; i <= 20; i++) {
-            const ingredient = dessert[`strIngredient${i}`];
-            const measure = dessert[`strMeasure${i}`]; 
-            if (ingredient && ingredient.trim()) {
-                ingredientsHtml += `<li> <span class="measure">${measure ? measure : ""}</span> ${ingredient}</li>`;
-            }
-        }
-        document.getElementById("ingredients").innerHTML = ingredientsHtml;
-    // print
-        const printLink = document.querySelector('#print-link');
-        console.log(printLink);  
+
+
+
+
+
+// Populate the ingredients list dynamically
+let ingredientsHtml = "";
+for (let i = 1; i <= 20; i++) {
+    const ingredient = foodItem[`strIngredient${i}`];
+    const measure = foodItem[`strMeasure${i}`];
+    if (ingredient && ingredient.trim()) {
+        ingredientsHtml += `<li> <span class="measure">${measure ? measure : ""}</span> ${ingredient}</li>`;
+    }
+}
+document.getElementById("ingredients").innerHTML = ingredientsHtml;
+const printLink = document.querySelector('#print-link');
+        // console.log(printLink);  
         if (printLink) {
             printLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.print();
             });
         }
-    } else {
-        ele.innerHTML = `<h2 class="text-danger">Recipe ID not found</h2>`;
-    }
-    
+} else {
+document.body.innerHTML = `<p>Recipe not found</p>`;
+}
 const viewBtn = document.querySelector("#view-modal"),
 popup = document.querySelector(".popup"),
 close = popup.querySelector(".close"),
@@ -154,12 +157,13 @@ setTimeout(()=>{
 }, 3000);
 }
 }
+
+
+
 };
 
-displayCardss();
 
-
- // Add the comments functionality
+displayData()
 // comment section
 
 let comments = JSON.parse(localStorage.getItem('recipeComments')) || [
@@ -313,7 +317,7 @@ function init() {
 // Initialize the page with existing comments
 init();
 
-
+// footer plus moudal
 document.addEventListener("DOMContentLoaded", function () {
     // Get modal elements
     const loginOverlay = document.querySelector(".login-overlay");

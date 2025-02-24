@@ -1,5 +1,5 @@
- // Function to get query parameters from URL
- let searchParams = (param) => {
+// Function to get query parameters from URL
+let searchParams = (param) => {
     let urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 };
@@ -157,10 +157,8 @@ setTimeout(()=>{
 };
 
 displayCardss();
-
-
  // Add the comments functionality
-// comment section
+ // comment section
 
 let comments = JSON.parse(localStorage.getItem('recipeComments')) || [
     {
@@ -313,7 +311,6 @@ function init() {
 // Initialize the page with existing comments
 init();
 
-
 document.addEventListener("DOMContentLoaded", function () {
     // Get modal elements
     const loginOverlay = document.querySelector(".login-overlay");
@@ -408,3 +405,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+

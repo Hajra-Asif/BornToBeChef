@@ -98,3 +98,194 @@ let populateButtons = async () => {
   await populateButtons();
   await displayCards();
 })();
+
+// footer plus moudal
+document.addEventListener("DOMContentLoaded", function () {
+  // Get modal elements
+  const loginOverlay = document.querySelector(".login-overlay");
+  const signupOverlay = document.querySelector(".signup-overlay");
+
+  // Buttons/links to open modals
+  const openLoginBtn = document.querySelector(".login1");
+  const openSignupBtn = document.querySelector(".signup1");
+
+  // Close buttons
+  const closeLoginBtn = document.querySelector(".close-login");
+  const closeSignupBtn = document.querySelector(".close-signup");
+
+  // Switch between login/signup
+  const switchToLogin = document.getElementById("switchToLogin");
+  const switchToSignup = document.getElementById("switchToSignup");
+
+  // Function to open modal
+  function openModal(modal) {
+      if (modal) {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden"; // Prevent background scrolling
+      }
+  }
+
+  // Function to close modal
+  function closeModal(modal) {
+      if (modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = ""; // Restore scrolling
+      }
+  }
+
+  // Open login modal
+  if (openLoginBtn) {
+      openLoginBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(loginOverlay);
+      });
+  }
+
+  // Open signup modal
+  if (openSignupBtn) {
+      openSignupBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(signupOverlay);
+      });
+  }
+
+  // Close login modal
+  if (closeLoginBtn) {
+      closeLoginBtn.addEventListener("click", () => closeModal(loginOverlay));
+  }
+
+  // Close signup modal
+  if (closeSignupBtn) {
+      closeSignupBtn.addEventListener("click", () => closeModal(signupOverlay));
+  }
+
+  // Close modal when clicking outside
+  document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("login-overlay")) {
+          closeModal(loginOverlay);
+      } else if (e.target.classList.contains("signup-overlay")) {
+          closeModal(signupOverlay);
+      }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+          closeModal(loginOverlay);
+          closeModal(signupOverlay);
+      }
+  });
+
+  // Switch to login modal from signup modal
+  if (switchToLogin) {
+      switchToLogin.addEventListener("click", (e) => {
+          e.preventDefault();
+          closeModal(signupOverlay);
+          openModal(loginOverlay);
+      });
+  }
+
+  // Switch to signup modal from login modal
+  if (switchToSignup) {
+      switchToSignup.addEventListener("click", (e) => {
+          e.preventDefault();
+          closeModal(loginOverlay);
+          openModal(signupOverlay);
+      });
+  }
+});
+// footer plus moudal
+document.addEventListener("DOMContentLoaded", function () {
+  // Get modal elements
+  const loginOverlay = document.querySelector(".login-overlay");
+  const signupOverlay = document.querySelector(".signup-overlay");
+
+  // Buttons/links to open modals
+  const openLoginBtn = document.querySelector(".login1");
+  const openSignupBtn = document.querySelector(".signup1");
+
+  // Close buttons
+  const closeLoginBtn = document.querySelector(".close-login");
+  const closeSignupBtn = document.querySelector(".close-signup");
+
+  // Switch between login/signup
+  const switchToLogin = document.getElementById("switchToLogin");
+  const switchToSignup = document.getElementById("switchToSignup");
+
+  // Function to open modal
+  function openModal(modal) {
+      if (modal) {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden"; // Prevent background scrolling
+      }
+  }
+
+  // Function to close modal
+  function closeModal(modal) {
+      if (modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = ""; // Restore scrolling
+      }
+  }
+
+  // Open login modal
+  if (openLoginBtn) {
+      openLoginBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(loginOverlay);
+      });
+  }
+
+  // Open signup modal
+  if (openSignupBtn) {
+      openSignupBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(signupOverlay);
+      });
+  }
+
+  // Close login modal
+  if (closeLoginBtn) {
+      closeLoginBtn.addEventListener("click", () => closeModal(loginOverlay));
+  }
+
+  // Close signup modal
+  if (closeSignupBtn) {
+      closeSignupBtn.addEventListener("click", () => closeModal(signupOverlay));
+  }
+
+  // Close modal when clicking outside
+  document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("login-overlay")) {
+          closeModal(loginOverlay);
+      } else if (e.target.classList.contains("signup-overlay")) {
+          closeModal(signupOverlay);
+      }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+          closeModal(loginOverlay);
+          closeModal(signupOverlay);
+      }
+  });
+
+  // Switch to login modal from signup modal
+  if (switchToLogin) {
+      switchToLogin.addEventListener("click", (e) => {
+          e.preventDefault();
+          closeModal(signupOverlay);
+          openModal(loginOverlay);
+      });
+  }
+
+  // Switch to signup modal from login modal
+  if (switchToSignup) {
+      switchToSignup.addEventListener("click", (e) => {
+          e.preventDefault();
+          closeModal(loginOverlay);
+          openModal(signupOverlay);
+      });
+  }
+});

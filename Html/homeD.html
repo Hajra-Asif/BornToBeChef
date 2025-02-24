@@ -306,20 +306,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-5 mb-2 mb-lg-0 d-flex flex-grow-1 justify-content-end gap-2">
           <li class="nav-item">
-            <a href="../ramzan.html" class="nav-link">Ramzan</a>
+            <a href="../Html/ramzan.html" class="nav-link">Ramzan</a>
           </li>
           <li class="nav-item">
-            <a href="../drinks.html" class="nav-link">Drinks</a>
+            <a href="../Html/drinks.html" class="nav-link">Drinks</a>
           </li>
         
           <li class="nav-item">
-            <a href="../desserts.html" class="nav-link">Desserts</a>
+            <a href="../Html/desserts.html" class="nav-link">Desserts</a>
           </li>
           <li class="nav-item">
-            <a href="../breakfast.html" class="nav-link">Breakfast</a>
+            <a href="../Html/breakfast.html" class="nav-link">Breakfast</a>
           </li>
           <li class="nav-item">
-            <a href="../lunchDinner.html" class="nav-link">Lunch / Dinner</a>
+            <a href="../Html/lunchDinner.html" class="nav-link">Lunch / Dinner</a>
           </li>
 
         </ul>
@@ -384,68 +384,155 @@
 
 
 
-    <footer>
-        <!-- Footer -->
-        <footer class="footer">
-          <div class="footer-container">
-            <div class="footer-section">
-              <div class="footer-logo">
-                <img src="../Assets/foodfiesta-white.png" alt="foodfiesta">
-              </div>
-              <p class="footer-text">Food Fiesta is all about redefining ‘Cooking’ for you! It’s the solution to
-                that never ending problem of preparing high quality delicious food and curtailing the eating out
-                habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for a
-                flavorsome treat with our recipes that will surely make you the next talk of the town!
-              </p>
-            </div>
-            <!-- Latest Recipes -->
-            <div class="footer-section">
-              <h3 class="footer-heading">Latest Recipes</h3>
-              <ul class="footer-list">
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Biryani</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Mexican Sandwich</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Karhai</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Cheese Pasta</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">DryFruit Shake</a></li>
-              </ul>
-            </div>
-            <!-- Our Categories -->
-            <div class="footer-section">
-      
-              <h3 class="footer-heading">Our Categories</h3>
-              <ul class="footer-list">
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desi</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Italian</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chinese</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desserts</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="#">Drinks</a></li>
-              </ul>
-      
-            </div>
-      
-            <!--Navigation -->
-            <div class="footer-section">
-      
-              <h3 class="footer-heading">Navigation</h3>
-              <ul class="footer-list">
-                <li><i class="fa-solid fa-angles-right"></i> <a href="/index.html">Home</a></li>
-                <li><i class="fa-solid fa-angles-right"></i> <a href="./about.html">About Us</a></li>
-              
-              </ul>
-      
-            </div>
-          </div>
-          </div>
-        </footer>
-        <!-- Copyright & Privacy Section -->
-        <div class="footer-bottom">
-          <p>© Copyright 2025 All rights of publications are reserved by <span>Food Fiesta</span>.
-            Reproduction without consent is not allowed.</p>
-          <a href="#">Privacy Policy</a>
+ <!-- Signup Modal -->
+ <div id="signupmodal" class="signup-overlay">
+  <div class="signup-container">
+    <button class="close-signup">&times;</button>
+    <div class="signup-header">
+      <h1>Create Account</h1>
+      <p>Join our community today</p>
+    </div>
+    <form id="signupForm">
+      <div class="name-fields">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" required placeholder="Enter first name">
         </div>
-      </footer>
-      
-      
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" required placeholder="Enter last name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="Enter your email">
+        <small id="emailError" class="text-danger"></small>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="Create password">
+        <small id="passwordError" class="text-danger"></small>
+      </div>
+      <div class="terms-wrapper">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">
+          I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        </label>
+      </div>
+      <button type="submit" id="signup" class="signup-button">Create Account</button>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">or continue with</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <button type="button" class="google-btn" id="google-signup">
+        <img src="https://www.svgrepo.com/show/303108/google-icon-logo.svg" alt="Google" width="20" height="20">
+        <span>Sign up with Google</span>
+      </button>
+      <div class="login-text">
+        Already have an account? <a href="#" id="switchToLogin">Log in</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div id="loginmodal" class="login-overlay">
+  <div class="modal">
+    <button class="close-login">&times;</button>
+    <div class="modal-header">
+      <h1>Welcome Back</h1>
+      <p>Please enter your credentials</p>
+    </div>
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required placeholder="Enter your email">
+        <div id="emailError" class="text-danger error-message"></div> <!-- Email Error Message -->
+      </div>
+      <div class="input-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required placeholder="Enter your password">
+        <div id="passwordError" class="text-danger error-message"></div> <!-- Password Error Message -->
+      </div>
+      <div class="options">
+        <div class="checkbox-container">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+        <a href="#" id="forgotpswd" class="forgot">Forgot Password?</a>
+      </div>
+      <div id="loginError" class="error-box" style="display: none;">Invalid username or password.</div>
+      <!-- Main Error Box -->
+      <button type="submit" id="login-btn" class="login-btn">Login</button>
+    </form>
+    <div class="signup">
+      Don't have an account? <a href="#" id="switchToSignup">Sign up</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="./Assets/foodfiesta-white.png" alt="Food Fiesta">
+        </div>
+        <p class="footer-text">Food Fiesta is all about redefining ‘Cooking’ for you! It’s the solution to
+          that never ending problem of preparing high quality delicious food and curtailing the eating out
+          habits of your loved ones! With modernized and yet simple cooking methods, you are surely in for a
+          flavorsome treat with our recipes that will surely make you the next talk of the town!
+        </p>
+      </div>
+      <!-- Latest Recipes -->
+      <div class="footer-section">
+        <h3 class="footer-heading">Latest Recipes</h3>
+        <ul class="footer-list">
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Biryani</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Mexican Sandwich</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Karhai</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chicken Cheese Pasta</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">DryFruit Shake</a></li>
+        </ul>
+      </div>
+      <!-- Our Categories -->
+      <div class="footer-section">
+
+        <h3 class="footer-heading">Our Categories</h3>
+        <ul class="footer-list">
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desi</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Italian</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Chinese</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Desserts</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="#">Drinks</a></li>
+        </ul>
+
+      </div>
+
+      <!--Navigation -->
+      <div class="footer-section">
+
+        <h3 class="footer-heading">Navigation</h3>
+        <ul class="footer-list">
+          <li><i class="fa-solid fa-angles-right"></i> <a href="../index.html">Home</a></li>
+          <li><i class="fa-solid fa-angles-right"></i> <a href="../Html/about.html">About Us</a></li>
+          <!-- <li><i class="fa-solid fa-angles-right"></i> <a href="./Html/contact.html">Contact Us</a></li> -->
+
+        </ul>
+
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- Copyright & Privacy Section -->
+  <div class="footer-bottom">
+    <p>© Copyright 2025 All rights of publications are reserved by <span>Food Fiesta</span>.
+      Reproduction without consent is not allowed.</p>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
       
       
       
