@@ -52,9 +52,11 @@
         </div>
     </div>
 </div>
-
+<div id="wishlist-container">
+                            
+</div>
 <script>
-  
+
   let searchParams = (params) => {
     let urll = new URLSearchParams(window.location.search);
     return urll.get(params)
@@ -86,8 +88,8 @@ elem.innerHTML='food items not foundddd......'
                         <h1 id="recipeTitle" class="mb-1">${foodItem.strMeal}</h1>
                         <p class="recipe-date mb-4" id="recipeDate">SEPTEMBER 23RD, 2023</p>
                         <div class="social-share mb-2">
-                          <a href="#" id="view-modal" class="social-icon">
-<i class="fas fa-share"></i>
+                  <a href="#" class="social-icon">
+    <i class="fas fa-share" data-recipe-id="${foodItem.idMeal}"></i>
 </a>
 
 <div class="popup">
@@ -115,9 +117,10 @@ elem.innerHTML='food items not foundddd......'
                             <a href="#" id="print-link" class="social-icon">
                                 <i class="fas fa-print"></i> 
                             </a>
-                            <a href="#" class="social-icon">
-                                <i class="fas fa-heart"></i>
-                            </a>
+                            <a href="#" class="social-icon" id="heartLink">
+                               <i class="fas fa-heart" id="heartIcon"></i>
+                              </a>
+
                         </div>
                         <div class="recipe-intro mt-2 mb-4" id="recipeIntro">
                             I am SO excited to share this recipe with you guys. I have been trying to perfect it for quite some time...
@@ -371,7 +374,10 @@ function init() {
 
 // Initialize the page with existing comments
 init();
-</script>
 
+
+</script>
+<!-- <script type="module" src="../JavaScript/index.js"></script> -->
+<script type="module" src="../Dashboard/wishlist.js"></script>
 </body>
 </html>
