@@ -163,34 +163,33 @@ function attachEditEvent() {
 // //////////////////////////////////// EDIT FUNCTOINALITY
 
 
+
+
 async function openEditModal(recipeId) {
-  console.log("Received Recipe ID:", recipeId); 
+  console.log("Received Recipe ID:", recipeId);
 
   const recipeModal = new bootstrap.Modal(document.getElementById("recipeModal"));
 
   try {
-    // Firestore se recipe fetch karein
-    const recipeRef = doc(db, "recipes", recipeId);
-    console.log("Firestore Doc Ref:", recipeRef.path); //
+    // Query for the document where 'id' field matches recipeId
+    const recipesCollection = collection(db, "recipes");
+    const q = query(recipesCollection, where("id", "==", recipeId)); 
+    const querySnapshot = await getDocs(q);
 
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach((doc) => {
+        console.log("Recipe Found:", doc.data()); 
 
-    
+        const recipeData = doc.data();
 
-    const recipeSnap = await getDoc(recipeRef);
+        document.getElementById("recipeName").value = recipeData.recipeName || "";
+        document.getElementById("ingredients").value = recipeData.ingredients || "";
+        document.getElementById("servingSize").value = recipeData.servingSize || "";
+        document.getElementById("prepTime").value = recipeData.prepTime || "";
+        document.getElementById("instructions").value = recipeData.instructions || "";
 
-    if (recipeSnap.exists()) {
-      console.log("Recipe Found:", recipeSnap.data()); 
-
-      const recipeData = recipeSnap.data();
-
-      // Input fields ko update karein
-      document.getElementById("recipeName").value = recipeData.recipeName || "";
-      document.getElementById("ingredients").value = recipeData.ingredients || "";
-      document.getElementById("servingSize").value = recipeData.servingSize || "";
-      document.getElementById("prepTime").value = recipeData.prepTime || "";
-      document.getElementById("instructions").value = recipeData.instructions || "";
-
-      recipeModal.show();
+        recipeModal.show();
+      });
     } else {
       console.error("Recipe not found in Firestore!");
     }
