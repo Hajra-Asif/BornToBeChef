@@ -1,31 +1,30 @@
 // toggle
 
-document.addEventListener('DOMContentLoaded', function () {
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const overlay = document.querySelector('.sidebar-overlay');
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebarToggle = document.querySelector(".sidebar-toggle");
+  const sidebar = document.querySelector(".sidebar");
+  const overlay = document.querySelector(".sidebar-overlay");
 
-    function toggleSidebar() {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-    }
+  function toggleSidebar() {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  }
 
-    sidebarToggle.addEventListener('click', toggleSidebar);
-    overlay.addEventListener('click', toggleSidebar);
+  sidebarToggle.addEventListener("click", toggleSidebar);
+  overlay.addEventListener("click", toggleSidebar);
 });
-
-
 
 let profilename = document.getElementById("profileTrigger");
 
 // cards
 
 let fetchApi = async () => {
-    let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
-    let jsonData = await response.json();
-    return jsonData.meals || [];
+  let response = await fetch(
+    "https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken"
+  );
+  let jsonData = await response.json();
+  return jsonData.meals || [];
 };
-
 
 // card
 // function getData(foodItems) {
@@ -64,11 +63,7 @@ let fetchApi = async () => {
 //               </div>
 //           </div>
 //           </div>
-        
-  
-  
-  
-  
+
 //         `;
 // }
 
@@ -84,16 +79,13 @@ let fetchApi = async () => {
 //     // container.innerHTML = data.slice(9, 17).map(getData).join('');
 // };
 
-
 // displayCards();
-
-
 
 // document.addEventListener("click", function (event) {
 //     if (event.target.classList.contains("star")) {
-//         let card = event.target.closest(".card"); 
-//         let stars = card.querySelectorAll(".star"); 
-//         let rating = Array.from(stars).indexOf(event.target) + 1; 
+//         let card = event.target.closest(".card");
+//         let stars = card.querySelectorAll(".star");
+//         let rating = Array.from(stars).indexOf(event.target) + 1;
 
 //         // Remove previous ratings
 //         stars.forEach(star => star.classList.remove("one", "two", "three", "four", "five"));
@@ -108,19 +100,20 @@ let fetchApi = async () => {
 //     }
 // });
 
-
-//   recent uploaded 
+//   recent uploaded
 
 async function fetchRecipes() {
-    const container = document.querySelector('.sidebar-recipes');
+  const container = document.querySelector(".sidebar-recipes");
 
-    try {
-        const res = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken");
-        const { meals } = await res.json();
-        container.innerHTML = "<h2>Recently Uploaded</h2>";
+  try {
+    const res = await fetch(
+      "https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken"
+    );
+    const { meals } = await res.json();
+    container.innerHTML = "<h2>Recently Uploaded</h2>";
 
-        meals.slice(14, 18).forEach(({ strMeal, strMealThumb, idMeal }) => {
-            container.innerHTML += `
+    meals.slice(14, 18).forEach(({ strMeal, strMealThumb, idMeal }) => {
+      container.innerHTML += `
                 <div class="horizontal-recipe-card">
                     <img src="${strMealThumb}" class="h-card-img" alt="${strMeal}">
                     <div class="h-card-content">
@@ -133,71 +126,63 @@ async function fetchRecipes() {
                       <span onclick="gfg(event, 5)" class="star">★</span>
                   </div>
                    <a href="detail-page.html?id=${idMeal}" class="anchor text-decoration-none">
-            <button class="btn-view sidebtn">View Recipe</button>
-                    </div>
-                </div>`;
-        });
+            <a href="../Html/detailLunch.html?id=${foodItems.idMeal}" class="anchor text-decoration-none">
 
-    } catch (error) {
-        container.innerHTML = "<p>Failed to load recipes. Try again later.</p>";
-    }
+
+                  <button class="btn-view">View Recipe</button>
+                </a>`;
+    });
+  } catch (error) {
+    container.innerHTML = "<p>Failed to load recipes. Try again later.</p>";
+  }
 }
 
 function viewRecipe(id) {
-    window.open(`https://www.themealdb.com/meal/${id}, "_blank"`);
+  window.open(`https://www.themealdb.com/meal/${id}, "_blank"`);
 }
 
 document.addEventListener("DOMContentLoaded", fetchRecipes);
 
-
 function gfg(e, rating) {
-    const stars = e.target.parentElement.getElementsByClassName("h-star");
-    const card = e.target.closest('.horizontal-recipe-card');
+  const stars = e.target.parentElement.getElementsByClassName("h-star");
+  const card = e.target.closest(".horizontal-recipe-card");
 
-    card.dataset.rating = rating;
+  card.dataset.rating = rating;
 
-
-    for (let i = 0; i < stars.length; i++) {
-        if (i < rating) {
-            stars[i].style.color = "#FFB800";
-        } else {
-            stars[i].style.color = "#ccc";
-        }
+  for (let i = 0; i < stars.length; i++) {
+    if (i < rating) {
+      stars[i].style.color = "#FFB800";
+    } else {
+      stars[i].style.color = "#ccc";
     }
+  }
 }
-
 
 // piechart
 
-const ctx = document.getElementById('salesChart').getContext('2d');
+const ctx = document.getElementById("salesChart").getContext("2d");
 const salesChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Chicken Fajita Mac and Cheese', 'Chicken Enchilada Casserole', 'Chicken Handi'],
-        datasets: [{
-            data: [78, 26, 17], 
-            backgroundColor: ['#384c6b', '#e28a2b', '#859bba'],
-            borderWidth: 1
-        }]
+  type: "doughnut",
+  data: {
+    labels: [
+      "Chicken Fajita Mac and Cheese",
+      "Chicken Enchilada Casserole",
+      "Chicken Handi",
+    ],
+    datasets: [
+      {
+        data: [78, 26, 17],
+        backgroundColor: ["#384c6b", "#e28a2b", "#859bba"],
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+      },
     },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'bottom'
-            }
-        }
-    }
+  },
 });
-
-
-
-
-
-
-
-
-
-
-
-
