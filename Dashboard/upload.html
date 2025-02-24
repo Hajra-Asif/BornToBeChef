@@ -148,7 +148,8 @@
                                     <input type="file" accept="image/png, image/jpeg" id="imageInput">
                                     Click to upload or drag and drop file here
                                 </label>
-                                <button class="btn btn-primary mt-2" type="button" id="uploadBtn">Upload</button>
+                               
+                                <i class="fa-solid fa-file-arrow-up " id="uploadBtn" style="color: var(--blue);"></i>
                             </div>
 
                             <button type="submit" class="btn-view">Submit</button>
@@ -186,14 +187,14 @@
                                 <label for="imageUrl">Image URL</label>
                                 <input type="url" id="imageUrl" class="form-control" required>
                             </div>
-                            <button type="submit" class="btn-save">Save Changes</button>
+                            <button type="submit" class="btn-save" id="btn-save" data-id="" onclick="openEditModal('12345')">Save Changes</button>
                         </form>
                     </div>
                 </div>
 
-
+               
             </div>
-
+<!-- <button id="deleteRecipe">delete</button> -->
 
 
 

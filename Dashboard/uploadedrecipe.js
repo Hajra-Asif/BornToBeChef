@@ -10,6 +10,7 @@ import {
   auth,
   onAuthStateChanged,
   orderBy,
+updateDoc
 } from "../JavaScript/firebaseconfig.js";
 
 onAuthStateChanged(auth, (user) => {
@@ -59,6 +60,7 @@ function renderRecipe(foodItems) {
           alt="${foodItems.recipeName}">
           <div class="recipe-badge">
             <i class="fa-solid fa-pen text-light edit-btn" data-id="${foodItems.id}"></i>
+         
           </div>
         </div>
         <div class="card-body">
@@ -75,8 +77,12 @@ function renderRecipe(foodItems) {
             <span> 🍽 ${foodItems.servingSize || "N/A"} </span>
             <span> 🎯 ${foodItems.level || "Beginner"} </span>
           </div>
+       <button class="deleteRecipe" data-id="${recipeId}">Delete</button>
+
+
           <a href="detail-page.html?id=${foodItems.id}" class="anchor text-decoration-none">
-            <button class="btn-view">View Recipe</button>
+           
+            <button class="btn-view" id="btn-view">View Recipe</button>
           </a>
         </div>
       </div>
@@ -103,61 +109,7 @@ function attachEditEvent() {
   });
 }
 
-// Function to handle edit action
-// async function openEditModal(recipeId) {
-//   const recipeModal = new bootstrap.Modal(document.getElementById("recipeModal"));
-//   recipeModal.show();
 
-//   // document.getElementById("recipeName").value = `Recipe #${recipes.recipeName}`;/
-
-//   const recipeData = {
-//     recipeName: document.getElementById("recipeName").value,
-//     ingredients: document.getElementById("ingredients").value,
-//     servingSize: document.getElementById("servingSize").value,
-//     prepTime: document.getElementById("prepTime").value,
-//     instructions: document.getElementById("instructions").value,
-//     fileUpload: document.getElementById("fileUpload").value,
- 
-//   };
-
-//   console.log(recipeData, "recipe data.");
-
-
-//   // document.getElementById("ingredients").value = `Ingredients for Recipe #${recipeId}`;
-
-//   const userID = user.uid;
-//   const recipeRef = collection(db, "recipes");
-//   console.log(recipeId, "recipe id");
-  
-//   const q = query(recipeRef, where("uid", "==", userID));
-  
-//       try {
-//         const querySnapshot = await getDocs(q);
-//         console.log(querySnapshot.docs[0], "querySnapshot.docs");
-//         if (!querySnapshot.empty) {
-//           const docRef = doc(db, "recipes", querySnapshot.docs[0].id);
-//           await updateDoc(docRef, recipeData);
-//           console.log("Profile updated successfully.");
-//           Swal.fire({
-//             title: "Profile Updated!",
-//             text: "Your profile has been successfully saved.",
-//             icon: "success",
-//             timer: 3000,
-//             showConfirmButton: false,
-//           });
-  
-//           setTimeout(() => {
-//             window.location.href = "./recipe.html";
-//           }, 3000);
-//         } else {
-//           console.log("No profile found for this user.");
-//         }
-//       } catch (error) {
-//         console.error("Error updating profile data:", error);
-//       };
-
-
-// }
 
 
 // //////////////////////////////////// EDIT FUNCTOINALITY
@@ -171,6 +123,7 @@ async function openEditModal(recipeId) {
   const recipeModal = new bootstrap.Modal(document.getElementById("recipeModal"));
 
   try {
+  
     // Query for the document where 'id' field matches recipeId
     const recipesCollection = collection(db, "recipes");
     const q = query(recipesCollection, where("id", "==", recipeId)); 
@@ -187,6 +140,8 @@ async function openEditModal(recipeId) {
         document.getElementById("servingSize").value = recipeData.servingSize || "";
         document.getElementById("prepTime").value = recipeData.prepTime || "";
         document.getElementById("instructions").value = recipeData.instructions || "";
+        // document.getElementById("instructions").value = recipeData.imageUrl || "";
+
 
         recipeModal.show();
       });
@@ -197,3 +152,130 @@ async function openEditModal(recipeId) {
     console.error("Error fetching recipe:", error);
   }
 }
+
+
+
+console.log("hi hello chal rha meinnnn")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////
+
+// Handle save functionality
+
+
+// Save Changes button ka event listener
+
+
+// Recipe update karne ka function
+
+// 🔥 **2. Save Changes to Firestore**
+
+        // 🔥 **2. Save Changes to Firestore**
+        async function saveRecipeChanges() {
+          const recipeId = document.getElementById("btn-save").getAttribute("data-id");
+console.log("recipeeeeeeeeeeeeeeeeeeeee", recipeId)
+          if (!recipeId) {
+              console.error("❌ No Recipe ID Found!");
+              return;
+          }
+
+          const updatedData = {
+              recipeName: document.getElementById("recipeName").value,
+              ingredients: document.getElementById("ingredients").value,
+              servingSize: document.getElementById("servingSize").value,
+              prepTime: document.getElementById("prepTime").value,
+              instructions: document.getElementById("instructions").value,
+          };
+
+          console.log("📝 Updating Recipe:", updatedData);
+
+          try {
+              const recipeRef = doc(db, "recipes", recipeId);
+              await updateDoc(recipeRef, updatedData);
+
+              console.log("✅ Recipe Updated Successfully!");
+
+              Swal.fire({
+                  title: "Updated!",
+                  text: "Recipe has been updated successfully.",
+                  icon: "success",
+                  timer: 2000,
+                  showConfirmButton: false,
+              });
+
+          } catch (error) {
+              console.error("🔥 Error Updating Recipe:", error);
+          }
+      }
+
+      // 🔥 **3. Event Listeners**
+      document.addEventListener("click", function (event) {
+        if (event.target && event.target.id === "btn-save") {
+            console.log("🚀 Save Button Clicked!");
+            saveRecipeChanges();
+        }
+    });
+    
+
+///////////////delete functionalityyyyy////////////////
+
+
+document.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("deleteRecipe")) {
+      const recipeId = e.target.getAttribute("data-id");
+
+      if (!recipeId) {
+          console.error("❌ No Recipe ID Found!");
+          return;
+      }
+
+      console.log("🗑️ Deleting Recipe ID:", recipeId);
+
+      try {
+          await deleteDoc(doc(db, "recipes", recipeId));
+          console.log("✅ Recipe Deleted Successfully!");
+
+          Swal.fire({
+              title: "Deleted!",
+              text: "Recipe has been deleted successfully.",
+              icon: "success",
+              timer: 2000,
+              showConfirmButton: false,
+          });
+
+          // 🔄 Refresh the recipes list
+          fetchRecipes();  
+
+      } catch (error) {
+          console.error("🔥 Error Deleting Recipe:", error);
+      }
+  }
+});
+
+console.log(recipeId);
