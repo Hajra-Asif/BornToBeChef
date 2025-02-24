@@ -111,6 +111,8 @@ async function fetchRecipes() {
     );
     const { meals } = await res.json();
     container.innerHTML = "<h2>Recently Uploaded</h2>";
+  
+
 
     meals.slice(14, 18).forEach(({ strMeal, strMealThumb, idMeal }) => {
       container.innerHTML += `
@@ -126,14 +128,12 @@ async function fetchRecipes() {
                       <span onclick="gfg(event, 5)" class="star">★</span>
                   </div>
                    <a href="detail-page.html?id=${idMeal}" class="anchor text-decoration-none">
-            <a href="../Html/detailLunch.html?id=${foodItems.idMeal}" class="anchor text-decoration-none">
-
-
-                  <button class="btn-view">View Recipe</button>
-                </a>`;
+              <button class="btn-view">View Recipe</button>`;
     });
   } catch (error) {
     container.innerHTML = "<p>Failed to load recipes. Try again later.</p>";
+    console.log(error);
+
   }
 }
 

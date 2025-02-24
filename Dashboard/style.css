@@ -115,7 +115,9 @@ header {
     align-items: center;
     justify-content: center;
 }
-
+.recipe-delete{
+    background: crimson;
+}
 .recipe-badge img {
     width: 18px;
     height: 18px;
