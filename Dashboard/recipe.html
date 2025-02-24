@@ -76,6 +76,59 @@
 
             </div>
 
+               <!-- Button to open modal -->
+  
+
+    <!-- Modal -->
+    <div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="recipeForm">
+                        <div class="mb-3">
+                            <label for="recipeName" class="form-label required">Recipe Name</label>
+                            <input type="text" class="form-control" id="recipeName" placeholder="Delicious Pasta" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="ingredients" class="form-label required">Ingredients</label>
+                            <textarea class="form-control" id="ingredients" rows="3" placeholder="List all ingredients" required></textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="servingSize" class="form-label">Serving Size</label>
+                            <input type="text" class="form-control" id="servingSize" placeholder="e.g. 4 servings">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="prepTime" class="form-label">Preparation Time</label>
+                            <input type="text" class="form-control" id="prepTime" placeholder="e.g. 30 minutes">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="instructions" class="form-label required">Recipe Instructions</label>
+                            <textarea class="form-control" id="instructions" rows="3" placeholder="Step-by-step instructions" required></textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Upload a Photo</label>
+                            <div class="file-upload-container" id="dropArea">
+                                <p class="mb-0">Click to upload or drag and drop file here</p>
+                                <input type="file" id="fileUpload" class="d-none" accept="image/*">
+                            </div>
+                            <button type="button" class="btn btn-primary" id="uploadBtn">Upload</button>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
            
             </div>

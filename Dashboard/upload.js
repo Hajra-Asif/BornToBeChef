@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         servingSize,
         prepTime,
         instructions,
-        id: user.uid + recipeName,
+        id: user.uid,
         imageUrl,
         createdAt: serverTimestamp(),
       });

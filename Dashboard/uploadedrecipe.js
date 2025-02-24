@@ -1,6 +1,8 @@
 import {
   db,
   getDocs,
+  doc,
+  getDoc,
   collection,
   query,
   where,
@@ -44,6 +46,10 @@ function fetchUserRecipes(userId) {
   });
 }
 
+
+
+let modal = document.getElementById("recipeModal")
+
 function renderRecipe(foodItems) {
   const cardHTML = `
     <div class="col-12 col-lg-4">
@@ -52,9 +58,7 @@ function renderRecipe(foodItems) {
           <img src="${foodItems.imageUrl}" class="card-img-top" 
           alt="${foodItems.recipeName}">
           <div class="recipe-badge">
-            <i class="fa-solid fa-pen text-light edit-btn" data-id="${
-              foodItems.id
-            }"></i>
+            <i class="fa-solid fa-pen text-light edit-btn" data-id="${foodItems.id}"></i>
           </div>
         </div>
         <div class="card-body">
@@ -71,9 +75,7 @@ function renderRecipe(foodItems) {
             <span> 🍽 ${foodItems.servingSize || "N/A"} </span>
             <span> 🎯 ${foodItems.level || "Beginner"} </span>
           </div>
-          <a href="detail-page.html?id=${
-            foodItems.id
-          }" class="anchor text-decoration-none">
+          <a href="detail-page.html?id=${foodItems.id}" class="anchor text-decoration-none">
             <button class="btn-view">View Recipe</button>
           </a>
         </div>
@@ -81,7 +83,9 @@ function renderRecipe(foodItems) {
     </div>
   `;
 
-  // Append new card to the container
+
+
+
   recipesContainer.innerHTML += cardHTML;
 
   // Add click event to the newly created edit button
@@ -94,15 +98,103 @@ function attachEditEvent() {
     button.addEventListener("click", function () {
       const recipeId = this.getAttribute("data-id");
       console.log("Edit button clicked for Recipe ID:", recipeId);
-      openEditModal(recipeId); // Call function to handle edit
+      openEditModal(recipeId); 
     });
   });
 }
 
 // Function to handle edit action
-function openEditModal(recipeId) {
-  alert(`Editing Recipe ID: ${recipeId}`);
-  // Implement your edit modal or form logic here
-}
+// async function openEditModal(recipeId) {
+//   const recipeModal = new bootstrap.Modal(document.getElementById("recipeModal"));
+//   recipeModal.show();
+
+//   // document.getElementById("recipeName").value = `Recipe #${recipes.recipeName}`;/
+
+//   const recipeData = {
+//     recipeName: document.getElementById("recipeName").value,
+//     ingredients: document.getElementById("ingredients").value,
+//     servingSize: document.getElementById("servingSize").value,
+//     prepTime: document.getElementById("prepTime").value,
+//     instructions: document.getElementById("instructions").value,
+//     fileUpload: document.getElementById("fileUpload").value,
+ 
+//   };
+
+//   console.log(recipeData, "recipe data.");
+
+
+//   // document.getElementById("ingredients").value = `Ingredients for Recipe #${recipeId}`;
+
+//   const userID = user.uid;
+//   const recipeRef = collection(db, "recipes");
+//   console.log(recipeId, "recipe id");
+  
+//   const q = query(recipeRef, where("uid", "==", userID));
+  
+//       try {
+//         const querySnapshot = await getDocs(q);
+//         console.log(querySnapshot.docs[0], "querySnapshot.docs");
+//         if (!querySnapshot.empty) {
+//           const docRef = doc(db, "recipes", querySnapshot.docs[0].id);
+//           await updateDoc(docRef, recipeData);
+//           console.log("Profile updated successfully.");
+//           Swal.fire({
+//             title: "Profile Updated!",
+//             text: "Your profile has been successfully saved.",
+//             icon: "success",
+//             timer: 3000,
+//             showConfirmButton: false,
+//           });
+  
+//           setTimeout(() => {
+//             window.location.href = "./recipe.html";
+//           }, 3000);
+//         } else {
+//           console.log("No profile found for this user.");
+//         }
+//       } catch (error) {
+//         console.error("Error updating profile data:", error);
+//       };
+
+
+// }
+
 
 // //////////////////////////////////// EDIT FUNCTOINALITY
+
+
+async function openEditModal(recipeId) {
+  console.log("Received Recipe ID:", recipeId); 
+
+  const recipeModal = new bootstrap.Modal(document.getElementById("recipeModal"));
+
+  try {
+    // Firestore se recipe fetch karein
+    const recipeRef = doc(db, "recipes", recipeId);
+    console.log("Firestore Doc Ref:", recipeRef.path); //
+
+
+    
+
+    const recipeSnap = await getDoc(recipeRef);
+
+    if (recipeSnap.exists()) {
+      console.log("Recipe Found:", recipeSnap.data()); 
+
+      const recipeData = recipeSnap.data();
+
+      // Input fields ko update karein
+      document.getElementById("recipeName").value = recipeData.recipeName || "";
+      document.getElementById("ingredients").value = recipeData.ingredients || "";
+      document.getElementById("servingSize").value = recipeData.servingSize || "";
+      document.getElementById("prepTime").value = recipeData.prepTime || "";
+      document.getElementById("instructions").value = recipeData.instructions || "";
+
+      recipeModal.show();
+    } else {
+      console.error("Recipe not found in Firestore!");
+    }
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+  }
+}

@@ -491,6 +491,34 @@ header {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+.modal-body {
+    padding: 1.5rem;
+}
+.file-upload-container {
+    border: 2px dashed var(--grey);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.file-upload-container:hover {
+    border-color:var(--grey)
+}
+.form-label.required::after {
+    content: " *";
+    color: red;
+}
+.btn-submit {
+    width: 100%;
+    background-color: var(--white);
+    color: var(--bodytext);
+    border: 1px solid var(--white);
+    border-radius: 25px;
+}
+#uploadBtn {
+    width: auto;
+}
 
 /* Responsive Breakpoints */
 @media screen and (max-width: 991px) {

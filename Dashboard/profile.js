@@ -67,86 +67,61 @@ document.querySelectorAll(".save-btn").forEach((btn) => {
   });
 });
 
-document
-  .querySelector(".btn-save")
-  .addEventListener("click", async function () {
-    const user = auth.currentUser; // Logged-in user
-    if (!user) {
-      console.error("User not logged in!");
-      return;
+document.querySelector(".btn-save").addEventListener("click", async function () {
+  
+  const user = auth.currentUser; // Logged-in user
+  if (!user) {
+    console.error("User not logged in!");
+    return;
+  }
+
+  const userID = user.uid; // Firebase Auth se User ID lena
+
+  const profileData = {
+    firstName: document.querySelector('[data-field="firstName"] .field-input')
+      .value,
+    lastName: document.querySelector('[data-field="lastName"] .field-input')
+      .value,
+    email: document.querySelector('[data-field="email"] .field-input').value,
+    address: document.querySelector('[data-field="address"] .field-input')
+      .value,
+    contact: document.querySelector('[data-field="contact"] .field-input')
+      .value,
+  };
+
+  console.log(profileData, "profile data.");
+
+  const userProfileRef = collection(db, "users");
+
+  console.log(userID, "user id---");
+  const q = query(userProfileRef, where("uid", "==", userID));
+
+  try {
+    const querySnapshot = await getDocs(q);
+    console.log(querySnapshot.docs[0], "querySnapshot.docs");
+    if (!querySnapshot.empty) {
+      const docRef = doc(db, "users", querySnapshot.docs[0].id);
+      await updateDoc(docRef, profileData);
+      console.log("Profile updated successfully.");
+      Swal.fire({
+        title: "Profile Updated!",
+        text: "Your profile has been successfully saved.",
+        icon: "success",
+        timer: 3000,
+        showConfirmButton: false,
+      });
+
+      setTimeout(() => {
+        window.location.href = "./profile.html";
+      }, 3000);
+    } else {
+      console.log("No profile found for this user.");
     }
+  } catch (error) {
+    console.error("Error updating profile data:", error);
+  }
+});
 
-    const userID = user.uid; // Firebase Auth se User ID lena
-
-    const profileData = {
-      firstName: document.querySelector('[data-field="firstName"] .field-input')
-        .value,
-      lastName: document.querySelector('[data-field="lastName"] .field-input')
-        .value,
-      email: document.querySelector('[data-field="email"] .field-input').value,
-      address: document.querySelector('[data-field="address"] .field-input')
-        .value,
-      contact: document.querySelector('[data-field="contact"] .field-input')
-        .value,
-    };
-
-    console.log(profileData, "profile data.");
-    const userProfileRef = collection(db, "users");
-    console.log(userID, "user id---");
-    const q = query(userProfileRef, where("uid", "==", userID));
-
-    try {
-      const querySnapshot = await getDocs(q);
-      console.log(querySnapshot.docs[0], "querySnapshot.docs");
-      if (!querySnapshot.empty) {
-        const docRef = doc(db, "users", querySnapshot.docs[0].id);
-        await updateDoc(docRef, profileData);
-        console.log("Profile updated successfully.");
-        Swal.fire({
-          title: "Profile Updated!",
-          text: "Your profile has been successfully saved.",
-          icon: "success",
-          timer: 3000,
-          showConfirmButton: false,
-        });
-
-        setTimeout(() => {
-          window.location.href = "./profile.html";
-        }, 3000);
-      } else {
-        console.log("No profile found for this user.");
-      }
-    } catch (error) {
-      console.error("Error updating profile data:", error);
-    }
-  });
-
-// document.querySelector(".btn-save").addEventListener("click", async function () {
-//     const profileData = {
-//         firstName: document.querySelector('[data-field="firstName"] .field-input').value,
-//         lastName: document.querySelector('[data-field="lastName"] .field-input').value,
-//         email: document.querySelector('[data-field="email"] .field-input').value,
-//         address: document.querySelector('[data-field="address"] .field-input').value,
-//         contact: document.querySelector('[data-field="contact"] .field-input').value
-//     };
-
-//     try {
-//         const docRef = await addDoc(collection(db, "userProfile"), profileData);
-//         Swal.fire({
-//             title: "Profile Updated!",
-//             text: "Your profile has been successfully saved.",
-//             icon: "success",
-//             timer: 3000,
-//             showConfirmButton: false
-//           });
-
-//           setTimeout(() => {
-//             window.location.href = "./profile.html";
-//           }, 3000);
-//     } catch (error) {
-//         console.error("Error saving profile: ", error);
-//     }
-// });
 
 async function fetchProfileData(uid) {
   console.log("func run");

@@ -96,6 +96,8 @@ slider.addEventListener("touchend", (e) => {
     startAutoSlide();
 });
 
+
+
 // api fetch
 
 let inputFieldd = document.querySelector("#inputt");
