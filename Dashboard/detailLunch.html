@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Page</title>
+    <link rel="shortcut icon" href="../Assets/foodfiestaicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../Assets/foodfiestaicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
@@ -19,74 +19,90 @@
     <div class="container mt-5">
         <div id="con"></div>
     </div>
-     <!-- Comments section -->
-     <div class="container py-5">
-        <div class="row mb-4">
-            <div class="col-md-6">
-            <div id="comments-container">
-                <!-- Comments will be inserted here -->
-            </div>
-            </div>
-            <div class="col-md-6">
-                <h2 style="color: var(--blue);" class="mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                  <span >  Comments </span>(<span id="comment-count">2</span>)
-                </h2>
-                <div class="stars">
-                    <span class="star"  data-value="1" >★</span>
-                    <span class="star"  data-value="2" >★</span>
-                    <span  class="star"  data-value="3" >★</span>
-                    <span  class="star"  data-value="4" >★</span>
-                    <span  class="star"  data-value="5" >★</span>
-                </div>
-                <form id="comment-form" class="mb-4">
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="name-input" placeholder="Your name" required>
-                    </div>
-                    <div class="mb-3">
-                        <textarea style="color:var(--bodytext);" class="form-control" id="comment-input" rows="4" placeholder="Write a comment..." required></textarea>
-                    </div>
-                    <button id="post" type="submit" class="btn btn-primary">Post Comment</button>
-                </form>
 
-               
+ <!-- Comments section -->
+ <div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-md-6">
+        <div id="comments-container">
+            <!-- Comments will be inserted here -->
+        </div>
+        </div>
+        <div class="col-md-6">
+            <h2 style="color: var(--blue);" class="mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <span >  Comments </span>(<span id="comment-count">2</span>)
+            </h2>
+            <div class="stars">
+                <span class="star"  data-value="1" >★</span>
+                <span class="star"  data-value="2" >★</span>
+                <span  class="star"  data-value="3" >★</span>
+                <span  class="star"  data-value="4" >★</span>
+                <span  class="star"  data-value="5" >★</span>
             </div>
+            <form id="comment-form" class="mb-4">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="name-input" placeholder="Your name" required>
+                </div>
+                <div class="mb-3">
+                    <textarea style="color:var(--bodytext);" class="form-control" id="comment-input" rows="4" placeholder="Write a comment..." required></textarea>
+                </div>
+                <button id="post" type="submit" class="btn btn-primary">Post Comment</button>
+            </form>
+
+           
         </div>
     </div>
-    <script>
+</div>
 
-        let searchParams = (params) => {
-            let urll = new URLSearchParams(window.location.search)
-            return urll.get(params)
+<script>
+  
+//////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  let searchParams = (params) => {
+    let urll = new URLSearchParams(window.location.search);
+    return urll.get(params)
+  }
+  let shre =  window.location.href
+
+  let displayData = async()=>{
+    let elem = document.getElementById('con');
+    let idd = searchParams("id");
+
+    if(idd){
+        let fetchh = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idd}`)
+        let jsonData = await fetchh.json();
+        let foodItem = jsonData.meals[0];
+
+        if(!foodItem){
+elem.innerHTML='food items not foundddd......'
         }
-        let shre =  window.location.href
 
-        let display = async () => {
-            let idd = searchParams("id")
-
-            if (idd) {
-                 let gettt = document.getElementById("con")
-                // let fetchh = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`);
-                let fetchh = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idd}`);
-
-                let jsonData = await fetchh.json();
-                const drinks = jsonData.drinks[0];
-
-                // If no drink found, show a message
-                if (!drinks) {
-                    
-                    gettt.innerHTML = `<p>Drink not found.</p>`;
-                }
-                
-                gettt.innerHTML = `
-                 <h1  style="color:var(--blue);"class="mb-4">Recipe Detail Page</h1>
+        elem.innerHTML=`
+        
+        
+                <h1  style="color:var(--blue);"class="mb-4">Recipe Detail Page</h1>
             <div class="row mb-4">
                 <div class="col-lg-6 mb-4">
-                    <img id="recipeImage" src="${drinks.strDrinkThumb}" alt="${drinks.strDrinkThumb}" class="img-fluidMeal rounded">
+                    <img id="recipeImage" src="${foodItem.strMealThumb}" alt="${foodItem.strMealThumb}" class="img-fluidMeal rounded">
                 </div>
                 <div class="col-lg-6">
                     <div id="title">
-                        <h1 id="recipeTitle" class="mb-1">${drinks.strDrink}</h1>
+                        <h1 id="recipeTitle" class="mb-1">${foodItem.strMeal}</h1>
                         <p class="recipe-date mb-4" id="recipeDate">SEPTEMBER 23RD, 2023</p>
                         <div class="social-share mb-2">
                           <a href="#" id="view-modal" class="social-icon">
@@ -157,29 +173,28 @@
                     </div>
                     <div class="col-md-6">
                         <h3 class="section-heading">Instructions</h3>
-                        <p>${drinks.strInstructions}</p>
+                        <p>${foodItem.strInstructions}</p>
                     </div>
                 </div>
             </div>
+                `;
 
-  `;
 
-               
-               
+
+
+
 
 // Populate the ingredients list dynamically
 let ingredientsHtml = "";
 for (let i = 1; i <= 20; i++) {
-    const ingredient = drinks[`strIngredient${i}`];
-    const measure = drinks[`strMeasure${i}`];
+    const ingredient = foodItem[`strIngredient${i}`];
+    const measure = foodItem[`strMeasure${i}`];
     if (ingredient && ingredient.trim()) {
         ingredientsHtml += `<li> <span class="measure">${measure ? measure : ""}</span> ${ingredient}</li>`;
     }
 }
 document.getElementById("ingredients").innerHTML = ingredientsHtml;
-
- // print
- const printLink = document.querySelector('#print-link');
+const printLink = document.querySelector('#print-link');
         // console.log(printLink);  
         if (printLink) {
             printLink.addEventListener('click', (e) => {
@@ -190,7 +205,6 @@ document.getElementById("ingredients").innerHTML = ingredientsHtml;
 } else {
 document.body.innerHTML = `<p>Recipe not found</p>`;
 }
-    
 const viewBtn = document.querySelector("#view-modal"),
 popup = document.querySelector(".popup"),
 close = popup.querySelector(".close"),
@@ -219,7 +233,9 @@ setTimeout(()=>{
 }
 
 };
-        display();
+
+
+displayData()
 
 
     // Add the comments functionality
@@ -374,7 +390,8 @@ function init() {
 }
 
 // Initialize the page with existing comments
-init();    </script>
+init();
+</script>
+<script type="module" src="./detailLunch.js"></script>
 </body>
-
 </html>

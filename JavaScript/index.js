@@ -1,3 +1,38 @@
+
+// Function to show the page loader
+let showPageLoaderr = () => {
+    document.getElementById("page-loader").style.display = "flex";
+    document.getElementById("dis").style.display = "none";
+    document.querySelector(".hii").style.display = "block";
+    document.getElementById("page-content").style.display = "none"; // Hide content
+};
+
+// Function to hide the page loader after 5 seconds
+let hidePageLoaderr = () => {
+    setTimeout(() => {
+        document.getElementById("page-loader").style.display = "none";
+        document.getElementById("dis").style.display = "block";
+        document.querySelector(".hii").style.display = "none";
+        document.getElementById("page-content").style.display = "block"; // Show content
+    }, 3000);
+};
+
+// Call functions when the page loads
+window.onload = () => {
+    showPageLoaderr();
+    hidePageLoaderr();
+};
+
+
+
+
+
+
+
+
+
+
+
 const carousel = new bootstrap.Carousel(
     document.getElementById("categoryCarousel"),
     {
@@ -149,7 +184,6 @@ function getData(foodItems) {
                     </span>
                 </div>
                 <a href="../Html/detailLunch.html?id=${foodItems.idMeal}" class="anchor text-decoration-none">
-
 
                   <button class="btn-view">View Recipe</button>
                 </a>
@@ -431,7 +465,7 @@ function getData(foodItems) {
                     <span style="color:orange;" onclick="gfg(event, 5)" class="star">★</span>
                 </div>
                     <h5 class="recipe-title">${foodItems.strMeal}</h5>
-                    <a href="../Html/detailLunch.html?id=${foodItems.idMeal}" class="anchor text-decoration-none">
+                    <a href=".../Html/detailLunch.html?id=${foodItems.idMeal}" class="anchor text-decoration-none">
                         <button class="btn-view">View Recipe</button>
                     </a>
                 </div>
